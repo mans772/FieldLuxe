@@ -10,8 +10,8 @@
 		<result property="inquiryContent" column="inquiry_content"
 			javaType="java.lang.String" />
 		<result property="inquiryEmail" column="inquiry_email" />
-		<result property="inquiryDate" column="inquiry_reg_date" />
-		<result property="answerComplete" column="inquiry_complete" />
+		<result property="inquiryRegDate" column="inquiry_reg_date" />
+		<result property="answerComplete" column="answer_complete" />
 		<result property="auth" column="authority" />
 	</resultMap>
 
