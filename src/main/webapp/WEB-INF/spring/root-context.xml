@@ -25,20 +25,20 @@
 	</bean>
 	
 	<!-- SqlSessionTemplate :  mybatis-spring  -->
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" > 
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" > 
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory" /> 
 	</bean>
 	
 	<!-- mapper interface  -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> 
-		<property name="basePackage" value="com.kg.fieldluxe.product.repository" /> 
+		<property name="basePackage" value="com.kg.fieldluxe.*.repository" /> 
 	</bean>
 	
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"> 
 		<property name="dataSource" ref="dataSource" /> 
 	</bean>
 	
-	<context:component-scan base-package="com.kg.fieldluxe.product.service"/>
+	<context:component-scan base-package="com.kg.fieldluxe.*.service"/>
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/> 
 		
