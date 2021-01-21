@@ -2,6 +2,7 @@ package com.kg.fieldluxe.review.controller;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,5 +53,12 @@ public class ReviewController {
 		model.addAttribute("starRating", starRating);
 		model.addAttribute("pageManager", new com.kg.fieldluxe.util.PagingManager(reviewService.getReviewCount(word), page));
 		
+	}
+	
+	@GetMapping("/profileReviewList") //프로필 리뷰 목록
+	public String profileReviewList(Model model, String email) {
+		List<ReviewVO> list = reviewService.getProfileReviewList(email);
+		model.addAttribute("profileReviewList", list);
+		return "member/profileReviewList";
 	}
 }

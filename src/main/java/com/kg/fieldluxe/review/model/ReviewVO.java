@@ -3,26 +3,33 @@ package com.kg.fieldluxe.review.model;
 import java.util.Date;
 
 public class ReviewVO {
-
+	
 	private int reviewId;
+	private int productId;
 	private String productName;
 	private String reviewWriter;
 	private String reviewTarget;
 	private String reviewContent;
 	private int reviewScore;
-	private Date reviewDate;
+	private Date reviewRegDate;
 	
-	public String getProductName() {
-		return productName;
-	}
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
 	public int getReviewId() {
 		return reviewId;
 	}
 	public void setReviewId(int reviewId) {
 		this.reviewId = reviewId;
+	}
+	public int getProductId() {
+		return productId;
+	}
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 	public String getReviewWriter() {
 		return reviewWriter;
@@ -48,10 +55,12 @@ public class ReviewVO {
 	public void setReviewScore(int reviewScore) {
 		this.reviewScore = reviewScore;
 	}
-	public Date getReviewDate() {
-		return reviewDate;
+	public Date getReviewRegDate() {
+		return reviewRegDate;
 	}
-	public void setReviewDate(Date reviewDate) {
-		this.reviewDate = reviewDate;
+	public void setReviewRegDate(Date reviewRegDate) {
+		this.reviewRegDate = reviewRegDate;
 	}
+	
+	
 }

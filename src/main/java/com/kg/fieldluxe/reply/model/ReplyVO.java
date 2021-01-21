@@ -8,7 +8,7 @@ public class ReplyVO {
 	private int inquiryId;
 	private String replyContent;
 	private String replyWriter;
-	private Date replyDate;
+	private Date replyRegDate;
 	
 	public int getReplyId() {
 		return replyId;
@@ -34,16 +34,15 @@ public class ReplyVO {
 	public void setReplyWriter(String replyWriter) {
 		this.replyWriter = replyWriter;
 	}
-	public Date getReplyDate() {
-		return replyDate;
+	public Date getReplyRegDate() {
+		return replyRegDate;
 	}
-	public void setReplyDate(Date replyDate) {
-		this.replyDate = replyDate;
+	public void setReplyRegDate(Date replyRegDate) {
+		this.replyRegDate = replyRegDate;
 	}
-	
 	@Override
 	public String toString() {
 		return "ReplyVO [replyId=" + replyId + ", inquiryId=" + inquiryId + ", replyContent=" + replyContent
-				+ ", replyWriter=" + replyWriter + ", replyDate=" + replyDate + "]";
+				+ ", replyWriter=" + replyWriter + ", replyRegDate=" + replyRegDate + "]";
 	}
 }

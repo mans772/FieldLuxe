@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.kg.fieldluxe.product.repository.IProductMapper">
-	
-	<resultMap id="ListData" type="com.kg.fieldluxe.product.model.ListData">
+<mapper
+	namespace="com.kg.fieldluxe.product.repository.IProductMapper">
+
+	<resultMap id="ListData"
+		type="com.kg.fieldluxe.product.model.ListData">
 		<id property="productId" column="product_id" />
 		<result property="productCategory" column="product_category" />
 		<result property="productName" column="product_name" />
@@ -14,12 +16,14 @@
 		<result property="sellerEmail" column="seller_email" />
 		<result property="immePrice" column="imme_price" />
 		<result property="auctionEndDate" column="auction_end_date" />
-		<result property="productPostStatus" column="product_post_status" />
+		<result property="productPostStatus"
+			column="product_post_status" />
 		<result property="productThumbnail" column="product_thumbnail" />
 		<result property="deliveryStatus" column="delivery_status" />
 	</resultMap>
-	
-	<resultMap id="DealData" type="com.kg.fieldluxe.product.model.DealData">
+
+	<resultMap id="DealData"
+		type="com.kg.fieldluxe.product.model.DealData">
 		<id property="productId" column="product_id" />
 		<result property="dealMethod" column="deal_method" />
 		<result property="minAuctionPrice" column="min_auction_price" />
@@ -28,20 +32,22 @@
 		<result property="auctionStartDate" column="auction_start_date" />
 		<result property="auctionStatus" column="auction_status" />
 	</resultMap>
-	
-	<resultMap id="DetailData" type="com.kg.fieldluxe.product.model.DetailData">
+
+	<resultMap id="DetailData"
+		type="com.kg.fieldluxe.product.model.DetailData">
 		<id property="productId" column="product_id" />
 		<result property="productColor" column="product_color" />
 		<result property="productSize" column="product_size" />
-		<result property="productModelNumber" column="product_model_number" />
+		<result property="productModelNumber"
+			column="product_model_number" />
 		<result property="releaseDate" column="release_date" />
 		<result property="releasePrice" column="release_price" />
 		<result property="images" column="images" />
 		<result property="sellerWord" column="seller_word" />
 		<result property="rejectReason" column="reject_reason" />
 	</resultMap>
-	
-	<!-- 전체 목록, 검수목록	-->
+
+	<!-- 전체 목록, 검수목록 -->
 	<sql id="postStatus">
 		<choose>
 			<when test="check">
@@ -57,7 +63,7 @@
 		FROM product_list_data
 		<include refid="postStatus" />
 	</select>
-	
+
 	<!-- 상품 상세 -->
 	<select id="selectOneList" resultMap="ListData">
 		SELECT *
@@ -74,7 +80,7 @@
 		FROM product_detail_data
 		WHERE product_id = #{ id }
 	</select>
-	
+
 	<!-- 물품 등록 (검수 전) -->
 	<sql id="insertTable">
 		<if test="table == 'list'">
@@ -93,7 +99,7 @@
 			(product_id, deal_method, min_auction_price, auction_deposit)
 			VALUES
 			(product_seq.CURRVAL, #{dealMethod},
-			#{minAuctionPrice},	#{auctionDeposit})
+			#{minAuctionPrice}, #{auctionDeposit})
 		</if>
 		<if test="table == 'detail'">
 			product_detail_data
@@ -102,14 +108,14 @@
 			VALUES
 			(product_seq.CURRVAL, #{productColor},
 			#{productSize}, #{productModelNumber}, #{releaseDate},
-			#{releasePrice}, #{images},	#{sellerWord})
+			#{releasePrice}, #{images}, #{sellerWord})
 		</if>
 	</sql>
-	<insert id="insert" >
+	<insert id="insert">
 		INSERT INTO
 		<include refid="insertTable" />
 	</insert>
-	
+
 	<!-- 물품 수정 -->
 	<sql id="updateTable">
 		<if test="table == 'list'">
@@ -152,7 +158,7 @@
 		UPDATE
 		<include refid="updateTable" />
 	</update>
-	
+
 	<!-- 물품 삭제 -->
 	<delete id="deleteList">
 		DELETE FROM product_list_data
@@ -167,4 +173,40 @@
 		WHERE product_id = #{id}
 	</delete>
 	
+	<!-- 전체 상품 목록 (검색 포함) -->
+	<select id="getProductList" resultMap="ListData">
+		SELECT *
+		FROM (
+			SELECT ROWNUM NUM, A.*
+			FROM product_list_data A
+			WHERE product_post_status=1
+				AND product_name LIKE '%'||#{keyword}||'%'
+			ORDER BY product_id DESC
+			)
+		WHERE NUM BETWEEN (#{page}-1)*8+1 AND ((#{page}-1)*8+1)+7
+	</select>
+	
+	<!-- 전체 상품 갯수 (검색 포함) -->
+	<select id="getProductCount" resultType="int">
+		SELECT COUNT(*)
+		FROM product_list_data
+		WHERE product_post_status=1
+			AND product_name LIKE '%'||#{keyword}||'%'
+	</select>
+	
+	<!-- 상품 검수 목록 -->
+	<select id="getInspectList" resultMap="ListData">
+		SELECT *
+		FROM product_list_data
+		ORDER BY product_id DESC
+	</select>
+	
+	<!-- 프로필 상품 목록 -->
+	<select id="getProfileProductList" resultMap="ListData">
+		SELECT *
+		FROM product_list_data
+		WHERE seller_email=#{email}
+		ORDER BY product_id DESC
+	</select>
+
 </mapper>

@@ -6,9 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kg.fieldluxe.commons.SearchVO;
 import com.kg.fieldluxe.product.model.ListData;
 import com.kg.fieldluxe.product.model.ProductVO;
 import com.kg.fieldluxe.product.repository.IProductMapper;
+import com.kg.fieldluxe.review.model.ReviewVO;
 
 @Service
 public class ProductService implements IProductService {
@@ -75,4 +77,30 @@ public class ProductService implements IProductService {
 		mapper.deleteDeal(id);
 		mapper.deleteDetail(id);
 	}
+	
+	@Override
+	public List<ListData> getProductList(SearchVO search) {
+		List<ListData> list = mapper.getProductList(search);
+		return list;
+	}
+	
+	@Override
+	public int getProductCount(SearchVO search) {
+		return mapper.getProductCount(search);
+	}
+	
+	@Override
+	public List<ListData> getInspectList() {
+		List<ListData> list = mapper.getInspectList();
+		return list;
+	}
+	
+	@Override
+	public List<ListData> getProfileProductList(String email) {
+		List<ListData> list = mapper.getProfileProductList(email);
+		return list;
+	}
+
+	
+	
 }
