@@ -59,8 +59,8 @@ public class InquiryVO {
 		this.inquiryRegDate = inquiryRegDate;
 	}
 
-	public int getAnswerComplete() {
-		return answerComplete;
+	public boolean isAnswerComplete() {
+		return this.answerComplete == 0 ? false : true;
 	}
 
 	public void setAnswerComplete(int answerComplete) {

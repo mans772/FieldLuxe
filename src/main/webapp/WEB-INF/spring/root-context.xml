@@ -17,8 +17,8 @@
    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> 
       <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/> 
       <property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521/XEPDB1" /> 
-      <property name="username" value="myhr"/> 
-      <property name="password" value="myhr"/> 
+      <property name="username" value="fieldluxe"/> 
+      <property name="password" value="jh"/> 
    </bean>
    
    <!-- SqlSessionFactory --> <!-- mybatis config --><!-- mapper -->

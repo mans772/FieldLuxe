@@ -250,10 +250,13 @@ a:hover .more-button {
 </style>
 </head>
 <body>
-
+	
 	<jsp:include page="include/header.jsp" />
+	<a href="<c:url value="review/list"/>">리뷰 목록</a><br>
+	<a href="<c:url value="inquiry/list"/>">문의 목록</a><br>
+	<a href="<c:url value="inquiry/insertInquiry"/>">문의글 쓰기</a><br>
 	<jsp:include page="include/carousel.jsp" />
-
+	
 	<div class="container">
 		<h2 class="h2">New Product</h2>
 
