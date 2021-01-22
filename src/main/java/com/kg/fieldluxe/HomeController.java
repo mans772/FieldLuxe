@@ -23,6 +23,7 @@ public class HomeController {
 	public String main(Model model, SearchVO search) {
 		List<ListData> list = service.getProductList(search);
 		model.addAttribute("productList", list);
+		System.out.println("난 주협");
 		return "main";
 	}
 	
