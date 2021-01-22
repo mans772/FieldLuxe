@@ -27,6 +27,7 @@ public class HomeController {
 		model.addAttribute("productList", list);
 		System.out.println("난 주협");
 		System.out.println("사실 구라");
+		System.out.println("aaa");
 		return "main";
 	}
 	
