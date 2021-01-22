@@ -15,7 +15,7 @@
 
 body {
 	margin: 0;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Malgun Gothic;
 }
 
 .topnav {
@@ -24,7 +24,7 @@ body {
 }
 
 .header-logo {
-	font-family: "Times New Roman", Times, serif;
+	font-family:Malgun Gothic ;
 }
 
 .topnav a {
@@ -132,6 +132,15 @@ body {
 </style>
 </head>
 <body>
+	<%
+         //로그한사람이라면  userID라는 변수에 해당 아이디가 담기고 그렇지 않으면 null값
+         //관리자는 admin
+         String userid = null;
+         
+         if (session.getAttribute("userid") != null) {
+            userid = (String) session.getAttribute("userid");
+         }
+      %>
 
 	<div class="topnav" id="myTopnav">
 		<div class="header-logo">
@@ -140,23 +149,53 @@ body {
 				<img src="<c:url value='/img/logo.png'/>" style="width: 40px;">
 			</a>
 		</div>
+		
+			<%-- <%if (userid == null){ %> --%>
 		<div class="topbar-menu">
-			<a></a> <a href="<c:url value='/product/productList'/>">모두보기</a>
-					<a href="#">로그인</a>
-					<a href="#">마이페이지</a>
-					<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-					<i class="fa fa-bars"></i>
-			</a>
-
-
+			<a></a> 
+			<a href="<c:url value='/product/productList'/>">모두보기</a>
+			<a href="#">로그인</a>
+			<a href="#">마이페이지</a>
+			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+				<i class="fa fa-bars"></i></a>
 			<div class="search-container">
 				<form action="<c:url value='/product/productList'/>">
 					<input type="text" placeholder="상품 검색" name="keyword">
 					<button type="submit"><i class="fa fa-search"></i></button>
 				</form>
 			</div>
-
-
+		</div>
+		
+		<%-- <%} else if(userid.equals("admin")){ %> --%>
+		<div class="topbar-menu">
+			<a></a> 
+			<a href="<c:url value='/product/productList'/>">모두보기</a>
+			<a href="#">로그인</a>
+			<a href="#">마이페이지</a>
+			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+				<i class="fa fa-bars"></i></a>
+		<div class="search-container">
+			<form action="<c:url value='/product/productList'/>">
+				<input type="text" placeholder="상품 검색" name="keyword">
+				<button type="submit"><i class="fa fa-search"></i></button>
+			</form>
+		</div>
+		</div>
+		
+		<%--  <%} else { %> --%>
+		<div class="topbar-menu">
+			<a></a>
+			<a href="<c:url value='/product/productList'/>">모두보기</a>
+			<a href="#">로그인</a>
+			<a href="#">마이페이지</a>
+			<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+				<i class="fa fa-bars"></i></a>
+		<div class="search-container">
+			<form action="<c:url value='/product/productList'/>">
+				<input type="text" placeholder="상품 검색" name="keyword">
+				<button type="submit"><i class="fa fa-search"></i></button>
+			</form>
+		</div>
 		</div>
 	</div>
 

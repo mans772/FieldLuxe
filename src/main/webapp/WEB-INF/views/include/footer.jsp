@@ -32,13 +32,13 @@
 				<h4 class="widget_title green" style="color: #460f6e;">Contact Us</h4>
 				<div class="row1">Thanks for visiting our site</div>
 				<div class="row2">
-					<strong>Address:</strong> [ Address here ]
+					<strong>Address:</strong> [서울시 종로구]
 				</div>
 				<div class="row3">
-					<strong>Email us:</strong> info@xyz.in
+					<strong>Email us:</strong>FieldLuxe@xyz.in
 				</div>
 				<div class="row4">
-					<strong>Contact us:</strong> +91 9818XXXXXX
+					<strong>Contact us:</strong> +82 9818XXXXXX
 				</div>
 				<div class="col-md-12">
 					<a href="javascript:void(0)"><i class="fab fa-facebook-f"></i></a>
