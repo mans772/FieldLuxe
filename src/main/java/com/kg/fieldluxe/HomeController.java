@@ -22,6 +22,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main(Model model, SearchVO search) {
 		System.out.println("git test");
+		System.out.println("git test22222222222222");
 		List<ListData> list = service.getProductList(search);
 		model.addAttribute("productList", list);
 		System.out.println("난 주협");
