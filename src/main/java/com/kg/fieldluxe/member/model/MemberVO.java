@@ -1,0 +1,110 @@
+package com.kg.fieldluxe.member.model;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
+public class MemberVO {
+
+	private String email;
+	private String password;
+	private String nickname;
+	private int account;
+	private String name;
+	private int phoneNum;
+	private int postNum;
+	private String address;
+	private Date joinDate;
+	private int ban;
+	private String kakao;
+	private String naver;
+	private String auth;
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public int getAccount() {
+		return account;
+	}
+	public void setAccount(int account) {
+		this.account = account;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getPhoneNum() {
+		return phoneNum;
+	}
+	public void setPhoneNum(int phoneNum) {
+		this.phoneNum = phoneNum;
+	}
+	public int getPostNum() {
+		return postNum;
+	}
+	public void setPostNum(int postNum) {
+		this.postNum = postNum;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public Date getJoinDate() {
+		return joinDate;
+	}
+	public void setJoinDate(Date joinDate) {
+		this.joinDate = joinDate;
+	}
+	public boolean isBan() {
+		return this.ban == 0 ? false : true;
+	}
+	public void setBan(int ban) {
+		this.ban = ban;
+	}
+	public String getKakao() {
+		return kakao;
+	}
+	public void setKakao(String kakao) {
+		this.kakao = kakao;
+	}
+	public String getNaver() {
+		return naver;
+	}
+	public void setNaver(String naver) {
+		this.naver = naver;
+	}
+	public String getAuth() {
+		return auth;
+	}
+	public void setAuth(String auth) {
+		this.auth = auth;
+	}
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+		authorities.add(new SimpleGrantedAuthority(this.auth));
+		return authorities;
+	}
+}
