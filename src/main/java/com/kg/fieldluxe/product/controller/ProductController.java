@@ -19,7 +19,6 @@ import com.kg.fieldluxe.product.model.DetailData;
 import com.kg.fieldluxe.product.model.ListData;
 import com.kg.fieldluxe.product.model.ProductVO;
 import com.kg.fieldluxe.product.service.IProductService;
-import com.kg.fieldluxe.review.model.ReviewVO;
 
 @Controller
 @RequestMapping("/product")
