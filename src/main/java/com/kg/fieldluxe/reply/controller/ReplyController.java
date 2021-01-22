@@ -50,7 +50,7 @@ public class ReplyController {
 					hm.put("content", replyVO.get(i).getReplyContent());
 					hm.put("writer", replyVO.get(i).getReplyWriter());
 					SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-					String regDate = dateFormat.format(replyVO.get(i).getReplyDate());
+					String regDate = dateFormat.format(replyVO.get(i).getReplyRegDate());
 					hm.put("date", regDate);
 					
 					htmllist.add(hm);
