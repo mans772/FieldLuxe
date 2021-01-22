@@ -25,9 +25,7 @@ public class HomeController {
 		System.out.println("git test22222222222222");
 		List<ListData> list = service.getProductList(search);
 		model.addAttribute("productList", list);
-		System.out.println("난 주협");
-		System.out.println("사실 구라");
-		System.out.println("aaa");
+		System.out.println("TEST");
 		return "main";
 	}
 	
