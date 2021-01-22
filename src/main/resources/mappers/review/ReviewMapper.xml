@@ -10,7 +10,7 @@
 <result property="reviewTarget" column="review_target" />
 <result property="reviewContent" column="review_content" />
 <result property="reviewScore" column="review_score" />
-<result property="reviewDate" column="review_reg_date" />
+<result property="reviewRegDate" column="review_reg_date" />
 </resultMap>
 
 			<!-- SELECT -->

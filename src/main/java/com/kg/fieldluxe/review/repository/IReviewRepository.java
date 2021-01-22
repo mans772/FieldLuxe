@@ -13,5 +13,8 @@ public interface IReviewRepository {
 	public int insertReview(ReviewVO review);
 	public boolean updateReview(ReviewVO review);
 	public boolean deleteReview(@Param("reviewId")int reviewId);
+	
+	// 프로필 리뷰 목록
+	List<ReviewVO> getProfileReviewList(String email);
 
 }

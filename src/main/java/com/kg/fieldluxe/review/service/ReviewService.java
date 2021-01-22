@@ -40,4 +40,10 @@ public class ReviewService implements IReviewService{
 	public boolean deleteReview(int reviewId) {
 		return reviewRepository.deleteReview(reviewId);
 	}
+	
+	@Override
+	public List<ReviewVO> getProfileReviewList(String email) {
+		List<ReviewVO> list = reviewRepository.getProfileReviewList(email);
+		return list;
+	}
 }
