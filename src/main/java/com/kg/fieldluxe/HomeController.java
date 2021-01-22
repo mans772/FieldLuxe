@@ -21,6 +21,7 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main(Model model, SearchVO search) {
+		System.out.println("git test");
 		List<ListData> list = service.getProductList(search);
 		model.addAttribute("productList", list);
 		return "main";
