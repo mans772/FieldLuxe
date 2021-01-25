@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kg.fieldluxe.trade.repository.ITradeMapper">
+
+	<resultMap id="tradeMap" type="com.kg.fieldluxe.trade.model.TradeVO">
+		<result property="tradeId" column="trade_id" />
+		<result property="tradeClass" column="trade_class" />
+		<result property="tradeDate" column="trade_date" />
+		<result property="tradeSeller" column="trade_seller" />
+		<result property="tradePurchaser" column="trade_purchaser" />
+		<result property="productId" column="product_id" />
+	</resultMap>
+	
+	<resultMap id="ListData" type="com.kg.fieldluxe.product.model.ListData">
+		<id property="productId" column="product_id" />
+		<result property="productCategory" column="product_category" />
+		<result property="productName" column="product_name" />
+		<result property="productBrand" column="product_brand" />
+		<result property="productRegDate" column="product_reg_date" />
+		<result property="productPostDate" column="product_post_date" />
+		<result property="sellerEmail" column="seller_email" />
+		<result property="immePrice" column="imme_price" />
+		<result property="auctionEndDate" column="auction_end_date" />
+		<result property="productPostStatus" column="product_post_status" />
+		<result property="productThumbnail" column="product_thumbnail" />
+		<result property="deliveryStatus" column="delivery_status" />
+	</resultMap>
+
+	<resultMap id="DealData" type="com.kg.fieldluxe.product.model.DealData">
+		<id property="productId" column="product_id" />
+		<result property="dealMethod" column="deal_method" />
+		<result property="minAuctionPrice" column="min_auction_price" />
+		<result property="nowAuctionPrice" column="now_auction_price" />
+		<result property="auctionDeposit" column="auction_deposit" />
+		<result property="auctionStartDate" column="auction_start_date" />
+		<result property="auctionStatus" column="auction_status" />
+	</resultMap>
+
+	<resultMap id="DetailData" type="com.kg.fieldluxe.product.model.DetailData">
+		<id property="productId" column="product_id" />
+		<result property="productColor" column="product_color" />
+		<result property="productSize" column="product_size" />
+		<result property="productModelNumber" column="product_model_number" />
+		<result property="releaseDate" column="release_date" />
+		<result property="releasePrice" column="release_price" />
+		<result property="images" column="images" />
+		<result property="sellerWord" column="seller_word" />
+		<result property="rejectReason" column="reject_reason" />
+	</resultMap>
+	
+	<!-- 2개 이상 테이블에서 가져온 데이터를 담을 resultMap -->
+	<resultMap id="collaboMap" type="com.kg.fieldluxe.trade.model.CollaboVO">
+		<collection property="tradeVO" resultMap="tradeMap" />
+		<collection property="listData" resultMap="ListData" />
+		<collection property="dealData" resultMap="DealData" />
+		<collection property="detailData" resultMap="DetailData" />
+	</resultMap>
+	
+	<!-- 경매내역 리스트 -->
+	<select id="getAuctionList" resultMap="collaboMap" parameterType="map">
+		SELECT *
+		FROM (
+			SELECT ROWNUM NUM, t.trade_id, t.trade_date, l.product_name, l.auction_end_date, d.auction_status
+			FROM trade t, product_list_data l, product_deal_data d
+			WHERE t.product_id = l.product_id
+    			AND t.product_id = d.product_id
+    			AND t.trade_purchaser=#{email}
+    			AND t.trade_class=2
+			ORDER BY t.trade_id DESC
+			)
+		WHERE NUM BETWEEN (#{page}-1)*8+1 AND ((#{page}-1)*8+1)+7
+	</select>
+	
+	<!-- 경매내역 갯수 -->
+	<select id="getAuctionCount" resultType="int">
+		SELECT COUNT(*)
+		FROM trade
+		WHERE trade_purchaser=#{email}
+    		AND trade_class=2
+	</select>
+	
+	<!-- 구매내역 리스트 -->
+	<select id="getPurchaseList" resultMap="collaboMap" parameterType="map">
+		SELECT *
+		FROM (
+			SELECT ROWNUM NUM, t.trade_id, t.trade_date, l.product_name, l.imme_price, t.trade_seller
+			FROM trade t, product_list_data l
+			WHERE t.product_id = l.product_id
+    			AND t.trade_purchaser=#{email}
+    			AND t.trade_class=1
+			ORDER BY t.trade_id DESC
+			)
+		WHERE NUM BETWEEN (#{page}-1)*8+1 AND ((#{page}-1)*8+1)+7
+	</select>
+	
+	<!-- 구매내역 갯수 -->
+	<select id="getPurchaseCount" resultType="int">
+		SELECT COUNT(*)
+		FROM trade
+		WHERE trade_purchaser=#{email}
+    		AND trade_class=1
+	</select>
+	
+	<!-- 판매내역 리스트 -->
+	<select id="getSalesList" resultMap="collaboMap" parameterType="map">
+		SELECT *
+		FROM (
+			SELECT ROWNUM NUM, t.trade_id, t.trade_date, l.product_name, l.imme_price, t.trade_purchaser
+			FROM trade t, product_list_data l
+			WHERE t.product_id = l.product_id
+    			AND t.trade_seller=#{email}
+    			AND t.trade_class=1
+			ORDER BY t.trade_id DESC
+			)
+		WHERE NUM BETWEEN (#{page}-1)*8+1 AND ((#{page}-1)*8+1)+7
+	</select>
+	
+	<!-- 판매내역 갯수 -->
+	<select id="getSalesCount" resultType="int">
+		SELECT COUNT(*)
+		FROM trade
+		WHERE trade_seller=#{email}
+    		AND trade_class=1
+	</select>
+
+</mapper>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -189,13 +190,6 @@
 	section{
 		padding-left: 15px;
 	}
-	.show-table {
-		width:1000px;
-		margin-top:100px;
-		margin-left:100px;
-		margin-bottom:200px;
-	}
-
 @media screen and (max-width: 786px) {
 	.show-table{
 		overflow-x: auto;
@@ -207,7 +201,10 @@
 	
 	
 }
-
+td {
+	font-style:dotum;
+	font-size:20px;
+}
 
 .pagination a {
   color: black;
@@ -228,7 +225,7 @@
 <body>
 <jsp:include page="../include/header.jsp"/>
 	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;">
-    <div class="container-fluid" style="font-family:Malgun gothic;">
+    <div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -256,52 +253,68 @@
 	</div>
 </nav>
 <div class="main">
-<div class="show-table" style="font-family:Malgun gothic;">
-	<table class="table">
+<div class="show-table" >
+	<table class="table" >
     	<tr>
-           <td colspan="6"><h3>경매 참여 내역</h3></td>
+           <td colspan="6"><h2>구매 내역</h2></td>
          </tr>
          <tr>
-            <td>참여번호</td>
-            <td>참여날짜</td>
+            <td>주문번호</td>
+            <td>구매날짜</td>
            	<td>상품이미지</td>
             <td>상품명</td>
-            <td>입찰마감일</td>
-            <td>입찰여부</td>
+            <td>가격</td>
+            <td>판매자</td>
           </tr>
+          
+          
+         <c:forEach var="list" items="${purchaseList}">
           <tr>
-      <%-- <c:forEach items="${}" var="vo"> --%>
-      <%-- <c:if test="${empty }"><h4>내역이 없습니다.</h4></c:if> --%>
-           	<td>0053<%-- ${vo. } --%></td>
-           	<td>2020.12.30<%-- ${vo. } --%></td>
-           	<td><a href="#">
-            		<img alt="img" src="img/handbag1.jpg<%-- ${vo. } --%>" style="width:120px;"></td>
-            	</a>
-            <td>BALENCIAGA<%-- ${vo. } --%></td>
-            <td>2021.1.5<%-- ${vo. } --%></td>
-            <td>입찰<%-- ${vo. } --%></td>
-            <%-- </c:forEach> --%>
+           	<td>${list.tradeVO.tradeId}</td>
+           	<td>${list.tradeVO.tradeDate}</td>
+           	<td><a href="<c:url value="/trade/purchaseDetail/${list.tradeVO.tradeId}" />" style="width:120px;">
+           		${list.listData.productThumbnail}</a></td>
+            <td>${list.listData.productName}</td>
+            <td>${list.listData.immePrice}</td>
+            <td>${list.tradeVO.tradeSeller}</td>
            </tr>
-           			<!-- 실행할때는 지워주세요 화면을 볼려고 만들었어요 -->
-            			<tr>
-            				<td>0053<%-- ${vo. } --%></td>
-            				<td>2020.12.30<%-- ${vo. } --%></td>
-            				<td><img alt="img" src="img/handbag1.jpg<%-- ${vo. } --%>" style="width:120px;"></td>
-            				<td>BALENCIAGA<%-- ${vo. } --%></td>
-            				<td>2021.1.5<%-- ${vo. } --%></td>
-            				<td>입찰<%-- ${vo. } --%></td>
-            			</tr>
-           <tr>
+          </c:forEach>
+          
+          
+         <tr>
             <td colspan="6" style="text-align:center;">
   				<div class="pagination">
-  					<a href="#">&laquo;</a>
-  					<a class="active" href="#">1</a>
-  					<a  href="#">2</a>
-  					<a href="#">3</a>
-  					<a href="#">&raquo;</a>
+  				
+	  			<!-- 이전 버튼 -->
+				<c:if test="${pc.prev}">
+					<li class="page-item"><a class="page-link"
+						href="<c:url value='/trade/purchaseList${pc.makeURI(pc.beginPage - 1)}&email=${list.tradeVO.tradePurchaser}' />"
+						style="background-color: #643691; margin-top: 0; height: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">이전</a>
+					</li>
+				</c:if>
+	
+				<!-- 페이지 버튼 -->
+				<c:forEach var="pageNum" begin="${pc.beginPage}" end="${pc.endPage}">
+					<li class="page-item"><a
+						href="<c:url value='/trade/purchaseList${pc.makeURI(pageNum)}&email=${list.tradeVO.tradePurchaser}'/>"
+						class="page-link ${(pc.paging.page == pageNum) ? 'page-active' : ''}"
+						style="margin-top: 0; height: 40px; color: pink; border: 1px solid #643691;">${pageNum}</a>
+					</li>
+				</c:forEach>
+	
+				<!-- 다음 버튼 -->
+				<c:if test="${pc.next}">
+					<li class="page-item"><a class="page-link"
+						href="<c:url value='/trade/purchaseList${pc.makeURI(pc.endPage + 1)}&email=${list.tradeVO.tradePurchaser}' />"
+						style="background-color: #643691; margin-top: 0; height: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">다음</a>
+					</li>
+				</c:if>
+  					
 				</div>
 			</td>
 			</tr>
+			
+			
      	</table>       			
       </div>
     <jsp:include page="../include/footer.jsp"/>
@@ -310,8 +323,8 @@
 
 
 
-<script type="text/javascript"> /* sidebar function */
-function htmlbodyHeightUpdate(){
+<script type="text/javascript">
+function htmlbodyHeightUpdate(){ /* sidebar function */
 	var height3 = $( window ).height()
 	var height1 = $('.nav').height()+50
 	height2 = $('.main').height()

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -189,6 +190,7 @@
 	section{
 		padding-left: 15px;
 	}
+
 @media screen and (max-width: 786px) {
 	.show-table{
 		overflow-x: auto;
@@ -255,49 +257,65 @@ td {
 <div class="show-table" >
 	<table class="table" >
     	<tr>
-           <td colspan="6"><h2>구매 내역</h2></td>
+           <td colspan="6"><h2>판매 내역</h2></td>
          </tr>
          <tr>
             <td>주문번호</td>
-            <td>구매날짜</td>
+            <td>판매날짜</td>
            	<td>상품이미지</td>
             <td>상품명</td>
             <td>가격</td>
-            <td>판매자</td>
+            <td>구매자</td>
           </tr>
+          
+          
+          <c:forEach var="list" items="${salesList}">
           <tr>
-      <%-- <c:forEach items="${}" var="vo"> --%>
-      <%-- <c:if test="${empty }"><h3>내역이 없습니다.</h3></c:if> --%>
-           	<td>0011<%-- ${vo. } --%></td>
-           	<td>2020.01.30<%-- ${vo. } --%></td>
-           	<td><a href="#">
-            		<img alt="img" src="img/handbag2.jpg<%-- ${vo. } --%>" style="width:140px;"></td>
-            	</a>
-            <td>CHANEL<%-- ${vo. } --%></td>
-            <td>1,250,000원<%-- ${vo. } --%></td>
-            <td>KIM<%-- ${vo. } --%></td>
-            <%-- </c:forEach> --%>
+           	<td>${list.tradeVO.tradeId}</td>
+           	<td>${list.tradeVO.tradeDate}</td>
+           	<td><a href="<c:url value="/trade/salesDetail/${list.tradeVO.tradeId}" />" style="width:120px;">
+           		${list.listData.productThumbnail}</a></td>
+            <td>${list.listData.productName}</td>
+            <td>${list.listData.immePrice}</td>
+            <td>${list.tradeVO.tradePurchaser}</td>
            </tr>
-           			<!-- 실행할때는 아래 <tr></tr> 지워주세요 화면볼려고 만들었어요 -->
-            			<tr>
-            				<td>0021<%-- ${vo. } --%></td>
-            				<td class="un-date">2020.12.30<%-- ${vo. } --%></td>
-            				<td><img alt="img" src="img/handbag3.jpg<%-- ${vo. } --%>" style="width:140px;"></td>
-            				<td>LOUISVUITTON<%-- ${vo. } --%></td>
-            				<td class="un-Ddate">560,000원<%-- ${vo. } --%></td>
-            				<td class="un-part">ANNIE<%-- ${vo. } --%></td>
-            			</tr>
-           <tr>
+          </c:forEach>
+          
+          
+         <tr>
             <td colspan="6" style="text-align:center;">
   				<div class="pagination">
-  					<a href="#">&laquo;</a>
-  					<a class="active" href="#">1</a>
-  					<a  href="#">2</a>
-  					<a href="#">3</a>
-  					<a href="#">&raquo;</a>
+  				
+	  			<!-- 이전 버튼 -->
+				<c:if test="${pc.prev}">
+					<li class="page-item"><a class="page-link"
+						href="<c:url value='/trade/salesList${pc.makeURI(pc.beginPage - 1)}&email=${list.tradeVO.tradeSeller}' />"
+						style="background-color: #643691; margin-top: 0; height: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">이전</a>
+					</li>
+				</c:if>
+	
+				<!-- 페이지 버튼 -->
+				<c:forEach var="pageNum" begin="${pc.beginPage}" end="${pc.endPage}">
+					<li class="page-item"><a
+						href="<c:url value='/trade/salesList${pc.makeURI(pageNum)}&email=${list.tradeVO.tradeSeller}'/>"
+						class="page-link ${(pc.paging.page == pageNum) ? 'page-active' : ''}"
+						style="margin-top: 0; height: 40px; color: pink; border: 1px solid #643691;">${pageNum}</a>
+					</li>
+				</c:forEach>
+	
+				<!-- 다음 버튼 -->
+				<c:if test="${pc.next}">
+					<li class="page-item"><a class="page-link"
+						href="<c:url value='/trade/salesList${pc.makeURI(pc.endPage + 1)}&email=${list.tradeVO.tradeSeller}' />"
+						style="background-color: #643691; margin-top: 0; height: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">다음</a>
+					</li>
+				</c:if>
+  					
 				</div>
 			</td>
 			</tr>
+			
+			
      	</table>       			
       </div>
     <jsp:include page="../include/footer.jsp"/>
@@ -307,7 +325,7 @@ td {
 
 
 <script type="text/javascript">
-function htmlbodyHeightUpdate(){ /* sidebar function */
+function htmlbodyHeightUpdate(){
 	var height3 = $( window ).height()
 	var height1 = $('.nav').height()+50
 	height2 = $('.main').height()

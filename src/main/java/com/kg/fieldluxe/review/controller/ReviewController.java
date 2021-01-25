@@ -59,6 +59,6 @@ public class ReviewController {
 	public String profileReviewList(Model model, String email) {
 		List<ReviewVO> list = reviewService.getProfileReviewList(email);
 		model.addAttribute("profileReviewList", list);
-		return "member/Profile_02";
+		return "member/profileReviewList";
 	}
 }

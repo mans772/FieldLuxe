@@ -32,6 +32,7 @@
    <mybatis-spring:scan base-package="com.kg.fieldluxe.product.repository" />
    <mybatis-spring:scan base-package="com.kg.fieldluxe.review.repository" />
    <mybatis-spring:scan base-package="com.kg.fieldluxe.member.repository" />
+   <mybatis-spring:scan base-package="com.kg.fieldluxe.trade.repository" />
    
    <!-- SqlSessionTemplate :  mybatis-spring  -->
    <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate" > 
