@@ -137,7 +137,7 @@
 		/*gives sidebar width/height*/
 		nav.sidebar{
 			width: 200px;
-			height: 80%;
+			height: 100%;
 			margin-left: -160px;
 			float: left;
 			z-index: 8000;
@@ -191,6 +191,9 @@
 	section{
 		padding-left: 15px;
 	}
+	.return-pg{
+		margin:100px;
+	}
 	.table {
 		width:450px;
 	}
@@ -206,6 +209,9 @@
 	.table {
 		width: 100%;
 		min-width: 500px;
+	}
+	.return-pg {
+		margin:0;
 	}
 }
 
@@ -242,7 +248,7 @@
 	</div>
 </nav>
 <div class="main" >
-<div style="margin:100px;">
+<div class="return-pg">
 <h3 style="width:900px;">반려사유 등록</h3>
 	<div style="width:700px;">
 	 <div class="col-md-6 col-sm-12" style="margin-top:50px;">

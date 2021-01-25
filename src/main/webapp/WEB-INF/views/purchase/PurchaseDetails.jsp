@@ -40,9 +40,8 @@
 
  body,html{
 		height: 100%;
-		font-family:Malgun gothic;
 	}
-
+	
 	/* remove outer padding */
 	.main .row{
 		padding: 0px;
@@ -191,67 +190,34 @@
 	section{
 		padding-left: 15px;
 	}
-	.show-table {
-		margin-bottom:400px;
-	}
-	.table {
-		width:850px;
-		margin-top:100px;
-		
-	}
-	td {
-	font-size:15px;
-}
-.pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
+.pro-de {
+	margin-bottom:300px;
 }
 
-.pagination a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.pagination a:hover:not(.active) {background-color: #ddd;}
-
-.search-container {
-  float: right;
-  display:inline-flex;
-}
-.search-container button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-  display:inline-flex;
-}
-
-.search-container button:hover {
-  background: #ccc;
-}	
 @media screen and (max-width: 786px) {
 	.show-table{
 		overflow-x: auto;
-		margin-bottom:50px;
 	}
 	.table {
 		width: 100%;
 		min-width: 500px;
-		margin:0;
+	} 
+	
+	.pro-de {
+		width:100%;
 	}
 }
+
+
+
 </style>
+
 </head>
 <body>
-<jsp:include page="../include/header.jsp"/>
-	<nav class="navbar navbar-inverse sidebar" role="navigation">
-    <div class="container-fluid">
+<jsp:include page="/include/header.jsp"/>
+
+	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;">
+    <div class="container-fluid" style="font-family:Malgun gothic;">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -260,74 +226,130 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">ADMIN</a>
+			<a class="navbar-brand" href="#">마이 페이지</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home<span style="font-size:16px;"
 				 class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">회원관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">등록상품 검수<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">게시 상품 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">거래내역 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">1:1 문의 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
+				<li ><a href="#">내 프로필보기<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li ><a href="#">경매참여내역<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">구매내역<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">판매내역<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">상품등록 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
+				<li ><a href="#">회원정보 수정<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
+				<li ><a href="#">1:1 문의<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
 				<li ><a href="#">리뷰관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
-				<li ><a href="#">쿠폰관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
 			</ul>
 		</div>
 	</div>
-</nav>
-<div class="main">
-<div class="show-table" >
-	<table class="table">
-    	<tr>
-           <td colspan="6"><h3>쿠폰 관리</h3></td>
-         </tr>
-         <tr>
-            <td>리뷰번호</td>
-            <td>리뷰날짜</td>
-           	<td>판매자</td>
-            <td>상품명</td>
-            <td>별점평가</td>
-            <td>리뷰내용</td>
-          </tr>
-          <tr>
-      <%-- <c:forEach items="${}" var="vo"> --%>
-      <%-- <c:if test="${empty }"><h3>내역이 없습니다.</h3></c:if> --%>
-           	<td>0053<%-- ${vo. } --%></td>
-           	<td>2020.12.30<%-- ${vo. } --%></td>
-           	<td>Linda</td>
-            <td>BALENCIAGA<%-- ${vo. } --%></td>
-            <td>★★<%-- ${vo. } --%></td>
-            <td>그냥 그래요<%-- ${vo. } --%></td>
-            <%-- </c:forEach> --%>
-           </tr>
-            			<tr>
-            				<td>0053<%-- ${vo. } --%></td>
-            				<td>2020.12.30<%-- ${vo. } --%></td>
-            				<td>Choi</td>
-            				<td>BALENCIAGA<%-- ${vo. } --%></td>
-            				<td>★★★★★</td>
-            				<td>예뻐요.잘쓰고 있어요<%-- ${vo. } --%></td>
-            			</tr>
-           <tr>
-            <td colspan="6" style="text-align:center;"><!-- 페이징처리 -->
-  				<div class="pagination">
-  					<a href="#">&laquo;</a>
-  					<a class="active" href="#">1</a>
-  					<a  href="#">2</a>
-  					<a href="#">3</a>
-  					<a href="#">&raquo;</a>
+	</nav>
+<div class="main"style="font-family:Malgun gothic;width:1000px;
+		margin-top:30px;
+		margin-left:300px;">
+	<h3>구매 내역 상세보기</h3>
+		<div class="pro-de">
+		 	<div class="col-md-6" style="margin-top:50px;">
+		 		<div class="show-table">
+		 			<table class="table" style="width:450px;">
+						<tr>
+							<td colspan="2" style="text-align:center;">
+								<img alt="" src="../img/handbag1.jpg<%-- <%= %> --%>" style="height:270px;">
+							</td>
+						<tr>
+							<td>브랜드</td>
+							<td>Balenciaga<%-- <%= %> --%></td>
+						</tr>
+						<tr>
+							<td>상품명</td>
+							<td>Balenciaga Track Trainer Grey White 2019<%-- <%= %> --%></td>
+						</tr>
+						<tr>
+							<td>모델번호</td>
+							<td>542023W1GB71214<%-- <%= %> --%></td>
+						</tr>
+					</table>
 				</div>
-			</td>
-			</tr>
-     	</table>       			
-      </div>
-  <jsp:include page="../include/footer.jsp"/>
-    
-</div>
-  
+			</div>
+			<div class="col-md-6" style="margin-top:50px;">
+				<div class="show-table">
+					<table class="table" style="width:500px;height:500px;margin-bottom:200px;">
+						<tr>
+							<td colspan="2" style="text-align:left;">
+							<h4><strong>주문정보</strong></h4></td>
+						<tr>
+							<td>주문번호</td>
+							<td>21445203<%-- <%= %> --%></td>
+						</tr>
+						<tr>
+							<td>구매일</td>
+							<td>2021.01.09<%-- <%= %> --%></td>
+						</tr>
+						<tr>
+							<td>판매자</td>
+							<input type="hidden" name="sellerName" value="<%-- <%= %> --%>">
+							<td>Annie<%-- <%= %> --%></td>
+						</tr>
+						<tr>
+							<td colspan="2" style="text-align:left;">
+							<h4><strong>결제정보</strong></h4></td>
+						</tr>
+						<tr>
+							<td>구매가</td>
+							<td>800,000원<%-- <%= %> --%></td>
+						</tr>
+						<tr>
+							<td>쿠폰할인</td>
+							<td>80,000d원<%-- <%= %> --%></td>
+						</tr>
+						<tr>
+							<td>배송비</td>
+							<td>0원<%-- <%= %> --%></td>
+						</tr>
+						<tr style="background-color:#ebebff">
+							<td style=""><strong>총결제금액</strong></td>
+							<td>720,000원<%-- <%= %> --%></td>
+						</tr>
+						<tr>
+							<td colspan="2" style="text-align:left;">
+							<h4><strong>배송정보</strong></h4></td>
+						</tr>
+						<tr>
+							<td>이름</td>
+							<td>김모씨<%-- <%= %> --%></td>
+						</tr>
+						<tr>
+							<td>휴대폰번호</td>
+							<td>010-1234-3456<%-- <%= %> --%></td>
+						</tr>
+						<tr>
+							<td>우편번호</td>
+							<td>03139<%-- <%= %> --%></td>
+						</tr>
+						<tr>
+							<td>주소</td>
+							<td>서울시 동작구<%-- <%= %> --%></td>
+						</tr>
+						<tr style="background-color:#ebebff">
+							<td>배송상태</td>
+							<td>배송완료<%-- <%= %> --%></td>
+						</tr>
+						<tr>
+							<td colspan="2" style="text-align:center;">
+								<a href="#" class="btn btn-default" name="cancle-btn" style="width:200px;height:33px;
+									margin-top:20px;background-color:#916d90;color:white;">구매확정</a>
+								<a href="#" class="btn btn-default" name="cancle-btn" style="width:200px;height:33px;
+									margin-top:20px;background-color:#626ef5;color:white;">리뷰작성</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			
+		</div>
+		<jsp:include page="/include/footer.jsp"/>
+	</div>
 
 <script type="text/javascript"> /* sidebar function */
 function htmlbodyHeightUpdate(){
@@ -356,5 +378,6 @@ $(document).ready(function () {
 	});
 });
 </script>
+
 </body>
 </html>

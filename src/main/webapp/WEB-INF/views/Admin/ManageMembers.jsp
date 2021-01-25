@@ -137,7 +137,7 @@
 		/*gives sidebar width/height*/
 		nav.sidebar{
 			width: 200px;
-			height: 80%;
+			height: 100%;
 			margin-left: -160px;
 			float: left;
 			z-index: 8000;
@@ -191,11 +191,15 @@
 	section{
 		padding-left: 15px;
 	}
-	.table {
-		width:1000px;
+	.show-table{
+		margin-top:100px;
+		margin-bottom:200px;
+		width:900px;
+		margin-left:100px;
 	}
+	
 	td {
-	font-style:dotum;
+
 	font-size:15px;
 }
 .pagination a {
@@ -234,6 +238,7 @@
 @media screen and (max-width: 786px) {
 	.show-table{
 		overflow-x: auto;
+		margin:0 5px;
 	}
 	.table {
 		width: 100%;
@@ -275,12 +280,12 @@
 <div class="main">
 	<div class="show-table" >
 		
-	<table class="table"  style="margin:100px 100px;">
+	<table class="table">
     	<tr>
            <td colspan="6"><h3>회원관리</h3>
            	<div class="search-container" >
     <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search" style="display:inline-flex;width:250px;height:36px;">
+      <input type="text" placeholder="Search.." name="search" style="display:inline-flex;width:250px;height:30px;">
       <button type="submit" style="display:inline-flex;"><i class="fa fa-search"></i></button>
     </form>
   </div>  
