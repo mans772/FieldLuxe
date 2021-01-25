@@ -190,10 +190,19 @@
 	section{
 		padding-left: 15px;
 	}
+	
+	.show-table{
+		width:900px;
+		margin-top:100px;
+		margin-left:100px;
+		margin-bottom:200px;
+	
+	}
 
 @media screen and (max-width: 786px) {
 	.show-table{
 		overflow-x: auto;
+		margin:0 5px;
 	}
 	.table {
 		width: 100%;
@@ -201,10 +210,6 @@
 	}
 	
 	
-}
-td {
-	font-style:dotum;
-	font-size:20px;
 }
 
 .pagination a {
@@ -228,7 +233,7 @@ td {
 	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;">
     <div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
+		<div class="navbar-header" style="font-family:Malgun Gothic;">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
 				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
@@ -254,18 +259,18 @@ td {
 	</div>
 </nav>
 <div class="main">
-<div class="show-table" >
+<div class="show-table" style="font-family:Malgun Gothic;">
 	<table class="table" >
     	<tr>
            <td colspan="6"><h2>판매 내역</h2></td>
          </tr>
          <tr>
-            <td>주문번호</td>
-            <td>판매날짜</td>
-           	<td>상품이미지</td>
-            <td>상품명</td>
-            <td>가격</td>
-            <td>구매자</td>
+            <th>주문번호</th>
+            <th>판매날짜</th>
+           	<th>상품이미지</th>
+            <th>상품명</th>
+            <th>가격</th>
+            <th>구매자</th>
           </tr>
           
           

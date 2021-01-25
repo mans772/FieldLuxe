@@ -217,7 +217,7 @@
 <jsp:include page="../include/header.jsp"/>
 
 	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;">
-    <div class="container-fluid">
+    <div class="container-fluid" style="font-family:Malgun gothic;">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -245,26 +245,26 @@
 		</div>
 	</div>
 	</nav>
-<div class="main"style="margin-top:140px;">
+<div class="main"style="font-family:Malgun gothic;width:1000px;margin-top:30px;margin-left:300px;">
 	<h3>구매 내역 상세보기</h3>
 		<div class="pro-de">
 		 	<div class="col-md-6" style="margin-top:50px;">
 		 		<div class="show-table">
-		 			<table class="table" style="width:500px;">
+		 			<table class="table" style="width:450px;">
 						<tr>
 							<td colspan="2" style="text-align:center;">
-								<img alt="" src="img/handbag1.jpg<%-- <%= %> --%>" style="height:300px;">
+								<img alt="" src="img/handbag1.jpg<%-- <%= %> --%>" style="height:270px;">
 							</td>
 						<tr>
-							<td>브랜드</td>
+							<th>브랜드</th>
 							<td>Balenciaga<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>상품명</td>
+							<th>상품명</th>
 							<td>Balenciaga Track Trainer Grey White 2019<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>모델번호</td>
+							<th>모델번호</th>
 							<td>542023W1GB71214<%-- <%= %> --%></td>
 						</tr>
 					</table>
@@ -277,15 +277,15 @@
 							<td colspan="2" style="text-align:left;">
 							<h4><strong>주문정보</strong></h4></td>
 						<tr>
-							<td>주문번호</td>
+							<th>주문번호</th>
 							<td>21445203<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>구매일</td>
+							<th>구매일</th>
 							<td>2021.01.09<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>판매자</td>
+							<th>판매자</th>
 							<input type="hidden" name="sellerName" value="<%-- <%= %> --%>">
 							<td>Annie<%-- <%= %> --%></td>
 						</tr>
@@ -294,19 +294,19 @@
 							<h4><strong>결제정보</strong></h4></td>
 						</tr>
 						<tr>
-							<td>구매가</td>
+							<th>구매가</th>
 							<td>800,000원<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>쿠폰할인</td>
+							<th>쿠폰할인</th>
 							<td>80,000d원<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>배송비</td>
+							<th>배송비</th>
 							<td>0원<%-- <%= %> --%></td>
 						</tr>
 						<tr style="background-color:#ebebff">
-							<td style=""><strong>총결제금액</strong></td>
+							<td><strong>총결제금액</strong></td>
 							<td>720,000원<%-- <%= %> --%></td>
 						</tr>
 						<tr>
@@ -314,23 +314,23 @@
 							<h4><strong>배송정보</strong></h4></td>
 						</tr>
 						<tr>
-							<td>이름</td>
+							<th>이름</th>
 							<td>김모씨<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>휴대폰번호</td>
+							<th>휴대폰번호</th>
 							<td>010-1234-3456<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>우편번호</td>
+							<th>우편번호</th>
 							<td>03139<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>주소</td>
+							<th>주소</th>
 							<td>서울시 동작구<%-- <%= %> --%></td>
 						</tr>
 						<tr style="background-color:#ebebff">
-							<td>배송상태</td>
+							<th>배송상태</th>
 							<td>배송완료<%-- <%= %> --%></td>
 						</tr>
 						<tr>

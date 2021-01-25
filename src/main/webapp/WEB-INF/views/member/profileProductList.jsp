@@ -17,12 +17,11 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 <style type="text/css">
-h2{
+.profile-top {
 	text-align:center;
 	margin-top:40px;
 	width:1000px;
 }
-
 .starR{
   background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
   background-size: auto 100%;
@@ -41,9 +40,9 @@ h2{
 <jsp:include page="../include/header.jsp"/>
 
 
-<div class="container">
-    <div class="row" style="text-align:center;">
-    	<h2>Angel님의 프로필</h2>
+<div class="container" style="font-family:Malgun Gothic;">
+    <div class="profile-top">
+    	<h2><%-- { }--%>Angel님의 프로필</h2>
     		<div class="star-re" style="width:1000px; margin-bottom:50px;">
        <hr>
         	<h4><strong>별점평가</strong></h4>
@@ -66,7 +65,7 @@ h2{
     	
     	<c:forEach var="list" items="${profileProductList}">
 		 <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img src="<c:url value='/img/handbag2.jpg' />">
+		 	<img src="<c:url value='/img/handbag2.jpg' />" style="width:250px;">
 		 	<h5 style="margin-top:20px;">${list.productBrand}</h5>
 		 	<h5>${list.productName}</h5>
 		 	<h5>${list.immePrice}</h5>
@@ -75,11 +74,11 @@ h2{
 		
 		</div>
      <div style="margin-top:30px;">
-       		<button style="float:right; width:100px;height:30px; background-color:#8d98f2; font-size:15px;" 
+       		<button style="float:right; width:100px;height:30px; background-color:#8d98f2; font-size:14px;" 
        			type="button" class="btn">더보기</button> 
     </div>
 </div>
-<hr>
+
 
 <jsp:include page="../include/footer.jsp"/>
 

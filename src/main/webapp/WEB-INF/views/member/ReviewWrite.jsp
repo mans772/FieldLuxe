@@ -190,19 +190,46 @@
 	section{
 		padding-left: 15px;
 	}
+	.main{
+		width:1000px;
+		margin:50px 300px;
+	}
+	.review-top{
+		margin-bottom:100px ;
+	}
+	.show-table {
+		margin-left:100px;
+		width:450px;
+	}
+	.review {
+		margin-bottom:200px;
 	
-	/*  .table {
-		width:400px;
-	}  */
+	}
+	.star-re {
+		margin-top:290px;
+	}
+	
+	
+	
 @media screen and (max-width: 786px) {
+	.main{
+		margin:0;
+		width:100%;
+	}
 	.show-table{
 		overflow-x: auto;
+		margin:0 5px;
 	}
 	.table {
 		width: 100%;
-		min-width: 500px;
+		min-width: 250px;
 	}
-	
+	.review {
+		width:50%;
+	}
+	.star-re {
+		margin-top:50px;
+	}
 	
 }
 
@@ -240,7 +267,7 @@
 <body>
 <jsp:include page="../include/header.jsp"/>
 	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;height:80%;">
-    <div class="container-fluid">
+    <div class="container-fluid" style="font-family:Malgun Gothic;">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -268,8 +295,8 @@
 		</div>
 	</div>
 </nav>
-<div class="main" style="margin-top:200px;">
-	<div class="review-write" style="width:950px;">
+<div class="main" style="font-family:Malgun Gothic;">
+	<div class="review-write">
 	<h3>리뷰작성하기</h3>
 	<div class="review-top" style="margin-top:50px;">
 		<form action="#" method="post">
@@ -299,7 +326,7 @@
       	</div>
       
       <form action="#" method="post">
-       <div class="star-re" style="padding-top:250px;">
+       <div class="star-re" >
        <hr>
         	<h4><strong>별점평가</strong></h4>
         		<div class="starRev" style="text-align:center;">
@@ -313,21 +340,22 @@
 
 
        <hr> 
-       <div class="review">
+       <div class="review" style="margin-top:60px;">
        	<h4><strong>리뷰작성</strong></h4>
-       	<hr>
-       		<textarea rows="10" cols="130" placeholder="자세하고 솔직한 리뷰는 다른 고객에게 많은 도움이 됩니다."></textarea>
-       </div> 	
+       	
+       		<textarea rows="10" cols="120" placeholder="자세하고 솔직한 리뷰는 다른 고객에게 많은 도움이 됩니다."></textarea>
+      	
       	  		
-      	 <div class="my-btns" style="display:inline-flex;margin-top:20px;float:right;">
+      	 <div class="my-btns" style="display:inline-flex;margin-top:20px;">
       	  		<button type="submit" class="btn btn-default" 
       	  			style="background-color:#916d90;color:white;
-      	  			border:none;">완료</button> 
+      	  			border:none;display:inline-flex;">완료</button> 
       	  		<button type="reset" class="btn btn-default" 
       	  			style="margin-left:10px;background-color:#bab3b9;color:white;
-      	  			border:none;">취소</button>      	
+      	  			border:none;display:inline-flex;">취소</button>      	
       	  		
-      	 </div> 	
+      	 </div>
+      	 </div>  	
       	</form> 
      	
      	<jsp:include page="../include/footer.jsp"/>      			

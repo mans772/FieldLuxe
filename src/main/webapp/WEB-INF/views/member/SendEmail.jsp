@@ -17,7 +17,7 @@
 		margin:50px auto;
 		text-align:center;
 		padding:40px;
-		
+		font-family:Malgun Gothic;
 	} 
 	
 @media screen and (max-width: 600px) {
@@ -36,7 +36,7 @@
   <h2>Send Email</h2>
  
   <form action="#" method="post">
-  <table class="table" style="margin-top:50px; padding:150px; background-color:#e9edf5">
+  <table class="table" style="margin-top:50px;">
   	<tr>
   		<td style="width:20%;">
   			<label for="usr">이메일</label>

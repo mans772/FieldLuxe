@@ -22,6 +22,7 @@
 	text-align: center;
 	display: block;
 	margin: 50px auto;
+	font-family:Malgun Gothic;
 }
 
 @media screen and (max-width: 786px) {
@@ -55,9 +56,8 @@
 		<%-- 관리자가 아닐 경우 처리 --%>
 	</c:if>
 	<div class="contanier">
-		<div class="row">
-			<div class="pro-de">
-				<div class="col-md-6">${ product.listData.productThumbnail }</div>
+		<div class="pro-de">
+			<div class="col-md-6" style="width:350px;height:350px;margin-top:100px;">${ product.listData.productThumbnail }</div>
 				<div class="col-md-6">
 					<div class="show-table">
 						<h3>
@@ -67,40 +67,40 @@
 						<h4 style="margin-top: 20px;'">상품정보</h4>
 						<table class="table">
 							<tr>
-								<td>브랜드</td>
+								<th>브랜드</th>
 								<td>${ product.listData.productBrand }</td>
 							</tr>
 							<tr>
-								<td>모델번호</td>
+								<th>모델번호</th>
 								<td>${ product.detailData.productModelNumber }</td>
 							</tr>
 							<tr>
-								<td>대표색상</td>
+								<th>대표색상</th>
 								<td>${ product.detailData.productColor }</td>
 							</tr>
 							<tr>
-								<td>출시일</td>
+								<th>출시일</th>
 								<td>${ product.detailData.releaseDate }</td>
 							</tr>
 							<tr>
-								<td>발매가</td>
+								<th>발매가</th>
 								<td><fmt:formatNumber value="${ product.detailData.releasePrice }" />원</td>
 							</tr>
 							<tr>
-								<td>사이즈</td>
+								<th>사이즈</th>
 								<td>${ product.detailData.productSize }</td>
 							</tr>
 						</table>
 						<h4>구매정보</h4>
 						<table class="table">
 							<tr>
-								<td>판매자</td>
+								<th>판매자</th>
 								<td>${ product.listData.sellerEmail }</td>
 							</tr>
 							<c:choose>
 								<c:when test="${ product.dealData.dealMethod == 1 }">
 									<tr>
-										<td>거래방식</td>
+										<th>거래방식</th>
 										<td>즉시구매방식</td>
 									</tr>
 									<tr>
@@ -199,23 +199,23 @@
 						</table>
 					</div>
 					<div style="margin-top: 150px;">
-						<h4 style="margin-left: 20px; float: left;">구매자 리뷰</h4>
-						<table class="table t3">
+						<h4 style="margin-left: 20px; float:left;width:900px;text-align:left;">구매자 리뷰</h4>
+						<table class="table t3" style="width:700px;margin-top:30px;">
 							<tr>
-								<td>구매자</td>
-								<td>Sunny</td>
+								<th style="text-align:center;">구매자</th>
+								<td style="text-align:left;">Sunny</td>
 							</tr>
 							<tr>
-								<td>등록일</td>
-								<td>2021.01.04</td>
+								<th style="text-align:center;">등록일</th>
+								<td style="text-align:left;">2021.01.04</td>
 							</tr>
 							<tr>
-								<td>별점</td>
-								<td>★★★★★</td>
+								<th style="text-align:center;">별점</th>
+								<td style="text-align:left;">★★★★★</td>
 							</tr>
 							<tr>
-								<td>리뷰</td>
-								<td>물건 참좋네요</td>
+								<th style="text-align:center;">리뷰</th>
+								<td style="text-align:left;">물건 참좋네요</td>
 							</tr>
 							<tr>
 								<td colspan="2" style="text-align: right;">
@@ -230,7 +230,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	
 	<jsp:include page="../include/footer.jsp" />
 	<script>
 	

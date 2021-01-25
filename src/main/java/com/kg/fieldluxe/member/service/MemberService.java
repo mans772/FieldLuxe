@@ -20,7 +20,7 @@ public class MemberService implements IMemberService{
 	@Transactional("txManager")
 	public void insertMember(MemberVO mem) {
 		memberRepository.insertMember(mem);
-		memberRepository.insertAuth(mem.getEmail());
+		memberRepository.insertAuth(mem.getEmail(), "ROLE_USER");
 	}
 
 	// 유저 활성화, 비활성화 변경
@@ -64,4 +64,16 @@ public class MemberService implements IMemberService{
 	public Integer getMemberCount(String word) {
 		return memberRepository.getMemberCount(word);
 	}
+
+	// 이메일 중복체크
+	public Integer emailCheck(String email) {
+		return memberRepository.emailCheck(email);
+	}
+
+	// 닉네임 중복체크
+	public Integer nickCheck(String nickname) {
+		return memberRepository.nickCheck(nickname);
+	}
+
+
 }

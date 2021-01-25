@@ -263,12 +263,12 @@
            <td colspan="6"><h3>경매 참여 내역</h3></td>
          </tr>
          <tr>
-            <td>참여번호</td>
-            <td>참여날짜</td>
-           	<td>상품이미지</td>
-            <td>상품명</td>
-            <td>입찰마감일</td>
-            <td>입찰여부</td>
+            <th>참여번호</th>
+            <th>참여날짜</th>
+           	<th>상품이미지</th>
+            <th>상품명</th>
+            <th>입찰마감일</th>
+            <th>입찰여부</th>
           </tr>
           
      	 <c:forEach var="list" items="${auctionList}">

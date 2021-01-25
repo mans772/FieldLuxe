@@ -17,6 +17,7 @@
 		width:800px;
 		margin:50px auto;
 		text-align:center;
+		font-family:Malgun Gothic;
 	}
 	.loginID{
 		width:35%;
@@ -42,7 +43,7 @@
 <jsp:include page="../include/header.jsp"/>
 
 <div class="loginPage">
-  <h2>로그인</h2>
+  <h2 style="margin-bottom:30px;">로그인</h2>
  
   <form action="#" class="needs-validation" novalidate>
     <div class="form-group">

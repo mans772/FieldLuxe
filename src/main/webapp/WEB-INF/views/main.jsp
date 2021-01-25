@@ -255,6 +255,7 @@ a:hover .more-button {
 	<a href="<c:url value="review/list"/>">리뷰 목록</a><br>
 	<a href="<c:url value="inquiry/list"/>">문의 목록</a><br>
 	<a href="<c:url value="inquiry/insertInquiry"/>">문의글 쓰기</a><br>
+	<a href="<c:url value="member/insert" />">회원가입</a><br>
 	<jsp:include page="include/carousel.jsp" />
 	
 	<div class="container">
