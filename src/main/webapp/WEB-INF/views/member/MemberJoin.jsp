@@ -30,7 +30,7 @@
  	width:800px;
 	margin:50px auto;
 	text-align:center;
- 
+ 	font-family:Malgun Gothic;
  }
  
  .input-group{
@@ -55,9 +55,8 @@
 		color:#141414;
 	}
 @media screen and (max-width: 600px) {
-	.join-page {
-		width:100%;
-		
+	.row {
+		overflow-x: auto;
 	}
 	
 	.input-group{

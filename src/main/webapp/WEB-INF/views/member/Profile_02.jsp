@@ -17,11 +17,12 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 <style type="text/css">
-h2{
+.profile-top {
 	text-align:center;
 	margin-top:40px;
 	width:1000px;
 }
+
 
 .starR{
   background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
@@ -33,6 +34,13 @@ h2{
   cursor: pointer;
 }
 .starR.on{background-position:0 0;}
+
+@media screen and (max-width: 786px) {
+	.profile-top{
+		width:50%;
+	}
+
+}
 </style>
 </head>
 <body>
@@ -41,9 +49,10 @@ h2{
 <jsp:include page="../include/header.jsp"/>
 
 
-<div class="container">
-    <div class="row" style="text-align:center;">
-    	<h2><%-- <%= %> --%>Angel님의 프로필</h2>
+<div class="container" style="font-family:Malgun Gothic;">
+    <div style="text-align:center;">
+    	<div class="profile-top">
+    	<h2><%-- {} --%>Angel님의 프로필</h2>
     		<div class="star-re" style="width:1000px; margin-bottom:50px;">
        <hr>
         	<h4><strong>별점평가</strong></h4>
@@ -54,6 +63,7 @@ h2{
   					<span class="starR">별4</span>
   					<span class="starR">별5</span>
 				</div>
+			</div>
 		</div>
 		<div class="mybtn" style="width:1000px;margin-bottom:50px;text-align:left;">
     		<a href="#" class="btn btn-default" id="regiatratedProduct"
@@ -67,19 +77,19 @@ h2{
 		 <div class="col-md-6 col-sm-12" style="margin-bottom:50px;">
 		 	<table class="table">
 		 		<tr>
-		 			<td>구매자</td>
+		 			<th>구매자</th>
 		 			<td>${list.reviewWriter}</td>
 		 		</tr>
 		 		<tr>
-		 			<td>상품</td>
+		 			<th>상품</th>
 		 			<td>${list.productId}</td>
 		 		</tr>
 		 		<tr>
-		 			<td>등록일</td>
+		 			<th>등록일</th>
 		 			<td>${list.reviewRegDate}</td>
 		 		</tr>
 		 		<tr>
-		 			<td>별점</td>
+		 			<th>별점</th>
 		 			<td>
 		 			${list.reviewScore}
 		 			<div class="starRev" style="text-align:center;">
@@ -92,7 +102,7 @@ h2{
 					</td>
 		 		</tr>
 		 		<tr>
-		 			<td>리뷰</td>
+		 			<th>리뷰</th>
 		 			<td>${list.reviewContent}</td>
 		 		</tr>
 		 	</table>

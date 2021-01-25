@@ -45,6 +45,7 @@
 
 body, html {
 	height: 100%;
+	font-family:Malgun Gothic;
 }
 
 /* remove outer padding */
@@ -193,6 +194,13 @@ nav:hover .forAnimate {
 section {
 	padding-left: 15px;
 }
+.show-table{
+		margin-top:100px;
+		margin-bottom:200px;
+		width:900px;
+		margin-left:100px;
+		margin-right:100px;
+	}
 
 @media screen and (max-width: 786px) {
 	.show-table {
@@ -202,11 +210,6 @@ section {
 		width: 100%;
 		min-width: 500px;
 	}
-}
-
-td {
-	font-style: dotum;
-	font-size: 20px;
 }
 
 .pagination a {
@@ -251,21 +254,21 @@ td {
 					<li class="active"><a href="#">Home<span
 							style="font-size: 16px;"
 							class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-					<li><a href="#">내 프로필보기<span style="font-size: 16px;"
+					<li><a href="#">내 프로필보기<span style="font-size: 13px;"
 							class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-					<li><a href="#">경매참여내역<span style="font-size: 16px;"
+					<li><a href="#">경매참여내역<span style="font-size: 13px;"
 							class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-					<li><a href="#">구매내역<span style="font-size: 16px;"
+					<li><a href="#">구매내역<span style="font-size: 13px;"
 							class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-					<li><a href="#">판매내역<span style="font-size: 16px;"
+					<li><a href="#">판매내역<span style="font-size: 13px;"
 							class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-					<li><a href="#">상품등록 관리<span style="font-size: 16px;"
+					<li><a href="#">상품등록 관리<span style="font-size: 13px;"
 							class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-					<li><a href="#">회원정보 수정<span style="font-size: 16px;"
+					<li><a href="#">회원정보 수정<span style="font-size: 13px;"
 							class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
-					<li><a href="#">1:1 문의<span style="font-size: 16px;"
+					<li><a href="#">1:1 문의<span style="font-size: 13px;"
 							class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
-					<li><a href="#">리뷰관리<span style="font-size: 16px;"
+					<li><a href="#">리뷰관리<span style="font-size: 13px;"
 							class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
 				</ul>
 			</div>
@@ -279,13 +282,13 @@ td {
 					<td colspan="6"><h2>등록 상품 검수</h2></td>
 				</tr>
 				<tr>
-					<td>상품번호</td>
-					<td>등록일</td>
-					<td>판매자</td>
-					<td>상품명</td>
-					<td>게시일</td>
-					<td>게시여부</td>
-					<td>관리</td>
+					<th>상품번호</th>
+					<th>등록일</th>
+					<th>판매자</th>
+					<th>상품명</th>
+					<th>게시일</th>
+					<th>게시여부</th>
+					<th>관리</th>
 				</tr>
 				<c:forEach var="list" items="${inspectList}">
 					<tr>

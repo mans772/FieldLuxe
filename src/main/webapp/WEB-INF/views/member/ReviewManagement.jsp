@@ -189,6 +189,13 @@
 	section{
 		padding-left: 15px;
 	}
+	.show-table{
+		margin-top:50px;
+		margin-bottom:200px;
+		width:900px;
+		margin-left:100px;
+		margin-right:100px;
+	}
 
 @media screen and (max-width: 786px) {
 	.show-table{
@@ -201,10 +208,7 @@
 	
 	
 }
-td {
-	font-style:dotum;
-	font-size:15px;
-}
+
 
 .pagination a {
   color: black;
@@ -227,7 +231,7 @@ td {
 	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#c5c5e3;">
     <div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
-		<div class="navbar-header">
+		<div class="navbar-header" style="font-family:Malgun Gothic;">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
 				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
@@ -252,19 +256,19 @@ td {
 		</div>
 	</div>
 </nav>
-<div class="main">
+<div class="main" style="font-family:Malgun Gothic;">
 <div class="show-table" >
 	<table class="table">
     	<tr>
            <td colspan="6"><h3>리뷰관리</h3></td>
          </tr>
          <tr>
-            <td>리뷰번호</td>
-            <td>리뷰날짜</td>
-           	<td>판매자</td>
-            <td>상품명</td>
-            <td>별점평가</td>
-            <td>리뷰내용</td>
+            <th>리뷰번호</th>
+            <th>리뷰날짜</th>
+           	<th>판매자</th>
+            <th>상품명</th>
+            <th>별점평가</th>
+            <th>리뷰내용</th>
           </tr>
           <tr>
       <%-- <c:forEach items="${}" var="vo"> --%>

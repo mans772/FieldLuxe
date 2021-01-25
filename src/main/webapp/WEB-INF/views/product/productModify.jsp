@@ -270,7 +270,7 @@
 							</tr>
 							<tr>
 								<td colspan="2">
-									<a type="button" class="btn btn-default" style="width: 300px; background-color: #ebcee8;" onclick="goBack()">취소하기</a>
+									<button class="btn btn-default" style="width: 300px; background-color: #ebcee8;" onclick="goBack()">취소하기</button>
 								</td>
 							</tr>
 						</table>
@@ -421,17 +421,17 @@
 				 $("#preview").append(
 	                     "<div class=\"preview-box\" value=\"" + i +"\">"
 							+ "<img class=\"thumbnail\" id=\"t\" value=\"" + i + "\" name=\"image\" src=\"" + img[i].src + "\"\/>"
-							+ "<input type=\"button\" name=\"selector\" class=\"btn btn-primary\" value=\"썸네일 선택\" style=\"display:inline-block;\""
+							+ "<input type=\"button\" name=\"selector\" class=\"btn btn-default\" value=\"썸네일 선택\" style=\"display:inline-block;margin-right:5px;background-color:#784df0;color:white;\""
 							+ "onclick=\"selectThumbnail(" + i + ", this)\">"
-							+ "<input type=\"button\" class=\"btn btn-danger\" value=\"삭제\" style=\"display:inline-block;\""
+							+ "<input type=\"button\" class=\"btn btn-default\" value=\"삭제\" style=\"display:inline-block;background-color:#a29da8;color:white;\""
 							+ "onclick=\"deletePreview(" + i + ")\"></div>");
 			} else {
 				 $("#preview").append(
 	                     "<div class=\"preview-box\" value=\"" + i +"\">"
 							+ "<img class=\"thumbnail\" value=\"" + i + "\" name=\"image\" src=\"" + img[i].src + "\"\/>"
-							+ "<input type=\"button\" name=\"selector\" class=\"btn btn-primary\" value=\"썸네일 선택\" style=\"display:inline-block;\""
+							+ "<input type=\"button\" name=\"selector\" class=\"btn btn-primary\" value=\"썸네일 선택\" style=\"display:inline-block;margin-right:5px;background-color:#784df0;color:white;\""
 							+ "onclick=\"selectThumbnail(" + i + ", this)\">"
-							+ "<input type=\"button\" class=\"btn btn-danger\" value=\"삭제\" style=\"display:inline-block;\""
+							+ "<input type=\"button\" class=\"btn btn-danger\" value=\"삭제\" style=\"display:inline-block;background-color:#a29da8;color:white;\""
 							+ "onclick=\"deletePreview(" + i + ")\"></div>");
 			}
 		}

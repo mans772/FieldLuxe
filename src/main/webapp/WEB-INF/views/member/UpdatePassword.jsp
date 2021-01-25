@@ -195,12 +195,13 @@
 	width:100;
 	display:block;
 	text-align:center;
+	margin-bottom:200px;
 }
 .input-group {
 	width:700px;
 	margin-top:100px;
-	margin-left:300px;
-	margin-right:300px;
+	margin-left:280px;
+	
 }
 @media screen and (max-width: 786px) {
 	.input-group {
@@ -231,7 +232,7 @@
 <body>
 <jsp:include page="../include/header.jsp"/>
 	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;">
-    <div class="container-fluid">
+    <div class="container-fluid" style="font-family:Malgun Gothic;">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -259,18 +260,18 @@
 		</div>
 	</div>
 </nav>
-<div class="main">
+<div class="main" style="font-family:Malgun Gothic;">
 	
 	<div class="pw-ch" >
 	<form  method="post" action="#">
 	
 		<div class="input-group" >
 		<h3>비밀번호 변경</h3>
-			<input type="text" class="form-control" style="margin-top:20px;"
+			<input type="password" class="form-control" style="margin-top:20px;"
 				name="pawssword" id="password"  placeholder="현재비밀번호를 입력해주세요" required/>
-			<input type="text" class="form-control" style="margin-top:20px;"
+			<input type="password" class="form-control" style="margin-top:20px;"
 				name="Newpassword" id="Newpassword"  placeholder="새 비밀번호를 입력해주세요." required/>
-			<input type="text" class="form-control" style="margin-top:20px;"
+			<input type="password" class="form-control" style="margin-top:20px;"
 				name="confirm" id="confirm"  placeholder="새 비밀번호를 다시 한번 입력해주세요"onchange="check_pw()" required/>
 			<span id="check"></span>
 		</div>

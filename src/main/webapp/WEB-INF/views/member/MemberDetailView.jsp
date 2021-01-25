@@ -190,13 +190,13 @@
 	section{
 		padding-left: 15px;
 	}
-	.table {
-		width:1000px;
+.show-table{
+		margin-top:50px;
+		margin-bottom:200px;
+		width:900px;
+		margin-left:100px;
+		margin-right:100px;
 	}
-	td {
-	font-style:dotum;
-	font-size:15px;
-}
 .pagination a {
   color: black;
   float: left;
@@ -230,15 +230,7 @@
 .search-container button:hover {
   background: #ccc;
 }	
-@media screen and (max-width: 786px) {
-	.show-table{
-		overflow-x: auto;
-	}
-	.table {
-		width: 100%;
-		min-width: 500px;
-	}
-}
+
 
 input[type="checkbox"] { 
 	display: none; 
@@ -302,14 +294,25 @@ input[type="checkbox"] {
 .input__on-off:checked + .label__on-off .marble { 
 	left: 33px; 
 }
-
-
+.show-table {
+	width:800px;
+	margin-top:70px;
+}
+@media screen and (max-width: 786px) {
+	.show-table{
+		overflow-x: auto;
+	}
+	.table {
+		width: 100%;
+		min-width: 500px;
+	}
+}
 </style>
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
 	<nav class="navbar navbar-inverse sidebar" role="navigation" >
-    <div class="container-fluid">
+    <div class="container-fluid" style="font-family:Malgun Gothic;">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -336,14 +339,11 @@ input[type="checkbox"] {
 		</div>
 	</div>
 </nav>
-<div class="main">
+<div class="main" style="font-family:Malgun Gothic;">
 	<div class="show-table" >
-		
-	<table class="table" >
-    	<tr>
-           <td colspan="2"><h3>회원상세보기</h3>
-    	   </td>
-         </tr>
+		<h3>회원상세보기</h3>
+	<table class="table" style="margin-top:50px;">
+    	
          <tr>
             <th>이메일</th>
             <td>asdf@naver.com<%-- <%= %> --%></td>
