@@ -67,7 +67,7 @@ input[type="number"]::-webkit-inner-spin-button {
 </head>
 <body>
 	<jsp:include page="../include/header.jsp" />
-	<div class="contanier">
+	<div class="contanier" style="font-family:Malgun Gothic;">
 		<div class="pro-re">
 			<h2 style="text-align: center;">상품등록</h2>
 			<div class="show-table">
@@ -285,9 +285,9 @@ input[type="number"]::-webkit-inner-spin-button {
 	                $("#preview").append(
 	                                "<div class=\"preview-box\" value=\"" + imgNum +"\">"
 									+ "<img class=\"thumbnail\" value=\"" + imgNum + "\" name=\"image\" src=\"" + img.target.result + "\"\/>"
-									+ "<input type=\"button\" name=\"selector\" class=\"btn btn-primary\" value=\"썸네일 선택\" style=\"display:inline-block;\""
+									+ "<input type=\"button\" name=\"selector\" class=\"btn btn-default\" value=\"썸네일 선택\" style=\"display:inline-block;margin-right:5px;background-color:#784df0;color:white;\""
 									+ "onclick=\"selectThumbnail(" + imgNum + ", this)\">"
-									+ "<input type=\"button\" class=\"btn btn-danger\" value=\"삭제\" style=\"display:inline-block;\""
+									+ "<input type=\"button\" class=\"btn btn-default\" value=\"삭제\" style=\"display:inline-block;background-color:#a29da8;color:white;\""
 									+ "onclick=\"deletePreview(" + imgNum + ")\"></div>");
 	                files[imgNum] = file;
 	                $("#uploadInputBox").val("");
