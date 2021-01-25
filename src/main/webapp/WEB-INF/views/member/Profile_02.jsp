@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,127 +61,44 @@ h2{
     		<a href="#" class="btn btn-default" id="review"
     			style="width:130px;height:30px; background-color:#bdd1ff; font-size:15px;" >구매후기</a>
     	</div>	
+    	
+    	
+    	<c:forEach var="list" items="${profileReviewList}">
 		 <div class="col-md-6 col-sm-12" style="margin-bottom:50px;">
 		 	<table class="table">
 		 		<tr>
 		 			<td>구매자</td>
-		 			<td>Angel<%-- <%= %> --%></td>
+		 			<td>${list.reviewWriter}</td>
 		 		</tr>
 		 		<tr>
 		 			<td>상품</td>
-		 			<td>Balenciaga Track Trainer Grey White 2019<%-- <%= %> --%></td>
+		 			<td>${list.productId}</td>
 		 		</tr>
 		 		<tr>
 		 			<td>등록일</td>
-		 			<td>2020.09.08<%-- <%= %> --%></td>
+		 			<td>${list.reviewRegDate}</td>
 		 		</tr>
 		 		<tr>
 		 			<td>별점</td>
-		 			<td><div class="starRev" style="text-align:center;">
+		 			<td>
+		 			${list.reviewScore}
+		 			<div class="starRev" style="text-align:center;">
   					<span class="starR on">별1</span>
   					<span class="starR">별2</span>
   					<span class="starR">별3</span>
   					<span class="starR">별4</span>
   					<span class="starR">별5</span>
-				</div><%-- <%= %> --%></td>
+					</div>
+					</td>
 		 		</tr>
 		 		<tr>
 		 			<td>리뷰</td>
-		 			<td>물건정말 맘에 들어요<%-- <%= %> --%></td>
+		 			<td>${list.reviewContent}</td>
 		 		</tr>
 		 	</table>
 		 </div>
+		</c:forEach>
 		 
-		 <div class="col-md-6 col-sm-12" style="margin-bottom:50px;">
-		 	<table class="table">
-		 		<tr>
-		 			<td>구매자</td>
-		 			<td>Angel<%-- <%= %> --%></td>
-		 		</tr>
-		 		<tr>
-		 			<td>상품</td>
-		 			<td>Balenciaga Track Trainer Grey White 2019<%-- <%= %> --%></td>
-		 		</tr>
-		 		<tr>
-		 			<td>등록일</td>
-		 			<td>2020.09.08<%-- <%= %> --%></td>
-		 		</tr>
-		 		<tr>
-		 			<td>별점</td>
-		 			<td><div class="starRev" style="text-align:center;">
-  					<span class="starR on">별1</span>
-  					<span class="starR">별2</span>
-  					<span class="starR">별3</span>
-  					<span class="starR">별4</span>
-  					<span class="starR">별5</span>
-				</div><%-- <%= %> --%></td>
-		 		</tr>
-		 		<tr>
-		 			<td>리뷰</td>
-		 			<td>물건정말 맘에 들어요<%-- <%= %> --%></td>
-		 		</tr>
-		 	</table>
-		 </div>
-		 <div class="col-md-6 col-sm-12" style="margin-bottom:50px;">
-		 	<table class="table">
-		 		<tr>
-		 			<td>구매자</td>
-		 			<td>Angel<%-- <%= %> --%></td>
-		 		</tr>
-		 		<tr>
-		 			<td>상품</td>
-		 			<td>Balenciaga Track Trainer Grey White 2019<%-- <%= %> --%></td>
-		 		</tr>
-		 		<tr>
-		 			<td>등록일</td>
-		 			<td>2020.09.08<%-- <%= %> --%></td>
-		 		</tr>
-		 		<tr>
-		 			<td>별점</td>
-		 			<td><div class="starRev" style="text-align:center;">
-  					<span class="starR on">별1</span>
-  					<span class="starR">별2</span>
-  					<span class="starR">별3</span>
-  					<span class="starR">별4</span>
-  					<span class="starR">별5</span>
-				</div><%-- <%= %> --%></td>
-		 		</tr>
-		 		<tr>
-		 			<td>리뷰</td>
-		 			<td>물건정말 맘에 들어요<%-- <%= %> --%></td>
-		 		</tr>
-		 	</table>
-		 </div>
-		 <div class="col-md-6 col-sm-12" style="margin-bottom:50px;">
-		 	<table class="table">
-		 		<tr>
-		 			<td>구매자</td>
-		 			<td>Angel<%-- <%= %> --%></td>
-		 		</tr>
-		 		<tr>
-		 			<td>상품</td>
-		 			<td>Balenciaga Track Trainer Grey White 2019<%-- <%= %> --%></td>
-		 		</tr>
-		 		<tr>
-		 			<td>등록일</td>
-		 			<td>2020.09.08<%-- <%= %> --%></td>
-		 		</tr>
-		 		<tr>
-		 			<td>별점</td>
-		 			<td><div class="starRev" style="text-align:center;">
-  					<span class="starR on">별1</span>
-  					<span class="starR">별2</span>
-  					<span class="starR">별3</span>
-  					<span class="starR">별4</span>
-  					<span class="starR">별5</span>
-				</div><%-- <%= %> --%></td>
-		 		</tr>
-		 		<tr>
-		 			<td>리뷰</td>
-		 			<td>물건정말 맘에 들어요<%-- <%= %> --%></td>
-		 		</tr>
-		 	</table>
-		 </div>
 		 
      <div style="margin-top:30px;width:1000px;">
        		<button style="float:right; width:100px;height:30px; background-color:#8d98f2; font-size:15px;" 

@@ -29,21 +29,7 @@ public class ProductController {
 	@Autowired
 	private IProductService service;
 	
-//	@GetMapping("/list") // 寃��닔 �셿猷� 紐⑸줉
-//	public String checkedList(Model model) {
-//		System.out.println("checkedList");
-//		model.addAttribute("list", service.list(true, null));
-//		return "product/list";
-//	}
-	
-//	@PostMapping("/list") // 寃��닔 �븘�슂 紐⑸줉
-//	public String checkingList(Model model) {
-//		System.out.println("checkingList");
-//		model.addAttribute("list", service.list(false, null));
-//		return "product/list";
-//	}
-	
-	@GetMapping("/content/{productId}") // �긽�꽭 �럹�씠吏�
+	@GetMapping("/content/{productId}") // 상품 상세 보기 요청
 	public ModelAndView content(@PathVariable int productId, Model model) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("product/productDetail");
@@ -51,7 +37,7 @@ public class ProductController {
 		return mv;
 	}
 	
-	@DeleteMapping("/content/{productId}") // �궘�젣 �옉�뾽
+	@DeleteMapping("/content/{productId}") // 상품 삭제 요청
 	@ResponseBody
 	public String delete(@PathVariable int productId) {
 		// service.delete(productId);
@@ -59,7 +45,7 @@ public class ProductController {
 		return "delete";
 	}
 	
-	@PutMapping("/content/{productId}") // 寃��닔 �옉�뾽
+	@PutMapping("/content/{productId}") // 상품 검수 결과 수정 요청
 	public ModelAndView check(@PathVariable int productId, char status, String rejectReason) {
 		ModelAndView mv = new ModelAndView();
 		service.update(service.detail(productId), status, rejectReason);
@@ -67,30 +53,30 @@ public class ProductController {
 		return mv;
 	}
 	
-	@GetMapping("/modify/{productId}") // �닔�젙 �럹�씠吏�
+	@GetMapping("/modify/{productId}") // 상품 수정 페이지 요청
 	public String modify(@PathVariable int productId, Model model) {
 		model.addAttribute("product", service.detail(productId));
 		return "product/productModify";
 	}
 	
-	@PutMapping("/modify/{productId}") // �닔�젙 �옉�뾽
+	@PutMapping("/modify/{productId}") // 상품 수정 요청
 	public String modify(@PathVariable int productId, ListData listData, DealData dealData, DetailData detailData) {
 		service.update(new ProductVO(listData, dealData, detailData), '0', null);
 		return "redirect:/product/content/" + listData.getProductId();
 	}
 	
-	@GetMapping("/regist") // 臾쇳뭹 �떊洹� �벑濡� �럹�씠吏�
+	@GetMapping("/regist") // 상품 등록 페이지 요청
 	public String regist() {
 		return "product/productRegist";
 	}
 	
-	@PostMapping("/regist") // 臾쇳뭹 �떊洹� �벑濡� �옉�뾽
+	@PostMapping("/regist") // 상품 등록 요청
 	public String regist(ListData listData, DealData dealData, DetailData detailData) {
 		service.insert(new ProductVO(listData, dealData, detailData));
 		return "redirect:/product/list";
 	}
 	
-	@GetMapping("/pay") // 寃곗젣 �솕硫� �슂泥�
+	@GetMapping("/pay") // 상품 결제 페이지 요청
 	public String pay(int productId, Model model) {
 		model.addAttribute("product", service.detail(productId));
 		return "product/productPayment";
