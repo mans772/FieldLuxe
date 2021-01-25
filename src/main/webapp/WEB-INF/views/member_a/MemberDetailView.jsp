@@ -335,15 +335,15 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home<span style="font-size:16px;"
+				<li class="active"><a href="#">Home<span style="font-size:13px;"
 				 class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">회원관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">등록상품 검수<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">게시 상품 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">거래내역 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">1:1 문의 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
-				<li ><a href="#">리뷰관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
-				<li ><a href="#">쿠폰관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
+				<li ><a href="#">회원관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li ><a href="#">등록상품 검수<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">게시 상품 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">거래내역 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">1:1 문의 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
+				<li ><a href="#">리뷰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
+				<li ><a href="#">쿠폰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
 			</ul>
 		</div>
 	</div>
@@ -354,31 +354,31 @@
 	<table class="table" style="margin-top:50px;">
     	
          <tr>
-            <td>이메일</td>
+            <th>이메일</th>
             <td>asdf@naver.com<%-- <%= %> --%></td>
          </tr>
          <tr>
-            <td>닉네임</td>
+            <th>닉네임</th>
             <td>라이언<%-- <%= %> --%></td>
           </tr>
           <tr>
-          	<td>이름</td>
+          	<th>이름</th>
           	<td>김하나<%-- <%= %> --%></td>
           </tr>
            <tr>
-          	<td>휴대폰번호</td>
+          	<th>휴대폰번호</th>
           	<td>010-7890-1234<%-- <%= %> --%></td>
           </tr>
            <tr>
-          	<td>우편번호</td>
+          	<th>우편번호</th>
           	<td>03138<%-- <%= %> --%></td>
           </tr>
            <tr>
-          	<td>주소</td>
+          	<th>주소</th>
           	<td>서울시 종로구<%-- <%= %> --%></td>
           </tr>
           <tr>
-          	<td>보유쿠폰</td>
+          	<th>보유쿠폰</th>
           	<td><select name="coupon" class="selectpicker"style="width:200px;height:30px;font-size:15px;">
 			 		<option>10% 할인</option>
 			 		<option>20% 할인</option>
@@ -387,11 +387,11 @@
 				</select><%-- <%= %> --%></td>
           </tr>
           <tr>
-          	<td>계좌번호</td>
+          	<th>계좌번호</th>
           	<td>12345555555<%-- <%= %> --%></td>
           </tr>
           <tr>
-          	<td>계좌정지</td>
+          	<th>계좌정지</th>
           	<td><input type="checkbox" id="switch1" name="switch1" class="input__on-off"> 
           		<label for="switch1" class="label__on-off"> 
           			<span class="marble"></span> 

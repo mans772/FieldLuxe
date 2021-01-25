@@ -197,10 +197,7 @@
 	.table {
 		width:450px;
 	}
-	td {
-	font-style:dotum;
-	font-size:15px;
-}
+
 
 @media screen and (max-width: 786px) {
 	.show-table{
@@ -234,15 +231,15 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home<span style="font-size:16px;"
+				<li class="active"><a href="#">Home<span style="font-size:13px;"
 				 class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">회원관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">등록상품 검수<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">게시 상품 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">거래내역 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">1:1 문의 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
-				<li ><a href="#">리뷰관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
-				<li ><a href="#">쿠폰관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
+				<li ><a href="#">회원관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li ><a href="#">등록상품 검수<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">게시 상품 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">거래내역 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">1:1 문의 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
+				<li ><a href="#">리뷰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
+				<li ><a href="#">쿠폰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
 			</ul>
 		</div>
 	</div>
@@ -257,19 +254,19 @@
 	 <div class="col-md-6 col-sm-12" style="margin-top:50px;">
 	 	<table class="table">
 	 		<tr>
-	 			<td>상품번호</td>
+	 			<th>상품번호</th>
 	 			<td>33950325<%-- <%= %> --%></td>
 	 		</tr>
 	 		<tr>
-	 			<td>브랜드</td>
+	 			<th>브랜드</th>
 	 			<td>Balenciaga<%-- <%= %> --%></td>
 	 		</tr>
 	 		<tr>
-	 			<td>상품명</td>
+	 			<th>상품명</th>
 	 			<td>Balenciaga Track Trainer Grey White 2019<%-- <%= %> --%></td>
 	 		</tr>
 	 		<tr>
-	 			<td>모델번호</td>
+	 			<th>모델번호</th>
 	 			<td>542023W1GB71214<%-- <%= %> --%></td>
 	 		</tr>
 	 	</table>

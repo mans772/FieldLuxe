@@ -197,10 +197,7 @@
 		width:900px;
 		margin-left:100px;
 	}
-	td {
 	
-	font-size:15px;
-}
 .pagination a {
   color: black;
   float: left;
@@ -272,15 +269,15 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home<span style="font-size:16px;"
+				<li class="active"><a href="#">Home<span style="font-size:13px;"
 				 class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">회원관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">등록상품 검수<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">게시 상품 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">거래내역 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">1:1 문의 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
-				<li ><a href="#">리뷰관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
-				<li ><a href="#">쿠폰관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
+				<li ><a href="#">회원관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li ><a href="#">등록상품 검수<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">게시 상품 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">거래내역 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">1:1 문의 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
+				<li ><a href="#">리뷰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
+				<li ><a href="#">쿠폰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
 			</ul>
 		</div>
 	</div>
@@ -292,70 +289,70 @@
 			<h4 style="float:left;margin-top:50px;">상품정보</h4><br>
 			<table class="table">
 				<tr>
-					<td style="width:20%;">상품번호</td>
+					<th style="width:20%;">상품번호</th>
   					<td>3398762<%-- <%= %> --%></td>
 				</tr>
 				<tr>
-					<td>카테고리</td>
+					<th>카테고리</th>
   					<td>신발<%-- <%= %> --%></td>
 				</tr>
 				<tr>
-					<td>브랜드명</td>
+					<th>브랜드명</th>
   					<td>Balenciaga<%-- <%= %> --%></td>
 				</tr>
 				<tr>
-					<td>모델명</td>
+					<th>모델명</th>
   					<td>Balenciaga Track Trainer Grey White 2019<%-- <%= %> --%></td>
 				</tr>
 				<tr>
-					<td>모델번호</td>
+					<th>모델번호</th>
   					<td>542023W1GB71214<%-- <%= %> --%></td>
 				</tr>
 				<tr>
-					<td>대표색상</td>
+					<th>대표색상</th>
   					<td> GREY/GREY-WHITE<%-- <%= %> --%></td>
 				</tr>
 				<tr>
-					<td>출시일</td>
+					<th>출시일</th>
   					<td>2019.10.10<%-- <%= %> --%></td>
 				</tr>
 				<tr>
-					<td>발매가</td>
+					<th>발매가</th>
   					<td>960,000원<%-- <%= %> --%></td>
 				</tr>
 				<tr>
-					<td>사이즈</td>
+					<th>사이즈</th>
   					<td>265mm<%-- <%= %> --%></td>
 				</tr>
 			</table>
 			<h4 style="float:left;width:950px;margin-top:50px;">판매정보</h4><br>
 			<table class="table">
 				<tr>
-					<td style="width:20%;">판매자 아이디</td>
+					<th style="width:20%;">판매자 아이디</th>
   					<td>asdf12@naver.com<%-- <%= %> --%></td>
 				</tr>
 				<tr>
-					<td>계좌번호</td>
+					<th>계좌번호</th>
   					<td>111133334890<%-- <%= %> --%></td>
 				</tr>
 				<tr>
-					<td>거래방식</td>
+					<th>거래방식</th>
   					<td>둘 다<%-- <%= %> --%></td>
 				</tr>
 				<tr>
-					<td>즉시 구매가</td>
+					<th>즉시 구매가</th>
   					<td>1,500,000원<%-- <%= %> --%></td>
 				</tr>
 				<tr>
-					<td>최소 입찰가</td>
+					<th>최소 입찰가</th>
   					<td>800,000원<%-- <%= %> --%></td>
 				</tr>
 				<tr>
-					<td>입찰보증금</td>
+					<th>입찰보증금</th>
   					<td>80,000원<%-- <%= %> --%></td>
 				</tr>
 				<tr>
-					<td>입찰기간</td>
+					<th>입찰기간</th>
   					<td>2021.01.03~2021.02.03<%-- <%= %> --%></td>
 				</tr>
 			</table>

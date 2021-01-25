@@ -275,15 +275,15 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">내 프로필보기<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">경매참여내역<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">구매내역<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">판매내역<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">상품등록 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-				<li ><a href="#">회원정보 수정<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
-				<li ><a href="#">1:1 문의<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
-				<li ><a href="#">리뷰관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
+				<li class="active"><a href="#">Home<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+				<li ><a href="#">내 프로필보기<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li ><a href="#">경매참여내역<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">구매내역<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">판매내역<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">상품등록 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
+				<li ><a href="#">회원정보 수정<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
+				<li ><a href="#">1:1 문의<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
+				<li ><a href="#">리뷰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
 			</ul>
 		</div>
 	</div>
@@ -299,44 +299,44 @@
          
          <tr>
          	<input type="hidden" name="userId" value="<%-- <%=memvo.getUserId() %> --%>">
-            <td class="td-left"><label class="control-label" for="id">아이디</label></td>
+            <th class="td-left"><label class="control-label" for="id">아이디</label></th>
             <td class="td-right"><input style="width:60%" type="text" name="userId" value="<%-- ${vo. } --%>"> </td>
          </tr>
          
        	 <tr>
-       	   <td class="td-left"><label class="control-label" for="nickname">닉네임</label></td>
+       	   <th class="td-left"><label class="control-label" for="nickname">닉네임</label></th>
            <td class="td-right"><input style="width:60%" type="text" name="userNickname" value="<%-- ${vo. } --%>"> </td>
          </tr>
            
          <tr>
-         	<td class="td-left"><label class="control-label" for="name">이름</label></td>
+         	<th class="td-left"><label class="control-label" for="name">이름</label></th>
             <td class="td-right"><input style="width:60%" type="text" name="userName" value="<%-- ${vo. } --%>"> </td>
          </tr>
          
          <tr>
-        	<td class="td-left"><label for="tel">휴대폰번호</label></td>
+        	<th class="td-left"><label for="tel">휴대폰번호</label></th>
             <td class="td-right"><input style="width:60%" type="text" name="userTel" value="<%-- ${vo. } --%>"> </td>
          </tr>
            
          <tr>
-         	<td class="td-left"><label class="control-label" for="zipcode">우편번호</label></td>
+         	<th class="td-left"><label class="control-label" for="zipcode">우편번호</label></th>
             <td class="td-right"><input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호" name="addr1" id="addr1" type="text" readonly="readonly" >
     			<button style="width:130px;type="button" class="btn" onclick="execPostCode();"><i class="fa fa-search"></i> 우편번호 찾기</button>
     		</td>
  		 </tr>
            
          <tr>
-        	<td class="td-left"><label class="control-label" for="address">주소</label></td>
+        	<th class="td-left"><label class="control-label" for="address">주소</label></th>
             <td class="td-right"> <input class="form-control" style="top: 5px;width:60%;" placeholder="도로명 주소" name="addr2" id="addr2" type="text" readonly="readonly" /></td>
          </tr>
            
          <tr>
-         	<td class="td-left"><label class="control-label" for="detailaddress">상세주소</label></td>
+         	<th class="td-left"><label class="control-label" for="detailaddress">상세주소</label></th>
             <td class="td-right"><input class="form-control" style="width:60%" placeholder="상세주소" name="addr3" id="addr3" type="text"  /></td>
          </tr>
            
          <tr>
-         	<td class="td-left"><label class="control-label" for="coupon">보유쿠폰</label></td>
+         	<th class="td-left"><label class="control-label" for="coupon">보유쿠폰</label></th>
             <td class="td-right"><input style="width:60%" type="text" name="userCoupon" value="<%-- ${vo. } --%>"> </td>
          </tr>
          
