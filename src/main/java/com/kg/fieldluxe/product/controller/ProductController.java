@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kg.fieldluxe.commons.PageCreator;
 import com.kg.fieldluxe.commons.SearchVO;
@@ -27,42 +29,48 @@ public class ProductController {
 	@Autowired
 	private IProductService service;
 	
-	@GetMapping("/list") // 寃��닔 �셿猷� 紐⑸줉
-	public String checkedList(Model model) {
-		System.out.println("checkedList");
-		model.addAttribute("list", service.list(true, null));
-		return "product/list";
-	}
+//	@GetMapping("/list") // 寃��닔 �셿猷� 紐⑸줉
+//	public String checkedList(Model model) {
+//		System.out.println("checkedList");
+//		model.addAttribute("list", service.list(true, null));
+//		return "product/list";
+//	}
 	
-	@PostMapping("/list") // 寃��닔 �븘�슂 紐⑸줉
-	public String checkingList(Model model) {
-		System.out.println("checkingList");
-		model.addAttribute("list", service.list(false, null));
-		return "product/list";
-	}
+//	@PostMapping("/list") // 寃��닔 �븘�슂 紐⑸줉
+//	public String checkingList(Model model) {
+//		System.out.println("checkingList");
+//		model.addAttribute("list", service.list(false, null));
+//		return "product/list";
+//	}
 	
 	@GetMapping("/content/{productId}") // �긽�꽭 �럹�씠吏�
-	public String content(@PathVariable int productId, Model model) {
-		model.addAttribute("product", service.detail(productId));
-		return "product/detail";
+	public ModelAndView content(@PathVariable int productId, Model model) {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("product/productDetail");
+		mv.addObject("product", service.detail(productId));
+		return mv;
 	}
 	
 	@DeleteMapping("/content/{productId}") // �궘�젣 �옉�뾽
+	@ResponseBody
 	public String delete(@PathVariable int productId) {
-		service.delete(productId);
-		return "redirect:/product/list";
+		// service.delete(productId);
+		System.out.println(productId + "번 글 삭제요청");
+		return "delete";
 	}
 	
 	@PutMapping("/content/{productId}") // 寃��닔 �옉�뾽
-	public String check(@PathVariable int productId, char status, String rejectReason) {
+	public ModelAndView check(@PathVariable int productId, char status, String rejectReason) {
+		ModelAndView mv = new ModelAndView();
 		service.update(service.detail(productId), status, rejectReason);
-		return "redirect:/product/list";
+		mv.setViewName("redirect:/product/list");
+		return mv;
 	}
 	
 	@GetMapping("/modify/{productId}") // �닔�젙 �럹�씠吏�
 	public String modify(@PathVariable int productId, Model model) {
 		model.addAttribute("product", service.detail(productId));
-		return "product/modify";
+		return "product/productModify";
 	}
 	
 	@PutMapping("/modify/{productId}") // �닔�젙 �옉�뾽
@@ -73,7 +81,7 @@ public class ProductController {
 	
 	@GetMapping("/regist") // 臾쇳뭹 �떊洹� �벑濡� �럹�씠吏�
 	public String regist() {
-		return "product/regist";
+		return "product/productRegist";
 	}
 	
 	@PostMapping("/regist") // 臾쇳뭹 �떊洹� �벑濡� �옉�뾽
@@ -85,10 +93,10 @@ public class ProductController {
 	@GetMapping("/pay") // 寃곗젣 �솕硫� �슂泥�
 	public String pay(int productId, Model model) {
 		model.addAttribute("product", service.detail(productId));
-		return "product/pay";
+		return "product/productPayment";
 	}
 	
-	@GetMapping("/productList") //상품 전체 목록
+	@GetMapping("/") //상품 전체 목록
 	public String productList(Model model, SearchVO search) {
 		
 		PageCreator pc = new PageCreator();

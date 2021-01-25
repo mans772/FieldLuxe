@@ -19,7 +19,6 @@
 		text-align:center;
 		padding:40px;
 		background-color:#e9edf5;
-		font-family:Malgun Gothic;
 	}
 	.loginemail{
 		width:70%;

@@ -1,24 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<title>Index</title>
-<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-  
-<style type="text/css">
-h2.h2{text-align:center;margin:1em;text-transform:capitalize;font-size:2.5em;}
 
+<style type="text/css">
+h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
+
+/********************* shopping Demo-1 **********************/
 .product-grid{font-family:Raleway,sans-serif;text-align:center;padding:0 0 72px;border:1px solid rgba(0,0,0,.1);overflow:hidden;position:relative;z-index:1}
 .product-grid .product-image{position:relative;transition:all .3s ease 0s}
 .product-grid .product-image a{display:block}
@@ -49,35 +49,74 @@ h2.h2{text-align:center;margin:1em;text-transform:capitalize;font-size:2.5em;}
 .product-grid .add-to-cart{color:#000;font-size:13px;font-weight:600}
 @media only screen and (max-width:990px){.product-grid{margin-bottom:30px}
 }
-a .more-button{
-	color:#460f6e;
-}
-a:hover .more-button{
-	color:#e3aaf0;
+.selectpicker span4 {
+	width:200px;
+	height:30px;
+	font-size:15px;
 
 }
-.new-pro{
-	width:1130px;
-	margin:0;
+.pic-1 {
+	width:150px;
+	height:200px;
 }
+
 </style>
 </head>
 <body>
+
+
 <jsp:include page="../include/header.jsp"/>
-<jsp:include page="../include/carousel.jsp"/>
-<div class="container" style="font-family:Malgun gothic;margin-bottom:200px;">
-    <h2 class="h2">New Product</h2>
-    <div class="new-pro">
+
+
+<div class="container">
+    
+		<form class="navbar-form">
+			<div class="input-group">
+			 	<div class="form-group navbar-left" >
+			 	<select name="kategorie" class="selectpicker span4"style="width:200px;height:30px;font-size:15px;">
+			 		<option>모든 카테고리</option>
+			 		<option>의류</option>
+					<option>가방</option>
+					<option>신발</option>
+				</select>
+				
+				<select name="brand" class="selectpicker span4" style="width:200px;height:30px;font-size:15px;">
+			 		<option>모든 브랜드</option>
+			 		<option>GUCCI</option>
+					<option>CHANEL</option>
+					<option>LOUISVUITTON</option>
+					<option>PRADA</option>
+				</select>
+				
+				<select name="price" class="selectpicker span4" style="width:200px;height:30px;font-size:15px;">
+			 		<option>모든 가격</option>
+			 		<option>~30만</option>
+					<option>30만~50만</option>
+					<option>50만~80만</option>
+					<option>80만 이상</option>
+				</select>
+				 
+				<select name="order" class="selectpicker span4" style="width:200px;height:30px;font-size:15px;">
+			 		<option>최신순</option>
+					<option>인기순</option>
+					<option>저가순</option>
+					<option>고가순</option>
+				</select>
+		 	</div>
+		</div>	  
+    </form>
+
+
+    <div class="row" style="margin-top:40px;">
+   <!--  <c:forEach items="" var=""> -->
         <div class="col-md-3 col-sm-6">
             <div class="product-grid">
                 <div class="product-image">
-                    <a href="#">
+                    <a href="#"><!-- 상세보기 페이지 -->
                         <img class="pic-1" src="img/handbag1.jpg">
-                        
                     </a>
                     <ul class="social">
                         <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
-                        <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
                         <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
                     </ul>
                     <span class="product-new-label">경매진행중</span>
@@ -91,7 +130,7 @@ a:hover .more-button{
                     <li class="fa fa-star disable"></li>
                 </ul>
                 <div class="product-content">
-                    <h3 class="title"><a href="#">Women's Blouse</a></h3>
+                    <h3 class="title"><a href="#">GICCI</a></h3>
                     <div class="price">$16.00
                         <span>$20.00</span>
                     </div>
@@ -99,6 +138,8 @@ a:hover .more-button{
                 </div>
             </div>
         </div>
+       <!--  </c:forEach> -->
+       <!--  forEach가 잘 되면 여기서부터  아래로 내려가세요-->
         <div class="col-md-3 col-sm-6">
             <div class="product-grid">
                 <div class="product-image">
@@ -111,7 +152,7 @@ a:hover .more-button{
                         <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
                         <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
                     </ul>
-                    <span class="product-new-label">경매진행중</span>
+                    <span class="product-new-label">Sale</span>
                     <span class="product-discount-label">50%</span>
                 </div>
                 <ul class="rating">
@@ -142,7 +183,7 @@ a:hover .more-button{
                         <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
                         <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
                     </ul>
-                    <span class="product-new-label">경매진행중</span>
+                    <span class="product-new-label">Sale</span>
                     <span class="product-discount-label">50%</span>
                 </div>
                 <ul class="rating">
@@ -173,7 +214,7 @@ a:hover .more-button{
                         <li><a href="" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
                         <li><a href="" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
                     </ul>
-                    <span class="product-new-label">경매진행중</span>
+                    <span class="product-new-label">Sale</span>
                     <span class="product-discount-label">50%</span>
                 </div>
                 <ul class="rating">
@@ -192,22 +233,16 @@ a:hover .more-button{
                 </div>
             </div>
         </div>
-      </div>
-       <div style="margin-top:20px;float: right;color:#460f6e;">
-    		<a href="#"class="btn btn-success">더보기</a>
-    	</div>
-    
+      <!--  여기까지 삭제해주세요  -->
+    </div>
+     <div style="margin-top:30px;">
+       		<button style="float:right; width:100px;height:30px; background-color:#8d98f2; font-size:15px;" 
+       			type="button" class="btn">더보기</button> 
+    </div>
 </div>
+<hr>
 
 <jsp:include page="../include/footer.jsp"/>
+
 </body>
 </html>
-    
-
-
-
-
-
-
-
-

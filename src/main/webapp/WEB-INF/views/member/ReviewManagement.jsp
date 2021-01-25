@@ -40,13 +40,12 @@
 
  body,html{
 		height: 100%;
-		font-family:Malgun Gothic;
 	}
 
 	/* remove outer padding */
-	.main {
+	.main .row{
 		padding: 0px;
-		font-family:Malgun gothic;
+		margin: 0px;
 	}
 
 	/*Remove rounded coners*/
@@ -94,7 +93,6 @@
 			text-align: center;
 			width: 100%;
 			margin-left: 0px;
-			
 		}
 
 		/*Center Icons*/
@@ -191,16 +189,23 @@
 	section{
 		padding-left: 15px;
 	}
+
+@media screen and (max-width: 786px) {
 	.show-table{
-		margin-top:50px;
-		margin-bottom:200px;
-		width:900px;
-		margin-left:100px;
-		margin-right:100px;
+		overflow-x: auto;
 	}
-	td {
+	.table {
+		width: 100%;
+		min-width: 500px;
+	}
+	
+	
+}
+td {
+	font-style:dotum;
 	font-size:15px;
 }
+
 .pagination a {
   color: black;
   float: left;
@@ -214,113 +219,12 @@
 }
 
 .pagination a:hover:not(.active) {background-color: #ddd;}
-
-.search-container {
-  float: right;
-  display:inline-flex;
-}
-.search-container button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-  display:inline-flex;
-}
-
-.search-container button:hover {
-  background: #ccc;
-}	
-
-
- input[type="checkbox"] { 
-	display: none; 
-} 
-.label__on-off { 
-	overflow: hidden; 
-	position: relative; 
-	display: inline-block; 
-	width: 58px; height: 26px; 
-	-webkit-border-radius: 13px; 
-	-moz-border-radius: 13px; 
-	border-radius: 13px; 
-	background-color: #ed4956; 
-	color: #fff; 
-	font-weight: bold; 
-	cursor: pointer; 
-	-webkit-transition: all .3s; 
-	-moz-transition: all .3s; 
-	-ms-transition: all .3s; 
-	-o-transition: all .3s; 
-	transition: all .3s; 
-} 
-.label__on-off > * { 
-	vertical-align: middle; 
-	-webkit-transition: all .3s; 
-	-moz-transition: all .3s; 
-	-ms-transition: all .3s; 
-	-o-transition: all .3s; 
-	transition: all .3s; font-size: 14px; 
-} 
-.label__on-off .marble { 
-	position: absolute; 
-	top: 1px; left: 1px; 
-	display: block; 
-	width: 24px; 
-	height: 24px; 
-	background-color: #fff; 
-	-webkit-border-radius: 50%; 
-	-moz-border-radius: 50%; 
-	border-radius: 50%; 
-	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .3); 
-	-moz-box-shadow: 0 0 10px rgba(0, 0, 0, .3); 
-	box-shadow: 0 0 10px rgba(0, 0, 0, .3); 
-} 
-.label__on-off .on { 
-	display: none; 
-	padding-left: 12px; 
-} 
-.label__on-off .off { 
-	padding-left: 30px; line-height: 25px; 
-} 
-.input__on-off:checked + .label__on-off { 
-	background-color: #0bba82; 
-} 
-.input__on-off:checked + .label__on-off .on { 
-	display: inline-block; 
-} 
-.input__on-off:checked + .label__on-off .off { 
-	display: none; 
-} 
-.input__on-off:checked + .label__on-off .marble { 
-	left: 33px; 
-}
-.show-table {
-	width:800px;
-	margin-top:70px;
-}
-@media screen and (max-width: 786px) {
-	.show-table{
-		overflow-x: auto;
-		margin:0px;
-		width:100%;
-	}
-	.table {
-		width: 100%;
-		min-width: 500px;
-		margin-left:5px;
-	}
-	
-} 
-
 </style>
+
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
-	<nav class="navbar navbar-inverse sidebar" role="navigation" >
+	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#c5c5e3;">
     <div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -330,87 +234,77 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">ADMIN</a>
+			<a class="navbar-brand" href="#">마이 페이지</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home<span style="font-size:13px;"
-				 class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">회원관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">등록상품 검수<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">게시 상품 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">거래내역 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">1:1 문의 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
+				<li class="active"><a href="#">Home<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+				<li ><a href="#">내 프로필보기<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li ><a href="#">경매참여내역<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">구매내역<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">판매내역<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">상품등록 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
+				<li ><a href="#">회원정보 수정<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
+				<li ><a href="#">1:1 문의<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
 				<li ><a href="#">리뷰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
-				<li ><a href="#">쿠폰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
 			</ul>
 		</div>
 	</div>
 </nav>
 <div class="main">
-	<div class="show-table" >
-		<h3>회원상세보기</h3>
-	<table class="table" style="margin-top:50px;">
-    	
-         <tr>
-            <th>이메일</th>
-            <td>asdf@naver.com<%-- <%= %> --%></td>
+<div class="show-table" >
+	<table class="table">
+    	<tr>
+           <td colspan="6"><h3>리뷰관리</h3></td>
          </tr>
          <tr>
-            <th>닉네임</th>
-            <td>라이언<%-- <%= %> --%></td>
+            <td>리뷰번호</td>
+            <td>리뷰날짜</td>
+           	<td>판매자</td>
+            <td>상품명</td>
+            <td>별점평가</td>
+            <td>리뷰내용</td>
           </tr>
           <tr>
-          	<th>이름</th>
-          	<td>김하나<%-- <%= %> --%></td>
-          </tr>
+      <%-- <c:forEach items="${}" var="vo"> --%>
+      <%-- <c:if test="${empty }"><h3>내역이 없습니다.</h3></c:if> --%>
+           	<td>0053<%-- ${vo. } --%></td>
+           	<td>2020.12.30<%-- ${vo. } --%></td>
+           	<td>Linda</td>
+            <td>BALENCIAGA<%-- ${vo. } --%></td>
+            <td>★★<%-- ${vo. } --%></td>
+            <td>그냥 그래요<%-- ${vo. } --%></td>
+            <%-- </c:forEach> --%>
+           </tr>
+            			<tr>
+            				<td>0053<%-- ${vo. } --%></td>
+            				<td>2020.12.30<%-- ${vo. } --%></td>
+            				<td>Choi</td>
+            				<td>BALENCIAGA<%-- ${vo. } --%></td>
+            				<td>★★★★★</td>
+            				<td>예뻐요.잘쓰고 있어요<%-- ${vo. } --%></td>
+            			</tr>
            <tr>
-          	<th>휴대폰번호</th>
-          	<td>010-7890-1234<%-- <%= %> --%></td>
-          </tr>
-           <tr>
-          	<th>우편번호</th>
-          	<td>03138<%-- <%= %> --%></td>
-          </tr>
-           <tr>
-          	<th>주소</th>
-          	<td>서울시 종로구<%-- <%= %> --%></td>
-          </tr>
-          <tr>
-          	<th>보유쿠폰</th>
-          	<td><select name="coupon" class="selectpicker"style="width:200px;height:30px;font-size:15px;">
-			 		<option>10% 할인</option>
-			 		<option>20% 할인</option>
-					<option>30% 할인</option>
-					
-				</select><%-- <%= %> --%></td>
-          </tr>
-          <tr>
-          	<th>계좌번호</th>
-          	<td>12345555555<%-- <%= %> --%></td>
-          </tr>
-          <tr>
-          	<th>계좌정지</th>
-          	<td><input type="checkbox" id="switch1" name="switch1" class="input__on-off"> 
-          		<label for="switch1" class="label__on-off"> 
-          			<span class="marble"></span> 
-          			<span class="on">ACT</span> 
-          			<span class="off">BAN</span> 
-          		</label>
-
-<%-- <%= %> --%></td>
-          </tr>
-          
-		 </table>   			
+            <td colspan="6" style="text-align:center;"><!-- 페이징처리 -->
+  				<div class="pagination">
+  					<a href="#">&laquo;</a>
+  					<a class="active" href="#">1</a>
+  					<a  href="#">2</a>
+  					<a href="#">3</a>
+  					<a href="#">&raquo;</a>
+				</div>
+			</td>
+			</tr>
+     	</table>       			
       </div>
-   <jsp:include page="../include/footer.jsp"/>
+    <jsp:include page="../include/footer.jsp"/>
     
 </div>
 
- 
 
-<script type="text/javascript"> /* sidebar function */
+
+<script type="text/javascript">/* sidebar function */
 function htmlbodyHeightUpdate(){
 	var height3 = $( window ).height()
 	var height1 = $('.nav').height()+50
@@ -436,8 +330,6 @@ $(document).ready(function () {
 			htmlbodyHeightUpdate()
 	});
 });
-
-
 </script>
 </body>
 </html>

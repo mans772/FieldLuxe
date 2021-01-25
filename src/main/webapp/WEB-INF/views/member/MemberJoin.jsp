@@ -26,11 +26,11 @@
 		
 <style type="text/css">
 
- .join-page {
+ .join-page{
  	width:800px;
 	margin:50px auto;
 	text-align:center;
- 	font-family:Malgun Gothic;
+ 
  }
  
  .input-group{
@@ -40,27 +40,28 @@
 		text-align:center;
 }
 	.btn-join {
-		width:150px;
-		height:30px;
+		width:250px;
+		height:40px;
 		background-color:#d673fa;
 		border:none;
 		color:white;
 	}
 	.input-cancle{
-		width:150px;
-		height:30px;
+		width:250px;
+		height:40px;
 		background-color:#e6e6e6;
 		text-align:center;
 		border:none;
 		color:#141414;
 	}
 @media screen and (max-width: 600px) {
-	.row {
-		overflow-x: auto;
+	.join-page {
+		width:100%;
+		
 	}
 	
 	.input-group{
-		width:70%;
+		width:100%;
 		 margin:0 auto;
 		text-align:center;
 	}
@@ -68,7 +69,7 @@
 		width:100%;
 	}
 	.input-cancle{
-		width:100%;
+		width:50%;
 	}
 }
 </style> 
@@ -83,7 +84,7 @@
 <jsp:include page="../include/header.jsp"/>
 	<div class="join-page">
 			<div class="row">
-				<h3 class="title">회원가입</h3>
+				<h1 class="title">회원가입</h1>
 				
 					<form  method="post" action="#">
 						

@@ -41,7 +41,7 @@
  body,html{
 		height: 100%;
 	}
-	
+
 	/* remove outer padding */
 	.main .row{
 		padding: 0px;
@@ -217,7 +217,7 @@
 <jsp:include page="../include/header.jsp"/>
 
 	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;">
-    <div class="container-fluid" style="font-family:Malgun gothic;">
+    <div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -245,17 +245,15 @@
 		</div>
 	</div>
 	</nav>
-<div class="main"style="font-family:Malgun gothic;width:1000px;
-		margin-top:30px;
-		margin-left:300px;">
+<div class="main"style="margin-top:140px;">
 	<h3>구매 내역 상세보기</h3>
 		<div class="pro-de">
 		 	<div class="col-md-6" style="margin-top:50px;">
 		 		<div class="show-table">
-		 			<table class="table" style="width:450px;">
+		 			<table class="table" style="width:500px;">
 						<tr>
 							<td colspan="2" style="text-align:center;">
-								<img alt="" src="../img/handbag1.jpg<%-- <%= %> --%>" style="height:270px;">
+								<img alt="" src="img/handbag1.jpg<%-- <%= %> --%>" style="height:300px;">
 							</td>
 						<tr>
 							<td>브랜드</td>
@@ -340,7 +338,7 @@
 								<a href="#" class="btn btn-default" name="cancle-btn" style="width:200px;height:33px;
 									margin-top:20px;background-color:#916d90;color:white;">구매확정</a>
 								<a href="#" class="btn btn-default" name="cancle-btn" style="width:200px;height:33px;
-									margin-top:20px;background-color:#626ef5;color:white;">리뷰작성</a>
+									margin-top:20px;background-color:#916d90;color:white;">리뷰작성</a>
 							</td>
 						</tr>
 					</table>

@@ -189,13 +189,6 @@
 	section{
 		padding-left: 15px;
 	}
-	.show-table{
-		width:900px;
-		margin-top:100px;
-		margin-left:100px;
-		margin-bottom:200px;
-	
-	}
 
 @media screen and (max-width: 786px) {
 	.show-table{
@@ -208,7 +201,10 @@
 	
 	
 }
-
+td {
+	font-style:dotum;
+	font-size:20px;
+}
 
 .pagination a {
   color: black;
@@ -229,7 +225,7 @@
 <body>
 <jsp:include page="../include/header.jsp"/>
 	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;">
-    <div class="container-fluid" style="font-family:Malgun gothic;">
+    <div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -257,10 +253,10 @@
 	</div>
 </nav>
 <div class="main">
-<div class="show-table" style="font-family:Malgun gothic;" >
+<div class="show-table" >
 	<table class="table" >
     	<tr>
-           <td colspan="6"><h3>판매 내역</h3></td>
+           <td colspan="6"><h2>판매 내역</h2></td>
          </tr>
          <tr>
             <td>주문번호</td>
@@ -276,7 +272,7 @@
            	<td>0201<%-- ${vo. } --%></td>
            	<td>2021.01.03<%-- ${vo. } --%></td>
            	<td><a href="#">
-            		<img alt="img" src="../img/handbag1.jpg<%-- ${vo. } --%>" style="width:120px;"></td>
+            		<img alt="img" src="img/handbag1.jpg<%-- ${vo. } --%>" style="width:120px;"></td>
             	</a>
             <td>GUCCI<%-- ${vo. } --%></td>
             <td>670,000원<%-- ${vo. } --%></td>
@@ -286,7 +282,7 @@
             			<tr>
             				<td>0053<%-- ${vo. } --%></td>
             				<td>2020.12.30<%-- ${vo. } --%></td>
-            				<td><img alt="img" src="../img/handbag2.jpg<%-- ${vo. } --%>" style="width:120px;"></td>
+            				<td><img alt="img" src="img/handbag2.jpg<%-- ${vo. } --%>" style="width:120px;"></td>
             				<td>BALENCIAGA<%-- ${vo. } --%></td>
             				<td>2021.1.5<%-- ${vo. } --%></td>
             				<td>입찰<%-- ${vo. } --%></td>

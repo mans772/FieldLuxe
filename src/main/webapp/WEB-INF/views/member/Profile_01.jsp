@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 <style type="text/css">
-.profile-top {
+h2{
 	text-align:center;
 	margin-top:40px;
 	width:1000px;
@@ -32,13 +32,6 @@
   cursor: pointer;
 }
 .starR.on{background-position:0 0;}
-
-@media screen and (max-width: 786px) {
-	.profile-top{
-		width:50%;
-	}
-
-}
 </style>
 </head>
 <body>
@@ -47,13 +40,12 @@
 <jsp:include page="../include/header.jsp"/>
 
 
-<div class="container" style="Malgun Gothic;">
-   
-    	<div class="profile-top">
-    		<h2><%-- <%= %> --%>Angel님의 프로필</h2>
-    		<div class="star-re" style="margin-bottom:50px;">
-       			
-        		<h4><strong>별점평가</strong></h4>
+<div class="container">
+    <div class="row" style="text-align:center;">
+    	<h2><%-- <%= %> --%>Angel님의 프로필</h2>
+    		<div class="star-re" style="width:1000px; margin-bottom:50px;">
+       <hr>
+        	<h4><strong>별점평가</strong></h4>
         		<div class="starRev" style="text-align:center;">
   					<span class="starR on">별1</span>
   					<span class="starR">별2</span>
@@ -61,8 +53,7 @@
   					<span class="starR">별4</span>
   					<span class="starR">별5</span>
 				</div>
-			</div>
-			</div>
+		</div>
 		<div class="mybtn" style="width:1000px;margin-bottom:50px;text-align:left;">
     		<a href="#" class="btn btn-default" id="regiatratedProduct" name="registratedProduct"
     			style="width:130px;height:30px; background-color:#e2c2ff; font-size:15px;">등록된 상품</a>
@@ -70,68 +61,68 @@
     			style="width:130px;height:30px; background-color:#bdd1ff; font-size:15px;" >구매후기</a>
     	</div>	
 		 <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img alt="" src="../img/handbag2.jpg" style="width:250px;">
+		 	<img alt="" src="img/handbag2.jpg">
 		 	<h5 style="margin-top:20px;">BALENCIAGA<%-- <%= %> --%></h5>
 		 	<h5>Balenciaga Speed 2.0 Trainer<%-- <%= %> --%></h5>
 		 	<h5>Black Knit White Sole 2020<%-- <%= %> --%></h5>
 		 	<h5>730,000<%-- <%= %> --%></h5>
 		 </div>
 		  <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img alt="" src="../img/handbag2.jpg" style="width:250px;">
+		 	<img alt="" src="img/handbag2.jpg">
 		 	<h5 style="margin-top:20px;">BALENCIAGA<%-- <%= %> --%></h5>
 		 	<h5>Balenciaga Speed 2.0 Trainer<%-- <%= %> --%></h5>
 		 	<h5>Black Knit White Sole 2020<%-- <%= %> --%></h5>
 		 	<h5>730,000<%-- <%= %> --%></h5>
 		 </div>
 		  <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img alt="" src="../img/handbag2.jpg" style="width:250px;">
+		 	<img alt="" src="img/handbag2.jpg">
 		 	<h5 style="margin-top:20px;">BALENCIAGA<%-- <%= %> --%></h5>
 		 	<h5>Balenciaga Speed 2.0 Trainer<%-- <%= %> --%></h5>
 		 	<h5>Black Knit White Sole 2020<%-- <%= %> --%></h5>
 		 	<h5>730,000<%-- <%= %> --%></h5>
 		 </div>
 		  <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img alt="" src="../img/handbag2.jpg" style="width:250px;">
+		 	<img alt="" src="img/handbag2.jpg">
 		 	<h5 style="margin-top:20px;">BALENCIAGA<%-- <%= %> --%></h5>
 		 	<h5>Balenciaga Speed 2.0 Trainer<%-- <%= %> --%></h5>
 		 	<h5>Black Knit White Sole 2020<%-- <%= %> --%></h5>
 		 	<h5>730,000<%-- <%= %> --%></h5>
 		 </div>
 		  <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img alt="" src="../img/handbag2.jpg" style="width:250px;">
+		 	<img alt="" src="img/handbag2.jpg">
 		 	<h5 style="margin-top:20px;">BALENCIAGA<%-- <%= %> --%></h5>
 		 	<h5>Balenciaga Speed 2.0 Trainer<%-- <%= %> --%></h5>
 		 	<h5>Black Knit White Sole 2020<%-- <%= %> --%></h5>
 		 	<h5>730,000<%-- <%= %> --%></h5>
 		 </div>
 		  <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img alt="" src="../img/handbag2.jpg" style="width:250px;">
+		 	<img alt="" src="img/handbag2.jpg">
 		 	<h5 style="margin-top:20px;">BALENCIAGA<%-- <%= %> --%></h5>
 		 	<h5>Balenciaga Speed 2.0 Trainer<%-- <%= %> --%></h5>
 		 	<h5>Black Knit White Sole 2020<%-- <%= %> --%></h5>
 		 	<h5>730,000<%-- <%= %> --%></h5>
 		 </div>
 		  <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img alt="" src="../img/handbag2.jpg" style="width:250px;">
+		 	<img alt="" src="img/handbag2.jpg">
 		 	<h5 style="margin-top:20px;">BALENCIAGA<%-- <%= %> --%></h5>
 		 	<h5>Balenciaga Speed 2.0 Trainer<%-- <%= %> --%></h5>
 		 	<h5>Black Knit White Sole 2020<%-- <%= %> --%></h5>
 		 	<h5>730,000<%-- <%= %> --%></h5>
 		 </div>
 		  <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img alt="" src="../img/handbag2.jpg" style="width:250px;">
+		 	<img alt="" src="img/handbag2.jpg">
 		 	<h5 style="margin-top:20px;">BALENCIAGA<%-- <%= %> --%></h5>
 		 	<h5>Balenciaga Speed 2.0 Trainer<%-- <%= %> --%></h5>
 		 	<h5>Black Knit White Sole 2020<%-- <%= %> --%></h5>
 		 	<h5>730,000<%-- <%= %> --%></h5>
 		 </div>  
-		
+		</div>
      <div style="margin-top:30px;">
-       		<button style="float:right; width:100px;height:30px; background-color:#8d98f2;color:white; font-size:14px;" 
+       		<button style="float:right; width:100px;height:30px; background-color:#8d98f2; font-size:15px;" 
        			type="button" class="btn">더보기</button> 
-   
+    </div>
 </div>
-</div>
+<hr>
 
 <jsp:include page="../include/footer.jsp"/>
 

@@ -190,47 +190,13 @@
 	section{
 		padding-left: 15px;
 	}
-	.main{
-		width:1000px;
-		margin:50px 300px;
-	}
-	.review-top{
-		margin-bottom:100px ;
-	}
-	.show-table {
-		margin-left:100px;
-		width:450px;
-	}
-	.review {
-		margin-bottom:200px;
-	
-	}
-	.star-re {
-		margin-top:290px;
-	}
-	
-@media screen and (max-width: 786px) {
-	.main{
-		margin:0;
-		width:100%;
-	}
-	.show-table{
-		overflow-x: auto;
-		margin:0 5px;
-	}
 	.table {
-		width: 100%;
-		min-width: 250px;
+		width:1000px;
 	}
-	.review {
-		width:50%;
-	}
-	.star-re {
-		margin-top:50px;
-	}
+	td {
+	font-style:dotum;
+	font-size:15px;
 }
-
-
 .pagination a {
   color: black;
   float: left;
@@ -243,28 +209,107 @@
   color: white;
 }
 
-.pagination a:hover:not(.active) {
-	background-color: #ddd;
+.pagination a:hover:not(.active) {background-color: #ddd;}
+
+.search-container {
+  float: right;
+  display:inline-flex;
+}
+.search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  display:inline-flex;
 }
 
-.starR{
-  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
-  background-size: auto 100%;
-  width: 30px;
-  height: 30px;
-  display: inline-block;
-  text-indent: -9999px;
-  cursor: pointer;
+.search-container button:hover {
+  background: #ccc;
+}	
+@media screen and (max-width: 786px) {
+	.show-table{
+		overflow-x: auto;
+	}
+	.table {
+		width: 100%;
+		min-width: 500px;
+	}
 }
-.starR.on{background-position:0 0;}
+
+input[type="checkbox"] { 
+	display: none; 
+} 
+.label__on-off { 
+	overflow: hidden; 
+	position: relative; 
+	display: inline-block; 
+	width: 58px; height: 26px; 
+	-webkit-border-radius: 13px; 
+	-moz-border-radius: 13px; 
+	border-radius: 13px; 
+	background-color: #ed4956; 
+	color: #fff; 
+	font-weight: bold; 
+	cursor: pointer; 
+	-webkit-transition: all .3s; 
+	-moz-transition: all .3s; 
+	-ms-transition: all .3s; 
+	-o-transition: all .3s; 
+	transition: all .3s; 
+} 
+.label__on-off > * { 
+	vertical-align: middle; 
+	-webkit-transition: all .3s; 
+	-moz-transition: all .3s; 
+	-ms-transition: all .3s; 
+	-o-transition: all .3s; 
+	transition: all .3s; font-size: 14px; 
+} 
+.label__on-off .marble { 
+	position: absolute; 
+	top: 1px; left: 1px; 
+	display: block; 
+	width: 24px; 
+	height: 24px; 
+	background-color: #fff; 
+	-webkit-border-radius: 50%; 
+	-moz-border-radius: 50%; 
+	border-radius: 50%; 
+	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .3); 
+	-moz-box-shadow: 0 0 10px rgba(0, 0, 0, .3); 
+	box-shadow: 0 0 10px rgba(0, 0, 0, .3); 
+} 
+.label__on-off .on { 
+	display: none; 
+	padding-left: 12px; 
+} 
+.label__on-off .off { 
+	padding-left: 30px; line-height: 25px; 
+} 
+.input__on-off:checked + .label__on-off { 
+	background-color: #0bba82; 
+} 
+.input__on-off:checked + .label__on-off .on { 
+	display: inline-block; 
+} 
+.input__on-off:checked + .label__on-off .off { 
+	display: none; 
+} 
+.input__on-off:checked + .label__on-off .marble { 
+	left: 33px; 
+}
+
 
 </style>
-
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
-	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;">
-    <div class="container-fluid" style="font-family:Malgun Gothic;">
+	<nav class="navbar navbar-inverse sidebar" role="navigation" >
+    <div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -273,96 +318,88 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">마이 페이지</a>
+			<a class="navbar-brand" href="#">ADMIN</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home<span style="font-size:13px;"
 				 class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">내 프로필보기<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">경매참여내역<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">구매내역<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">판매내역<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">상품등록 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
-				<li ><a href="#">회원정보 수정<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
-				<li ><a href="#">1:1 문의<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
+				<li ><a href="#">회원관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li ><a href="#">등록상품 검수<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">게시 상품 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">거래내역 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">1:1 문의 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
 				<li ><a href="#">리뷰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
+				<li ><a href="#">쿠폰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
 			</ul>
 		</div>
 	</div>
 </nav>
-<div class="main" style="font-family:Malgun Gothic;">
-	<div class="review-write">
-	<h3>리뷰작성하기</h3>
-	<div class="review-top" style="margin-top:50px;">
-		<form action="#" method="post">
-		<div class="col-sm-2" >
-			<img alt="" src="../img/handbag1.jpg<%-- <%= %> --%>" style="height:150px;">
-        </div>  		
-        <div class="col-sm-10">
-        	<div class="show-table">   			
-           			<table class="table">
-           				<tr>
-            				<td>브랜드</td>
-            				<td>Balenciaga <%-- <%= %> --%></td>
-          				</tr>
-          				<tr>
-            				<td>상품명</td>
-            				<td>Balenciaga Track Trainer Grey White 2019 <%-- <%= %> --%></td>
-          				</tr>
-          				<tr>
-            				<td>모델번호</td>
-            				<td>542023W1GB71214 <%-- <%= %> --%></td>
-          				</tr>
-          			
-          		</table>
-      		</div>
-      	</div>
-      		</form>
-      	</div>
-      
-      <form action="#" method="post">
-       <div class="star-re"style="" >
-       
-        	<h4><strong>별점평가</strong></h4>
-        		<div class="starRev" style="text-align:left;">
-  					<span class="starR on">별1</span>
-  					<span class="starR">별2</span>
-  					<span class="starR">별3</span>
-  					<span class="starR">별4</span>
-  					<span class="starR">별5</span>
-				</div>
-		</div>
+<div class="main">
+	<div class="show-table" >
+		
+	<table class="table" >
+    	<tr>
+           <td colspan="2"><h3>회원상세보기</h3>
+    	   </td>
+         </tr>
+         <tr>
+            <th>이메일</th>
+            <td>asdf@naver.com<%-- <%= %> --%></td>
+         </tr>
+         <tr>
+            <th>닉네임</th>
+            <td>라이언<%-- <%= %> --%></td>
+          </tr>
+          <tr>
+          	<th>이름</th>
+          	<td>김하나<%-- <%= %> --%></td>
+          </tr>
+           <tr>
+          	<th>휴대폰번호</th>
+          	<td>010-7890-1234<%-- <%= %> --%></td>
+          </tr>
+           <tr>
+          	<th>우편번호</th>
+          	<td>03138<%-- <%= %> --%></td>
+          </tr>
+           <tr>
+          	<th>주소</th>
+          	<td>서울시 종로구<%-- <%= %> --%></td>
+          </tr>
+          <tr>
+          	<th>보유쿠폰</th>
+          	<td><select name="coupon" class="selectpicker"style="width:200px;height:30px;font-size:15px;">
+			 		<option>10% 할인</option>
+			 		<option>20% 할인</option>
+					<option>30% 할인</option>
+					
+				</select><%-- <%= %> --%></td>
+          </tr>
+          <tr>
+          	<th>계좌번호</th>
+          	<td>12345555555<%-- <%= %> --%></td>
+          </tr>
+          <tr>
+          	<th>계좌정지</th>
+          	<td><input type="checkbox" id="switch1" name="switch1" class="input__on-off"> 
+          		<label for="switch1" class="label__on-off"> 
+          			<span class="marble"></span> 
+          			<span class="on">ACT</span> 
+          			<span class="off">BAN</span> 
+          		</label>
 
+<%-- <%= %> --%></td>
+          </tr>
+          
+		 </table>   			
+      </div>
+   
+    <jsp:include page="../include/footer.jsp"/>
+</div>
 
-     
-       <div class="review" style="margin-top:60px;">
-       	<h4><strong>리뷰작성</strong></h4>
-       
-       		<textarea rows="10" cols="120" placeholder="자세하고 솔직한 리뷰는 다른 고객에게 많은 도움이 됩니다."></textarea>
-        	
-      	  		
-      	 <div class="my-btns" style="margin-top:20px;">
-      	  		<button type="submit" class="btn btn-default" 
-      	  			style="background-color:#916d90;color:white;
-      	  			border:none;display:inline-flex;">완료</button> 
-      	  		<button type="reset" class="btn btn-default" 
-      	  			style="margin-left:10px;background-color:#bab3b9;color:white;
-      	  			border:none;display:inline-flex;">취소</button>      	
-      	  		
-      	 </div>
-      	</div> 	
-      	</form> 
-     	
-     	<jsp:include page="../include/footer.jsp"/>      			
-     
-    </div>
-  </div>
-
-
-
-
+ 
 
 <script type="text/javascript"> /* sidebar function */
 function htmlbodyHeightUpdate(){
@@ -391,11 +428,7 @@ $(document).ready(function () {
 	});
 });
 
-$('.starRev span').click(function(){//별점평가
-	  $(this).parent().children('span').removeClass('on');
-	  $(this).addClass('on').prevAll('span').addClass('on');
-	  return false;
-	});
+
 </script>
 </body>
 </html>

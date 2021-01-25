@@ -40,14 +40,12 @@
 
  body,html{
 		height: 100%;
-		font-family:Malgun Gothic;
 	}
 
 	/* remove outer padding */
 	.main .row{
 		padding: 0px;
 		margin: 0px;
-		
 	}
 
 	/*Remove rounded coners*/
@@ -197,13 +195,12 @@
 	width:100;
 	display:block;
 	text-align:center;
-	margin-top:100px;
-	margin-bottom:300px;
 }
 .input-group {
-	width:400px;
-	margin:auto 100px;
-	
+	width:700px;
+	margin-top:100px;
+	margin-left:300px;
+	margin-right:300px;
 }
 @media screen and (max-width: 786px) {
 	.input-group {
@@ -214,13 +211,27 @@
 	
 }
 
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
 </style>
 
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
 	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;">
-    <div class="container-fluid" style="font-family:Malgun gothic;">
+    <div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -248,24 +259,30 @@
 		</div>
 	</div>
 </nav>
-<div class="main" style="font-family:Malgun gothic;">
+<div class="main">
 	
-	<div class="pw-ch">
+	<div class="pw-ch" >
 	<form  method="post" action="#">
 	
 		<div class="input-group" >
-		<h3>회원탈퇴</h3>
-			<div>
-				<input type="text" class="form-control" style="margin-top:20px;"
-					name="pawssword" id="password"  placeholder="비밀번호를 입력해주세요" required/>
-		    </div>	
-			
-			<div>
-    			<button type="submit" class="btn btn-default" style="width:100px;margin-top:35px;background-color:#a59df5;color:white;">탈퇴</button>
- 			</div>
- 		</div>		
-	</form>
-   </div>   
+		<h3>비밀번호 변경</h3>
+			<input type="text" class="form-control" style="margin-top:20px;"
+				name="pawssword" id="password"  placeholder="현재비밀번호를 입력해주세요" required/>
+			<input type="text" class="form-control" style="margin-top:20px;"
+				name="Newpassword" id="Newpassword"  placeholder="새 비밀번호를 입력해주세요." required/>
+			<input type="text" class="form-control" style="margin-top:20px;"
+				name="confirm" id="confirm"  placeholder="새 비밀번호를 다시 한번 입력해주세요"onchange="check_pw()" required/>
+			<span id="check"></span>
+		</div>
+			<div  style="margin-top:20px;display:inline-flex; text-align:center;">
+				<input type="reset" value="취소" class="btn btn-default" style="background-color:#a1a0a3;color:white;" onclick="go back()">		
+				
+			</div>
+			<div  style="margin-top:20px; display:inline-flex">
+    			<button type="submit" class="btn btn-default" style="background-color:#a59df5;color:white;">저장</button>
+ 			</div>		
+		</form>
+      </div>
     <jsp:include page="../include/footer.jsp"/>
     
 </div>

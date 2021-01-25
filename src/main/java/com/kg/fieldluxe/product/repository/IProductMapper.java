@@ -8,7 +8,6 @@ import com.kg.fieldluxe.commons.SearchVO;
 import com.kg.fieldluxe.product.model.DealData;
 import com.kg.fieldluxe.product.model.DetailData;
 import com.kg.fieldluxe.product.model.ListData;
-import com.kg.fieldluxe.review.model.ReviewVO;
 
 public interface IProductMapper {
 	

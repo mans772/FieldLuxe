@@ -1,83 +1,86 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <style>
-* {box-sizing: border-box;}
+* {
+	box-sizing: border-box;
+}
 
 body {
-  margin: 0;
-  font-family:Malgun Gothic;
+	margin: 0;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .topnav {
-	
-  overflow: hidden;
-  background-color: #fefaff;
+	overflow: hidden;
+	background-color: #fefaff;
 }
 
-.header-logo{
-	font-family:Malgun Gothic;	
-	
+.header-logo {
+	font-family: "Times New Roman", Times, serif;
 }
+
 .topnav a {
-  float: left;
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  font-family:Malgun Gothic;
+	float: left;
+	display: block;
+	color: black;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
 }
 
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
+	background-color: #ddd;
+	color: black;
 }
 
-.topnav a.active {
+/* .topnav a.active {
   background-color: #2196F3;
   color: white;
-} 
-
+} */
 .topnav .search-container {
-  float: right;
+	float: right;
 }
 
 .topnav input[type=text] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 14px;
-  border: none;
+	padding: 6px;
+	margin-top: 8px;
+	font-size: 17px;
+	border: none;
 }
+
 .topbar-menu {
-	float:right;
+	float: right;
 }
+
 .topnav .search-container button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 14px;
-  border: none;
-  cursor: pointer;
+	float: right;
+	padding: 6px 10px;
+	margin-top: 8px;
+	margin-right: 16px;
+	background: #ddd;
+	font-size: 17px;
+	border: none;
+	cursor: pointer;
 }
 
 .topnav .search-container button:hover {
-  background: #ccc;
+	background: #ccc;
 }
+
 .topnav .icon {
-  display: none;
+	display: none;
 }
 
-
- @media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .topbar-menu {
 	float:none;
   }
@@ -95,103 +98,69 @@ body {
   .topnav input[type=text] {
     border: 1px solid #ccc;  
   }
-} 
+} */
 @media screen and (max-width: 600px) {
-	
-  .topnav a:not(:first-child) {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
+	.topnav a:not (:first-child ) {
+		display: none;
+	}
+	.topnav a.icon {
+		float: right;
+		display: block;
+	}
 }
 
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
+	.topnav.responsive {
+		position: relative;
+	}
+	.topnav.responsive .icon {
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.topnav.responsive a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
 }
-.navbar-text{
-	font-size:25px;
-	text-color:#e80e53;
+
+.navbar-text {
+	font-size: 30px;
+	text-color: #e80e53;
 }
 </style>
 </head>
 <body>
-	<%
-         //로그한사람이라면  userID라는 변수에 해당 아이디가 담기고 그렇지 않으면 null값
-         //관리자는 admin
-         String userid = null;
-         
-         if (session.getAttribute("userid") != null) {
-            userid = (String) session.getAttribute("userid");
-         }
-      %>
+
+	<div class="topnav" id="myTopnav">
+		<div class="header-logo">
+			<a class="navbar-text" href="<c:url value='/'/>"
+				style="margin-left: 40px; font-size: 25px; color: #460f6e;">Field Luxe
+				<img src="<c:url value='/img/logo.png'/>" style="width: 40px;">
+			</a>
+		</div>
+		<div class="topbar-menu">
+			<a></a> <a href="<c:url value='/product/productList'/>">모두보기</a>
+					<a href="#">로그인</a>
+					<a href="<c:url value='/member/auctionList'/>">마이페이지</a>
+					<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+					<i class="fa fa-bars"></i>
+			</a>
 
 
-<div class="topnav" id="myTopnav">
-	<div class="header-logo">
-	<a class="navbar-text" href="#" style="margin-left:40px;font-size:25px;color: #460f6e;">Field Luxe
-    	<img src="../img/logo.png" alt="logo" style="width:40px;">
-  	</a>
-  	</div>
-  	<%-- <%if (userid == null){ %> --%>
-  	<div class="topbar-menu">
-  		<a></a>
-  		<a  href="#" style="font-size:14px;">모두보기</a>
-  		<a href="#" style="font-size:14px;">로그인</a>
-  		<a href="#" style="font-size:14px;">마이페이지</a>
-  	 	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    	<i class="fa fa-bars"></i></a>
-   	<div class="search-container" >
-    	<form action="/action_page.php">
-      	<input type="text" placeholder="Search.." name="search">
-      		<button type="submit"><i class="fa fa-search"></i></button>
-    	</form>
-  	</div>  
+			<div class="search-container">
+				<form action="<c:url value='/product/productList'/>">
+					<input type="text" placeholder="상품 검색" name="keyword">
+					<button type="submit"><i class="fa fa-search"></i></button>
+				</form>
+			</div>
+
+
+		</div>
 	</div>
- 	
-<%-- <%} else if(userid.equals("admin")){ %> 
- 	<div class="topbar-menu">
-  		<a></a>
-  		<a  href="#" style="font-size:14px;">모두보기</a>
-  		<a href="#" style="font-size:14px;">회원관리</a>
-  		<a href="#" style="font-size:14px;"></a>
-  	 	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    	<i class="fa fa-bars"></i></a>
-   	<div class="search-container" >
-    	<form action="/action_page.php">
-      		<input type="text" placeholder="Search.." name="search">
-      		<button type="submit"><i class="fa fa-search"></i></button>
-    	</form>
-  	</div>  
-	</div>
-	
- <%} else { %>
-  	<div class="topbar-menu">
-  		<a></a>
-  		<a  href="#" style="font-size:14px;">모두보기</a>
-  		<a href="#" style="font-size:14px;">로그아웃</a>
-  		<a href="#" style="font-size:14px;"></a>
-  	 	<a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    	<i class="fa fa-bars"></i></a>
-   	<div class="search-container" >
-    	<form action="/action_page.php">
-      		<input type="text" placeholder="Search.." name="search">
-      		<button type="submit"><i class="fa fa-search"></i></button>
-   	    </form>
-  	</div>  
-	</div> --%>
-</div>
 
-<script>
+	<script>
 function myFunction() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -202,8 +171,5 @@ function myFunction() {
 }
 </script>
 
-
 </body>
 </html>
-
-	

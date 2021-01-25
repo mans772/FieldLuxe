@@ -190,32 +190,46 @@
 	section{
 		padding-left: 15px;
 	}
-.pro-de {
-	margin-bottom:300px;
-}
-
-@media screen and (max-width: 786px) {
-	.show-table{
-		overflow-x: auto;
-	}
-	.table {
-		width: 100%;
-		min-width: 500px;
-	} 
 	
-	.pro-de {
+.pw-ch {
+	width:100;
+	display:block;
+	text-align:center;
+}
+.input-group {
+	width:700px;
+	margin-top:100px;
+	margin-left:300px;
+	margin-right:300px;
+}
+@media screen and (max-width: 786px) {
+	.input-group {
 		width:100%;
+		margin:0 auto;
+	
 	}
+	
 }
 
 
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+}
 
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
 </style>
 
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
-
 	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;">
     <div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -244,88 +258,29 @@
 			</ul>
 		</div>
 	</div>
-	</nav>
-<div class="main"style="margin-top:140px;">
-	<h3>판매 내역 상세보기</h3>
-		<div class="pro-de">
-		 	<div class="col-md-6" style="margin-top:50px;">
-		 		<div class="show-table">
-		 			<table class="table" style="width:500px;">
-						<tr>
-							<td colspan="2" style="text-align:center;">
-								<img alt="" src="img/handbag1.jpg<%-- <%= %> --%>" style="height:300px;">
-							</td>
-						<tr>
-							<td>브랜드</td>
-							<td>Balenciaga<%-- <%= %> --%></td>
-						</tr>
-						<tr>
-							<td>상품명</td>
-							<td>Balenciaga Track Trainer Grey White 2019<%-- <%= %> --%></td>
-						</tr>
-						<tr>
-							<td>모델번호</td>
-							<td>542023W1GB71214<%-- <%= %> --%></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<div class="col-md-6" style="margin-top:50px;">
-				<div class="show-table">
-					<table class="table" style="width:500px;height:500px;margin-bottom:200px;">
-						<tr>
-							<td colspan="2" style="text-align:left;">
-							<h4><strong>주문정보</strong></h4></td>
-						<tr>
-							<td>주문번호</td>
-							<td>21445203<%-- <%= %> --%></td>
-						</tr>
-						<tr>
-							<td>구매일</td>
-							<td>2021.01.09<%-- <%= %> --%></td>
-						</tr>
-						<tr>
-							<td>구매자</td>
-							<input type="hidden" name="sellerName" value="<%-- <%= %> --%>">
-							<td>Annie<%-- <%= %> --%></td>
-						</tr>
-						<tr>
-							<td colspan="2" style="text-align:left;">
-							<h4><strong>결제정보</strong></h4></td>
-						</tr>
-						<tr>
-							<td>구매가</td>
-							<td>800,000원<%-- <%= %> --%></td>
-						</tr>
-						<tr>
-							<td>쿠폰할인</td>
-							<td>80,000d원<%-- <%= %> --%></td>
-						</tr>
-						<tr>
-							<td>배송비</td>
-							<td>0원<%-- <%= %> --%></td>
-						</tr>
-						<tr style="background-color:#ebebff">
-							<td style=""><strong>총결제금액</strong></td>
-							<td>720,000원<%-- <%= %> --%></td>
-						</tr>
-						<tr>
-							<td colspan="2" style="text-align:left;">
-							<h4><strong>배송정보</strong></h4></td>
-						</tr>
-						
-						<tr style="background-color:#ebebff">
-							<td>배송상태</td>
-							<td>배송완료<%-- <%= %> --%></td>
-						</tr>
-						
-					</table>
-				</div>
-			</div>
+</nav>
+<div class="main">
+	
+	<div class="pw-ch" >
+	<form  method="post" action="#">
+	
+		<div class="input-group" >
+		<h3>회원탈퇴</h3>
+		<div>
+			<input type="text" class="form-control" style="margin-top:20px;"
+				name="pawssword" id="password"  placeholder="비밀번호를 입력해주세요" required/>
+		</div>	
 			
-		</div>
-		<jsp:include page="../include/footer.jsp"/>
-	</div>
+			<div  style="">
+    			<button type="submit" class="btn btn-default" style="margin-top:35px;background-color:#a59df5;color:white;">탈퇴</button>
+ 			</div>		
+		</form>
+      </div>
+    <jsp:include page="../include/footer.jsp"/>
+    
+</div>
+
+
 
 <script type="text/javascript"> /* sidebar function */
 function htmlbodyHeightUpdate(){
@@ -353,7 +308,19 @@ $(document).ready(function () {
 			htmlbodyHeightUpdate()
 	});
 });
-</script>
 
+function check_pw(){//새 비밀번호 일치체크
+	if(document.getElementById('Newpassword').value !='' && document.getElementById('confirm').value!=''){
+	    if(document.getElementById('Newpassword').value==document.getElementById('confirm').value){
+	        document.getElementById('check').innerHTML='비밀번호가 일치합니다.'
+	        document.getElementById('check').style.color='green';
+	    }
+	    else{
+	        document.getElementById('check').innerHTML='비밀번호가 일치하지 않습니다.';
+	        document.getElementById('check').style.color='red';
+	    }
+	}}
+
+</script>
 </body>
 </html>

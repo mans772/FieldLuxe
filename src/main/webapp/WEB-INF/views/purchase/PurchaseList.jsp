@@ -189,18 +189,9 @@
 	section{
 		padding-left: 15px;
 	}
-	.show-table{
-		width:900px;
-		margin-top:100px;
-		margin-left:100px;
-		margin-bottom:200px;
-	
-	}
-	
 @media screen and (max-width: 786px) {
 	.show-table{
 		overflow-x: auto;
-		margin:0 5px;
 	}
 	.table {
 		width: 100%;
@@ -208,6 +199,10 @@
 	}
 	
 	
+}
+td {
+	font-style:dotum;
+	font-size:20px;
 }
 
 .pagination a {
@@ -229,7 +224,7 @@
 <body>
 <jsp:include page="../include/header.jsp"/>
 	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;">
-    <div class="container-fluid" style="font-family:Malgun Gothic;">
+    <div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -257,10 +252,10 @@
 	</div>
 </nav>
 <div class="main">
-<div class="show-table" style="font-family:Malgun Gothic;" >
+<div class="show-table" >
 	<table class="table" >
     	<tr>
-           <td colspan="6"><h3>구매 내역</h3></td>
+           <td colspan="6"><h2>구매 내역</h2></td>
          </tr>
          <tr>
             <td>주문번호</td>
@@ -276,7 +271,7 @@
            	<td>0011<%-- ${vo. } --%></td>
            	<td>2020.01.30<%-- ${vo. } --%></td>
            	<td><a href="#">
-            		<img alt="img" src="../img/handbag2.jpg<%-- ${vo. } --%>" style="width:140px;"></td>
+            		<img alt="img" src="img/handbag2.jpg<%-- ${vo. } --%>" style="width:140px;"></td>
             	</a>
             <td>CHANEL<%-- ${vo. } --%></td>
             <td>1,250,000원<%-- ${vo. } --%></td>
@@ -287,7 +282,7 @@
             			<tr>
             				<td>0021<%-- ${vo. } --%></td>
             				<td class="un-date">2020.12.30<%-- ${vo. } --%></td>
-            				<td><img alt="img" src="../img/handbag3.jpg<%-- ${vo. } --%>" style="width:140px;"></td>
+            				<td><img alt="img" src="img/handbag3.jpg<%-- ${vo. } --%>" style="width:140px;"></td>
             				<td>LOUISVUITTON<%-- ${vo. } --%></td>
             				<td class="un-Ddate">560,000원<%-- ${vo. } --%></td>
             				<td class="un-part">ANNIE<%-- ${vo. } --%></td>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kg.fieldluxe.member.repository.IMemberRepository">
+<resultMap id="MemMap" type="com.kg.fieldluxe.member.model.MemberVO">
+<result property="email" column="email" />
+<result property="password" column="password" />
+<result property="nickname" column="nickname" />
+<result property="account" column="account" />
+<result property="name" column="name" />
+<result property="phoneNum" column="phone_num" />
+<result property="postNum" column="post_num" />
+<result property="address" column="address" />
+<result property="joinDate" column="join_date" />
+<result property="ban" column="ban" />
+<result property="kakao" column="kakao" />
+<result property="naver" column="naver" />
+<result property="auth" column="authority" />
+</resultMap>
+
+				<!-- SELECT -->
+
+	<!-- 유저 정보 확인 -->
+<select id="getMember" parameterType="string" resultMap="MemMap">
+	SELECT m.email, nickname, account, phone_num, address, join_date, name, password, ban, authority 
+		FROM member m 
+			JOIN authorities au 
+			ON m.email = au.email 
+				WHERE m.email = #{email}
+</select>
+
+
+	<!-- 비밀번호 확인 -->
+<select id="getPassword" parameterType="string" resultType="string">
+	SELECT password 
+		FROM member where email = #{email}
+</select>
+
+
+	<!-- 유저 리스트 확인, 페이징 처리 -->
+<select id="getMemberList" parameterType="hashmap" resultMap="MemMap">
+	SELECT rnum, email, nickname, account, phone_num, address, join_date, name, password, ban, authority  
+		FROM (
+			SELECT rownum rnum, email, nickname, account, phone_num, address, join_date, name, password, ban, authority  
+				FROM (
+					SELECT m.email, nickname, account, phone_num, address, join_date, name, password, ban, authority   
+						FROM member m 
+							JOIN authorities au 
+							ON m.email = au.email)) 
+	
+<if test="word ==null">
+	WHERE rnum BETWEEN (#{page}-1)*10+1 AND ((#{page}-1)*10+1)+9
+</if>
+
+<if test="word !=null">
+	WHERE rnum BETWEEN (#{page}-1)*10+1 AND ((#{page}-1)*10+1)+9
+		AND email LIKE '%'||#{word}||'%' OR email LIKE '%'||#{word}||'%'
+</if>
+</select>
+
+
+	<!-- 유저 수 확인  -->
+<select id="getMemberCount" parameterType="string" resultType="int">
+<if test="word == null">
+	SELECT count(*) 
+		FROM member
+</if>
+
+<if test="word != null">
+	SELECT count(*) 
+		FROM member 
+			WHERE email LIKE '%'||#{word}||'%' or email LIKE '%'||#{word}||'%'
+</if>
+</select>
+
+
+
+
+
+				<!-- INSERT -->
+
+	<!-- 회원가입  -->
+<insert id="insertMember" parameterType="com.kg.fieldluxe.member.model.MemberVO">
+	INSERT INTO member 
+		VALUES(#{email}, #{password}, #{nickname}, #{account}, #{name}, #{phoneNum}, #{postNum}, #{address}, #{joinDate}, '0')
+</insert>
+
+
+	<!-- 유저 권한 기본 설정 -->
+<insert id="insertAuth" parameterType="string">
+	INSERT INTO authorities 
+		VALUES(#{email}, '0')
+</insert>
+
+
+
+				<!-- UPDATE -->
+
+	<!-- 활성화, 비활성화 변경 -->
+<update id="updateBan" parameterType="com.kg.fieldluxe.member.model.MemberVO">
+	UPDATE member 
+		SET ban = #{ban} 
+			WHERE email = #{email}
+</update>
+
+	<!-- 권한 수정 -->
+<update id="updateAuth" parameterType="com.kg.fieldluxe.member.model.MemberVO">
+	UPDATE authorities 
+		SET authority = #{auth} 
+			WHERE email = #{email}
+</update>
+
+
+				<!-- DELETE -->
+<!-- 유저 정보 삭제 -->
+<delete id="deleteMember" parameterType="string">
+	DELETE 
+		FROM member 
+			WHERE email = #{email}
+</delete>
+
+<!-- 권한 삭제 (유저 정보 삭제를 위함) -->
+<delete id="deleteAuth" parameterType="string">
+	DELETE 
+		FROM authorities 
+			WHERE email = #{email}
+</delete>
+
+
+</mapper>

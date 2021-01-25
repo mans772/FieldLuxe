@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 <style type="text/css">
-.profile-top {
+h2{
 	text-align:center;
 	margin-top:40px;
 	width:1000px;
@@ -32,13 +32,6 @@
   cursor: pointer;
 }
 .starR.on{background-position:0 0;}
-
-@media screen and (max-width: 786px) {
-	.profile-top{
-		width:50%;
-	}
-
-}
 </style>
 </head>
 <body>
@@ -47,11 +40,10 @@
 <jsp:include page="../include/header.jsp"/>
 
 
-<div class="container" style="font-family:Malgun Gothic;">
-    <div style="text-align:center;">
-    	<div class="profile-top">
+<div class="container">
+    <div class="row" style="text-align:center;">
     	<h2><%-- <%= %> --%>Angel님의 프로필</h2>
-    		<div class="star-re" style="margin-bottom:50px;">
+    		<div class="star-re" style="width:1000px; margin-bottom:50px;">
        <hr>
         	<h4><strong>별점평가</strong></h4>
         		<div class="starRev" style="text-align:center;">
@@ -61,7 +53,6 @@
   					<span class="starR">별4</span>
   					<span class="starR">별5</span>
 				</div>
-			</div>
 		</div>
 		<div class="mybtn" style="width:1000px;margin-bottom:50px;text-align:left;">
     		<a href="#" class="btn btn-default" id="regiatratedProduct"
@@ -95,7 +86,7 @@
 		 		</tr>
 		 		<tr>
 		 			<td>리뷰</td>
-		 			<td>물건 정말 맘에 들어요<%-- <%= %> --%></td>
+		 			<td>물건정말 맘에 들어요<%-- <%= %> --%></td>
 		 		</tr>
 		 	</table>
 		 </div>

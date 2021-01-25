@@ -191,24 +191,18 @@
 		padding-left: 15px;
 	}
 	
-.pw-ch {
-	width:100;
-	display:block;
-	text-align:center;
-	margin-bottom:200px;
-}
-.input-group {
-	width:700px;
-	margin-top:100px;
-	margin-left:280px;
-	
-}
+	/*  .table {
+		width:400px;
+	}  */
 @media screen and (max-width: 786px) {
-	.input-group {
-		width:100%;
-		margin:0 auto;
-	
+	.show-table{
+		overflow-x: auto;
 	}
+	.table {
+		width: 100%;
+		min-width: 500px;
+	}
+	
 	
 }
 
@@ -225,13 +219,27 @@
   color: white;
 }
 
-.pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
+
+.starR{
+  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+  background-size: auto 100%;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+.starR.on{background-position:0 0;}
+
 </style>
 
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
-	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;font-family:Malgun Gothic;">
+	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;height:80%;">
     <div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
@@ -260,33 +268,74 @@
 		</div>
 	</div>
 </nav>
-<div class="main" style="font-family:Malgun Gothic;">
-	
-	<div class="pw-ch" >
-	<form  method="post" action="#">
-	
-		<div class="input-group" >
-		<h3>비밀번호 변경</h3>
-			<input type="password" class="form-control" style="margin-top:20px;"
-				name="pawssword" id="password"  placeholder="현재비밀번호를 입력해주세요" required/>
-			<input type="password" class="form-control" style="margin-top:20px;"
-				name="Newpassword" id="Newpassword"  placeholder="새 비밀번호를 입력해주세요." required/>
-			<input type="password" class="form-control" style="margin-top:20px;"
-				name="confirm" id="confirm"  placeholder="새 비밀번호를 다시 한번 입력해주세요"onchange="check_pw()" required/>
-			<span id="check"></span>
+<div class="main" style="margin-top:200px;">
+	<div class="review-write" style="width:950px;">
+	<h3>리뷰작성하기</h3>
+	<div class="review-top" style="margin-top:50px;">
+		<form action="#" method="post">
+		<div class="col-sm-2" >
+			<img alt="" src="img/handbag1.jpg<%-- <%= %> --%>" style="height:150px;">
+        </div>  		
+        <div class="col-sm-10">
+        	<div class="show-table">   			
+           			<table class="table">
+           				<tr>
+            				<td>브랜드</td>
+            				<td>Balenciaga <%-- <%= %> --%></td>
+          				</tr>
+          				<tr>
+            				<td>상품명</td>
+            				<td>Balenciaga Track Trainer Grey White 2019 <%-- <%= %> --%></td>
+          				</tr>
+          				<tr>
+            				<td>모델번호</td>
+            				<td>542023W1GB71214 <%-- <%= %> --%></td>
+          				</tr>
+          			
+          		</table>
+      		</div>
+      	</div>
+      		</form>
+      	</div>
+      
+      <form action="#" method="post">
+       <div class="star-re" style="padding-top:250px;">
+       <hr>
+        	<h4><strong>별점평가</strong></h4>
+        		<div class="starRev" style="text-align:center;">
+  					<span class="starR on">별1</span>
+  					<span class="starR">별2</span>
+  					<span class="starR">별3</span>
+  					<span class="starR">별4</span>
+  					<span class="starR">별5</span>
+				</div>
 		</div>
-			<div  style="margin-top:20px;display:inline-flex; text-align:center;">
-				<input type="reset" value="취소" class="btn btn-default" style="background-color:#a1a0a3;color:white;" onclick="go back()">		
-				
-			</div>
-			<div  style="margin-top:20px; display:inline-flex">
-    			<button type="submit" class="btn btn-default" style="background-color:#a59df5;color:white;">저장</button>
- 			</div>		
-		</form>
-      </div>
-    <jsp:include page="../include/footer.jsp"/>
-    
-</div>
+
+
+       <hr> 
+       <div class="review">
+       	<h4><strong>리뷰작성</strong></h4>
+       	<hr>
+       		<textarea rows="10" cols="130" placeholder="자세하고 솔직한 리뷰는 다른 고객에게 많은 도움이 됩니다."></textarea>
+       </div> 	
+      	  		
+      	 <div class="my-btns" style="display:inline-flex;margin-top:20px;float:right;">
+      	  		<button type="submit" class="btn btn-default" 
+      	  			style="background-color:#916d90;color:white;
+      	  			border:none;">완료</button> 
+      	  		<button type="reset" class="btn btn-default" 
+      	  			style="margin-left:10px;background-color:#bab3b9;color:white;
+      	  			border:none;">취소</button>      	
+      	  		
+      	 </div> 	
+      	</form> 
+     	
+     	<jsp:include page="../include/footer.jsp"/>      			
+     
+    </div>
+  </div>
+
+
 
 
 
@@ -317,18 +366,11 @@ $(document).ready(function () {
 	});
 });
 
-function check_pw(){//새 비밀번호 일치체크
-	if(document.getElementById('Newpassword').value !='' && document.getElementById('confirm').value!=''){
-	    if(document.getElementById('Newpassword').value==document.getElementById('confirm').value){
-	        document.getElementById('check').innerHTML='비밀번호가 일치합니다.'
-	        document.getElementById('check').style.color='green';
-	    }
-	    else{
-	        document.getElementById('check').innerHTML='비밀번호가 일치하지 않습니다.';
-	        document.getElementById('check').style.color='red';
-	    }
-	}}
-
+$('.starRev span').click(function(){//별점평가
+	  $(this).parent().children('span').removeClass('on');
+	  $(this).addClass('on').prevAll('span').addClass('on');
+	  return false;
+	});
 </script>
 </body>
 </html>
