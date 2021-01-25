@@ -5,7 +5,6 @@ import java.util.List;
 import com.kg.fieldluxe.commons.SearchVO;
 import com.kg.fieldluxe.product.model.ListData;
 import com.kg.fieldluxe.product.model.ProductVO;
-import com.kg.fieldluxe.review.model.ReviewVO;
 
 public interface IProductService {
 	

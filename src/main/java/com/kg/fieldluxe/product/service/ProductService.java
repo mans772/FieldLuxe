@@ -10,7 +10,6 @@ import com.kg.fieldluxe.commons.SearchVO;
 import com.kg.fieldluxe.product.model.ListData;
 import com.kg.fieldluxe.product.model.ProductVO;
 import com.kg.fieldluxe.product.repository.IProductMapper;
-import com.kg.fieldluxe.review.model.ReviewVO;
 
 @Service
 public class ProductService implements IProductService {
@@ -39,7 +38,6 @@ public class ProductService implements IProductService {
 			product.getDealData().setAuctionDeposit((int) (product.getDealData().getMinAuctionPrice() * 0.1));
 		mapper.insert(product.getDealData());
 		mapper.insert(product.getDetailData());
-		
 	}
 
 	@Override

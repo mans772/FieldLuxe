@@ -47,14 +47,17 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
 .product-grid .price{color:#333;font-size:17px;font-family:Montserrat,sans-serif;font-weight:700;letter-spacing:.6px;margin-bottom:8px;text-align:center;transition:all .3s}
 .product-grid .price span{color:#999;font-size:13px;font-weight:400;text-decoration:line-through;margin-left:3px;display:inline-block}
 .product-grid .add-to-cart{color:#000;font-size:13px;font-weight:600}
-@media only screen and (max-width:990px){
-	.product-grid{
-		margin-bottom:30px
-	}
+@media only screen and (max-width:990px){.product-grid{margin-bottom:30px}
+}
+.selectpicker span4 {
+	width:200px;
+	height:30px;
+	font-size:15px;
+
 }
 .pic-1 {
-	width:250px;
-	height:250px;
+	width:150px;
+	height:200px;
 }
 
 </style>
@@ -65,19 +68,19 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
 <jsp:include page="../include/header.jsp"/>
 
 
-<div class="container" style="font-family:Malgun Gothic;">
+<div class="container">
     
 		<form class="navbar-form">
 			<div class="input-group">
 			 	<div class="form-group navbar-left" >
-			 	<select name="kategorie" class="selectpicker span4" style="width:154px; height:28px;font-size:12px;margin-right:10px;">
+			 	<select name="kategorie" class="selectpicker span4"style="width:200px;height:30px;font-size:15px;">
 			 		<option>모든 카테고리</option>
 			 		<option>의류</option>
 					<option>가방</option>
 					<option>신발</option>
 				</select>
 				
-				<select name="brand" class="selectpicker span4" style="width:154px; height:28px;font-size:12px;margin-right:10px;">
+				<select name="brand" class="selectpicker span4" style="width:200px;height:30px;font-size:15px;">
 			 		<option>모든 브랜드</option>
 			 		<option>GUCCI</option>
 					<option>CHANEL</option>
@@ -85,7 +88,7 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
 					<option>PRADA</option>
 				</select>
 				
-				<select name="price" class="selectpicker span4" style="width:154px; height:28px;font-size:12px;margin-right:10px;">
+				<select name="price" class="selectpicker span4" style="width:200px;height:30px;font-size:15px;">
 			 		<option>모든 가격</option>
 			 		<option>~30만</option>
 					<option>30만~50만</option>
@@ -93,7 +96,7 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
 					<option>80만 이상</option>
 				</select>
 				 
-				<select name="order" class="selectpicker span4" style="width:154px; height:28px;font-size:12px;">
+				<select name="order" class="selectpicker span4" style="width:200px;height:30px;font-size:15px;">
 			 		<option>최신순</option>
 					<option>인기순</option>
 					<option>저가순</option>
@@ -104,13 +107,13 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
     </form>
 
 
-    <div class="show-pc" style="margin-top:40px;">
+    <div class="row" style="margin-top:40px;">
    <!--  <c:forEach items="" var=""> -->
         <div class="col-md-3 col-sm-6">
             <div class="product-grid">
                 <div class="product-image">
                     <a href="#"><!-- 상세보기 페이지 -->
-                        <img class="pic-1" src="../img/handbag1.jpg">
+                        <img class="pic-1" src="img/handbag1.jpg">
                     </a>
                     <ul class="social">
                         <li><a href="" data-tip="Quick View"><i class="fa fa-search"></i></a></li>
@@ -141,7 +144,7 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
             <div class="product-grid">
                 <div class="product-image">
                     <a href="#">
-                        <img class="pic-1" src="../img/handbag2.jpg">
+                        <img class="pic-1" src="img/handbag2.jpg">
                         
                     </a>
                     <ul class="social">
@@ -172,7 +175,7 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
             <div class="product-grid">
                 <div class="product-image">
                     <a href="#">
-                        <img class="pic-1" src="../img/handbag3.jpg">
+                        <img class="pic-1" src="img/handbag3.jpg">
                         
                     </a>
                     <ul class="social">
@@ -203,7 +206,7 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
             <div class="product-grid">
                 <div class="product-image">
                     <a href="#">
-                        <img class="pic-1" src="../img/handbag1.jpg">
+                        <img class="pic-1" src="img/handbag1.jpg">
                         
                     </a>
                     <ul class="social">
@@ -233,11 +236,11 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
       <!--  여기까지 삭제해주세요  -->
     </div>
      <div style="margin-top:30px;">
-       		<button style="float:right; width:100px;height:30px; background-color:#8d98f2; font-size:14px;margin-top:30px;" 
+       		<button style="float:right; width:100px;height:30px; background-color:#8d98f2; font-size:15px;" 
        			type="button" class="btn">더보기</button> 
     </div>
 </div>
-<hr style="margin-bottom:200px;">
+<hr>
 
 <jsp:include page="../include/footer.jsp"/>
 

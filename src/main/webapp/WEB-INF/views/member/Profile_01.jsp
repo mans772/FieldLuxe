@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,7 +43,7 @@ h2{
 
 <div class="container">
     <div class="row" style="text-align:center;">
-    	<h2><%-- <%= %> --%>Angel님의 프로필</h2>
+    	<h2>Angel님의 프로필</h2>
     		<div class="star-re" style="width:1000px; margin-bottom:50px;">
        <hr>
         	<h4><strong>별점평가</strong></h4>
@@ -60,62 +61,18 @@ h2{
     		<a href="#" class="btn btn-default" id="regiatratedProduct" name="registratedProduct"
     			style="width:130px;height:30px; background-color:#bdd1ff; font-size:15px;" >구매후기</a>
     	</div>	
+    	
+    	<hr>
+    	
+    	<c:forEach var="list" items="${profileProductList}">
 		 <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img alt="" src="img/handbag2.jpg">
-		 	<h5 style="margin-top:20px;">BALENCIAGA<%-- <%= %> --%></h5>
-		 	<h5>Balenciaga Speed 2.0 Trainer<%-- <%= %> --%></h5>
-		 	<h5>Black Knit White Sole 2020<%-- <%= %> --%></h5>
-		 	<h5>730,000<%-- <%= %> --%></h5>
+		 	<img src="<c:url value='/img/handbag2.jpg' />">
+		 	<h5 style="margin-top:20px;">${list.productBrand}</h5>
+		 	<h5>${list.productName}</h5>
+		 	<h5>${list.immePrice}</h5>
 		 </div>
-		  <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img alt="" src="img/handbag2.jpg">
-		 	<h5 style="margin-top:20px;">BALENCIAGA<%-- <%= %> --%></h5>
-		 	<h5>Balenciaga Speed 2.0 Trainer<%-- <%= %> --%></h5>
-		 	<h5>Black Knit White Sole 2020<%-- <%= %> --%></h5>
-		 	<h5>730,000<%-- <%= %> --%></h5>
-		 </div>
-		  <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img alt="" src="img/handbag2.jpg">
-		 	<h5 style="margin-top:20px;">BALENCIAGA<%-- <%= %> --%></h5>
-		 	<h5>Balenciaga Speed 2.0 Trainer<%-- <%= %> --%></h5>
-		 	<h5>Black Knit White Sole 2020<%-- <%= %> --%></h5>
-		 	<h5>730,000<%-- <%= %> --%></h5>
-		 </div>
-		  <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img alt="" src="img/handbag2.jpg">
-		 	<h5 style="margin-top:20px;">BALENCIAGA<%-- <%= %> --%></h5>
-		 	<h5>Balenciaga Speed 2.0 Trainer<%-- <%= %> --%></h5>
-		 	<h5>Black Knit White Sole 2020<%-- <%= %> --%></h5>
-		 	<h5>730,000<%-- <%= %> --%></h5>
-		 </div>
-		  <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img alt="" src="img/handbag2.jpg">
-		 	<h5 style="margin-top:20px;">BALENCIAGA<%-- <%= %> --%></h5>
-		 	<h5>Balenciaga Speed 2.0 Trainer<%-- <%= %> --%></h5>
-		 	<h5>Black Knit White Sole 2020<%-- <%= %> --%></h5>
-		 	<h5>730,000<%-- <%= %> --%></h5>
-		 </div>
-		  <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img alt="" src="img/handbag2.jpg">
-		 	<h5 style="margin-top:20px;">BALENCIAGA<%-- <%= %> --%></h5>
-		 	<h5>Balenciaga Speed 2.0 Trainer<%-- <%= %> --%></h5>
-		 	<h5>Black Knit White Sole 2020<%-- <%= %> --%></h5>
-		 	<h5>730,000<%-- <%= %> --%></h5>
-		 </div>
-		  <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img alt="" src="img/handbag2.jpg">
-		 	<h5 style="margin-top:20px;">BALENCIAGA<%-- <%= %> --%></h5>
-		 	<h5>Balenciaga Speed 2.0 Trainer<%-- <%= %> --%></h5>
-		 	<h5>Black Knit White Sole 2020<%-- <%= %> --%></h5>
-		 	<h5>730,000<%-- <%= %> --%></h5>
-		 </div>
-		  <div class="col-md-3 col-sm-6" style="margin-bottom:50px;">
-		 	<img alt="" src="img/handbag2.jpg">
-		 	<h5 style="margin-top:20px;">BALENCIAGA<%-- <%= %> --%></h5>
-		 	<h5>Balenciaga Speed 2.0 Trainer<%-- <%= %> --%></h5>
-		 	<h5>Black Knit White Sole 2020<%-- <%= %> --%></h5>
-		 	<h5>730,000<%-- <%= %> --%></h5>
-		 </div>  
+		</c:forEach>
+		
 		</div>
      <div style="margin-top:30px;">
        		<button style="float:right; width:100px;height:30px; background-color:#8d98f2; font-size:15px;" 

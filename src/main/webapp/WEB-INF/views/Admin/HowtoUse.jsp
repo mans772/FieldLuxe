@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -259,7 +260,7 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home<span style="font-size:16px;"
+				<li class="active"><a href="#">Home<span style="font-size:13px;"
 				 class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
 				<li><a href="#">공지사항<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
 				<li><a href="#">FAQ<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
