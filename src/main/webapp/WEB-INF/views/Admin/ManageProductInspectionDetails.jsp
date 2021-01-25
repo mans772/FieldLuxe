@@ -137,7 +137,7 @@
 		/*gives sidebar width/height*/
 		nav.sidebar{
 			width: 200px;
-			height: 55%;
+			height: 50%;
 			margin-left: -160px;
 			float: left;
 			z-index: 8000;
@@ -191,11 +191,14 @@
 	section{
 		padding-left: 15px;
 	}
-	.table {
-		width:700px;
+	.show-table{
+		
+		margin-bottom:200px;
+		width:900px;
+		margin-left:100px;
 	}
 	td {
-	font-style:dotum;
+	
 	font-size:15px;
 }
 .pagination a {
@@ -282,11 +285,11 @@
 		</div>
 	</div>
 </nav>
-<div class="main" style="margin:100px 300px;">
+<div class="main">
 	<div class="pro-re">
-	<h3>등록상품 검수 상세보기</h3>
+	<h3 style="margin-left:100px;">등록상품 검수 상세보기</h3>
 		<div class="show-table">
-			<h4 style="float:left;width:950px;margin-top:50px;">상품정보</h4><br>
+			<h4 style="float:left;margin-top:50px;">상품정보</h4><br>
 			<table class="table">
 				<tr>
 					<td style="width:20%;">상품번호</td>
