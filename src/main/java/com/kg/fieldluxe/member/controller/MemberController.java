@@ -1,11 +1,26 @@
 package com.kg.fieldluxe.member.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.validation.Valid;
+
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.kg.fieldluxe.member.model.MemberVO;
 import com.kg.fieldluxe.member.service.IMemberService;
 
 @Controller
@@ -13,12 +28,61 @@ import com.kg.fieldluxe.member.service.IMemberService;
 public class MemberController {
 	
 	@Autowired
-	private IMemberService service;
+	IMemberService memberService;
 	
-	@GetMapping("/auctionList") // 경매 참여 내역
-	public String auctionList(Model model) {
-		//model.addAttribute("list", service.);
-		return "auction/AuctionPartList";
+	@Autowired
+	BCryptPasswordEncoder bpe;
+	
+	// GET 회원가입
+	@GetMapping("/insert")
+	public void insert(Model model) {
+		model.addAttribute("mem", new MemberVO());
+		model.addAttribute("message", "insert");
 	}
-
+	// POST 회원가입
+	@PostMapping("/insert")
+	public String insert(@ModelAttribute("mem") @Valid MemberVO member, Model model, 
+				BindingResult result, RedirectAttributes redirectAttributes) {
+		if(result.hasErrors()) {
+			model.addAttribute("message", "insert");
+			return "member/insert";
+		}
+		member.setPassword(bpe.encode(member.getPassword()));
+		member.setBan(1);
+		memberService.insertMember(member);
+		redirectAttributes.addFlashAttribute("message", "회원 가입 완료!");
+		return "redirect:/login";
+	}
+	
+	@RequestMapping(value="/idCheck", produces="application/json; charset=UTF-8", method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> idCheck(@RequestBody Map<String, Object> allData) {
+		Map <String, Object> map = new HashMap<String, Object>();
+		String email = String.valueOf(allData.get("email"));
+		int count = memberService.emailCheck(email);
+		String result;
+		if(count == 1) {
+			result = "NO";
+		} else {
+			result = "OK";
+		}
+		map.put("emailResult", result);
+		return map;
+	}
+	
+	@RequestMapping(value="/nickCheck", method=RequestMethod.POST)
+	@ResponseBody
+	public Map<String, Object> nickCheck(@RequestBody Map<String, Object> data){
+		Map<String, Object> map = new HashMap<String, Object>();
+		String nickname = String.valueOf(data.get("nick"));
+		int count = memberService.nickCheck(nickname);
+		String result;
+		if(count == 1) {
+			result = "NO";
+		} else {
+			result = "OK";
+		}
+		map.put("nickResult", result);
+		return map;
+	}
 }

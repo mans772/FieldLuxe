@@ -11,7 +11,7 @@ public interface IMemberRepository {
 	
 
 	void insertMember(MemberVO mem);
-	void insertAuth(@Param("email")String email);
+	void insertAuth(@Param("email")String email, @Param("authority")String auth);
 	void updateBan(MemberVO mem);
 	void updateMember(@Param("email")MemberVO mem);
 	void updateAuth(@Param("email")MemberVO mem);
@@ -21,4 +21,6 @@ public interface IMemberRepository {
 	MemberVO getMember(@Param("email")String email);
 	List<MemberVO> getMemberList(@Param("page")int page, @Param("word")String word);
 	Integer getMemberCount(@Param("word")String word);
+	Integer emailCheck(@Param("email")String email);
+	Integer nickCheck(@Param("nickname")String nickname);
 }

@@ -29,6 +29,19 @@
 				WHERE m.email = #{email}
 </select>
 
+	<!-- 이메일 중복체크 -->
+<select id="emailCheck" resultType="int">
+	SELECT count(*) 
+		FROM member 
+			WHERE email = #{email}
+</select>
+
+	<!-- 닉네임 중복체크 -->
+<select id="nickCheck" resultType="int">
+	SELECT count(*) 
+		FROM member 
+			WHERE nickname = #{nickname}
+</select>
 
 	<!-- 비밀번호 확인 -->
 <select id="getPassword" parameterType="string" resultType="string">
@@ -81,15 +94,15 @@
 
 	<!-- 회원가입  -->
 <insert id="insertMember" parameterType="com.kg.fieldluxe.member.model.MemberVO">
-	INSERT INTO member 
-		VALUES(#{email}, #{password}, #{nickname}, #{account}, #{name}, #{phoneNum}, #{postNum}, #{address}, #{joinDate}, '0')
+	INSERT INTO member (email, password, nickname, account, join_date, ban) 
+		VALUES(#{email}, #{password}, #{nickname}, DBMS_RANDOM.VALUE (0, 1000), SYSDATE, '0')
 </insert>
 
 
 	<!-- 유저 권한 기본 설정 -->
 <insert id="insertAuth" parameterType="string">
 	INSERT INTO authorities 
-		VALUES(#{email}, '0')
+		VALUES(#{email}, #{authority})
 </insert>
 
 
