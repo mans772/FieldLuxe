@@ -100,6 +100,7 @@
 		/*Center Icons*/
 		nav.sidebar a{
 			padding-right: 13px;
+			
 		}
 
 		/*adds border top to first nav box */
@@ -191,67 +192,43 @@
 	section{
 		padding-left: 15px;
 	}
-	.show-table {
-		margin-bottom:400px;
-	}
-	.table {
-		width:850px;
+	.show-table{
 		margin-top:100px;
-		
+		margin-bottom:300px;
+		width:900px;
+		margin-left:100px;
 	}
-	td {
-	font-size:15px;
-}
-.pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-}
+	.table{
+		margin-top:60px;
+		
+		width:700px;
+	
+	}
+	
 
-.pagination a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.pagination a:hover:not(.active) {background-color: #ddd;}
-
-.search-container {
-  float: right;
-  display:inline-flex;
-}
-.search-container button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-  display:inline-flex;
-}
-
-.search-container button:hover {
-  background: #ccc;
+.btn .btn-default{
+	width:50px;
+	height:30px;
+	
 }	
+
+
 @media screen and (max-width: 786px) {
 	.show-table{
 		overflow-x: auto;
-		margin-bottom:50px;
+		margin:0 5px;
 	}
 	.table {
 		width: 100%;
 		min-width: 500px;
-		margin:0;
 	}
 }
 </style>
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
-	<nav class="navbar navbar-inverse sidebar" role="navigation">
-    <div class="container-fluid">
+	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#594b4b;">
+    <div class="container-fluid" style="font-family:Malgun Gothic;">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -260,74 +237,48 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">ADMIN</a>
+			<a class="navbar-brand" href="#">고객센터</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home<span style="font-size:16px;"
 				 class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">회원관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">등록상품 검수<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">게시 상품 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">거래내역 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">1:1 문의 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
-				<li ><a href="#">리뷰관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
-				<li ><a href="#">쿠폰관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
+				<li><a href="#">공지사항<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li><a href="#">FAQ<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li><a href="#">사이트 이용법<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				
 			</ul>
 		</div>
 	</div>
 </nav>
 <div class="main">
-<div class="show-table" >
-	<table class="table">
-    	<tr>
-           <td colspan="6"><h3>쿠폰 관리</h3></td>
-         </tr>
-         <tr>
-            <td>리뷰번호</td>
-            <td>리뷰날짜</td>
-           	<td>판매자</td>
-            <td>상품명</td>
-            <td>별점평가</td>
-            <td>리뷰내용</td>
-          </tr>
-          <tr>
-      <%-- <c:forEach items="${}" var="vo"> --%>
+	<div class="show-table" style="font-family:Malgun Gothic;">
+		<h3 style="diaplay:inline-flex;">공지사항</h3>
+		<table class="table" style="margin-top:60px;">
+		 <%-- <c:forEach items="${}" var="vo"> --%>
       <%-- <c:if test="${empty }"><h3>내역이 없습니다.</h3></c:if> --%>
-           	<td>0053<%-- ${vo. } --%></td>
-           	<td>2020.12.30<%-- ${vo. } --%></td>
-           	<td>Linda</td>
-            <td>BALENCIAGA<%-- ${vo. } --%></td>
-            <td>★★<%-- ${vo. } --%></td>
-            <td>그냥 그래요<%-- ${vo. } --%></td>
-            <%-- </c:forEach> --%>
+         <tr>
+            <th>제목</th>
+            <td colspan="2">삼성카드로 결제시 30% 청구 할인 혜택!<%-- ${vo. } --%></td>
+         </tr>
+          <tr>
+     		<th>게시일</th>
+           	<td>2021.01.20<%-- ${vo. } --%></td>
            </tr>
-            			<tr>
-            				<td>0053<%-- ${vo. } --%></td>
-            				<td>2020.12.30<%-- ${vo. } --%></td>
-            				<td>Choi</td>
-            				<td>BALENCIAGA<%-- ${vo. } --%></td>
-            				<td>★★★★★</td>
-            				<td>예뻐요.잘쓰고 있어요<%-- ${vo. } --%></td>
-            			</tr>
            <tr>
-            <td colspan="6" style="text-align:center;"><!-- 페이징처리 -->
-  				<div class="pagination">
-  					<a href="#">&laquo;</a>
-  					<a class="active" href="#">1</a>
-  					<a  href="#">2</a>
-  					<a href="#">3</a>
-  					<a href="#">&raquo;</a>
-				</div>
-			</td>
-			</tr>
-     	</table>       			
+           		<th>내용</th>
+           		<td><textarea row="5" cols="120"><%-- ${vo. } --%></textarea></td>
+           	</tr>
+           	
+            <%-- </c:forEach> --%>
+          </table>
+     	<a href="#" class="btn btn-default" style="background-color:#ffedf1;float:right;">목록</a>       			
       </div>
-  <jsp:include page="../include/footer.jsp"/>
+    <jsp:include page="../include/footer.jsp"/>
     
 </div>
-  
+ 
 
 <script type="text/javascript"> /* sidebar function */
 function htmlbodyHeightUpdate(){

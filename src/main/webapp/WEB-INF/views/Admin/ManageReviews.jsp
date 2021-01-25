@@ -137,7 +137,7 @@
 		/*gives sidebar width/height*/
 		nav.sidebar{
 			width: 200px;
-			height: 80%;
+			height: 100%;
 			margin-left: -160px;
 			float: left;
 			z-index: 8000;
@@ -191,11 +191,14 @@
 	section{
 		padding-left: 15px;
 	}
-	.table {
-		width:1000px;
+	.show-table{
+		margin-top:100px;
+		margin-bottom:200px;
+		width:900px;
+		margin-left:100px;
+		margin-right:100px;
 	}
-	td {
-	font-style:dotum;
+	td {font-style:dotum;
 	font-size:15px;
 }
 .pagination a {
@@ -284,7 +287,7 @@
 </nav>
 <div class="main">
 <div class="show-table" >
-	<table class="table" style="margin:100px;">
+	<table class="table">
     	<tr>
            <td colspan="6"><h3>리뷰 관리</h3></td>
          </tr>

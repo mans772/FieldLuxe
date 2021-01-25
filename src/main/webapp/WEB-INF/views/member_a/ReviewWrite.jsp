@@ -40,7 +40,6 @@
 
  body,html{
 		height: 100%;
-		font-family:Malgun gothic;
 	}
 
 	/* remove outer padding */
@@ -191,17 +190,47 @@
 	section{
 		padding-left: 15px;
 	}
+	.main{
+		width:1000px;
+		margin:50px 300px;
+	}
+	.review-top{
+		margin-bottom:100px ;
+	}
 	.show-table {
-		margin-bottom:400px;
+		margin-left:100px;
+		width:450px;
+	}
+	.review {
+		margin-bottom:200px;
+	
+	}
+	.star-re {
+		margin-top:290px;
+	}
+	
+@media screen and (max-width: 786px) {
+	.main{
+		margin:0;
+		width:100%;
+	}
+	.show-table{
+		overflow-x: auto;
+		margin:0 5px;
 	}
 	.table {
-		width:850px;
-		margin-top:100px;
-		
+		width: 100%;
+		min-width: 250px;
 	}
-	td {
-	font-size:15px;
+	.review {
+		width:50%;
+	}
+	.star-re {
+		margin-top:50px;
+	}
 }
+
+
 .pagination a {
   color: black;
   float: left;
@@ -214,44 +243,28 @@
   color: white;
 }
 
-.pagination a:hover:not(.active) {background-color: #ddd;}
-
-.search-container {
-  float: right;
-  display:inline-flex;
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
 }
-.search-container button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
+
+.starR{
+  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+  background-size: auto 100%;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  text-indent: -9999px;
   cursor: pointer;
-  display:inline-flex;
 }
+.starR.on{background-position:0 0;}
 
-.search-container button:hover {
-  background: #ccc;
-}	
-@media screen and (max-width: 786px) {
-	.show-table{
-		overflow-x: auto;
-		margin-bottom:50px;
-	}
-	.table {
-		width: 100%;
-		min-width: 500px;
-		margin:0;
-	}
-}
 </style>
+
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
-	<nav class="navbar navbar-inverse sidebar" role="navigation">
-    <div class="container-fluid">
+	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;">
+    <div class="container-fluid" style="font-family:Malgun Gothic;">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -260,74 +273,96 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">ADMIN</a>
+			<a class="navbar-brand" href="#">마이 페이지</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home<span style="font-size:16px;"
 				 class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">회원관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">등록상품 검수<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">게시 상품 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">거래내역 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">1:1 문의 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
+				<li ><a href="#">내 프로필보기<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li ><a href="#">경매참여내역<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">구매내역<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">판매내역<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li ><a href="#">상품등록 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
+				<li ><a href="#">회원정보 수정<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span></a></li>
+				<li ><a href="#">1:1 문의<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
 				<li ><a href="#">리뷰관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
-				<li ><a href="#">쿠폰관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
 			</ul>
 		</div>
 	</div>
 </nav>
-<div class="main">
-<div class="show-table" >
-	<table class="table">
-    	<tr>
-           <td colspan="6"><h3>쿠폰 관리</h3></td>
-         </tr>
-         <tr>
-            <td>리뷰번호</td>
-            <td>리뷰날짜</td>
-           	<td>판매자</td>
-            <td>상품명</td>
-            <td>별점평가</td>
-            <td>리뷰내용</td>
-          </tr>
-          <tr>
-      <%-- <c:forEach items="${}" var="vo"> --%>
-      <%-- <c:if test="${empty }"><h3>내역이 없습니다.</h3></c:if> --%>
-           	<td>0053<%-- ${vo. } --%></td>
-           	<td>2020.12.30<%-- ${vo. } --%></td>
-           	<td>Linda</td>
-            <td>BALENCIAGA<%-- ${vo. } --%></td>
-            <td>★★<%-- ${vo. } --%></td>
-            <td>그냥 그래요<%-- ${vo. } --%></td>
-            <%-- </c:forEach> --%>
-           </tr>
-            			<tr>
-            				<td>0053<%-- ${vo. } --%></td>
-            				<td>2020.12.30<%-- ${vo. } --%></td>
-            				<td>Choi</td>
-            				<td>BALENCIAGA<%-- ${vo. } --%></td>
-            				<td>★★★★★</td>
-            				<td>예뻐요.잘쓰고 있어요<%-- ${vo. } --%></td>
-            			</tr>
-           <tr>
-            <td colspan="6" style="text-align:center;"><!-- 페이징처리 -->
-  				<div class="pagination">
-  					<a href="#">&laquo;</a>
-  					<a class="active" href="#">1</a>
-  					<a  href="#">2</a>
-  					<a href="#">3</a>
-  					<a href="#">&raquo;</a>
+<div class="main" style="font-family:Malgun Gothic;">
+	<div class="review-write">
+	<h3>리뷰작성하기</h3>
+	<div class="review-top" style="margin-top:50px;">
+		<form action="#" method="post">
+		<div class="col-sm-2" >
+			<img alt="" src="../img/handbag1.jpg<%-- <%= %> --%>" style="height:150px;">
+        </div>  		
+        <div class="col-sm-10">
+        	<div class="show-table">   			
+           			<table class="table">
+           				<tr>
+            				<td>브랜드</td>
+            				<td>Balenciaga <%-- <%= %> --%></td>
+          				</tr>
+          				<tr>
+            				<td>상품명</td>
+            				<td>Balenciaga Track Trainer Grey White 2019 <%-- <%= %> --%></td>
+          				</tr>
+          				<tr>
+            				<td>모델번호</td>
+            				<td>542023W1GB71214 <%-- <%= %> --%></td>
+          				</tr>
+          			
+          		</table>
+      		</div>
+      	</div>
+      		</form>
+      	</div>
+      
+      <form action="#" method="post">
+       <div class="star-re"style="" >
+       
+        	<h4><strong>별점평가</strong></h4>
+        		<div class="starRev" style="text-align:left;">
+  					<span class="starR on">별1</span>
+  					<span class="starR">별2</span>
+  					<span class="starR">별3</span>
+  					<span class="starR">별4</span>
+  					<span class="starR">별5</span>
 				</div>
-			</td>
-			</tr>
-     	</table>       			
-      </div>
-  <jsp:include page="../include/footer.jsp"/>
-    
-</div>
-  
+		</div>
+
+
+     
+       <div class="review" style="margin-top:60px;">
+       	<h4><strong>리뷰작성</strong></h4>
+       
+       		<textarea rows="10" cols="120" placeholder="자세하고 솔직한 리뷰는 다른 고객에게 많은 도움이 됩니다."></textarea>
+        	
+      	  		
+      	 <div class="my-btns" style="margin-top:20px;">
+      	  		<button type="submit" class="btn btn-default" 
+      	  			style="background-color:#916d90;color:white;
+      	  			border:none;display:inline-flex;">완료</button> 
+      	  		<button type="reset" class="btn btn-default" 
+      	  			style="margin-left:10px;background-color:#bab3b9;color:white;
+      	  			border:none;display:inline-flex;">취소</button>      	
+      	  		
+      	 </div>
+      	</div> 	
+      	</form> 
+     	
+     	<jsp:include page="../include/footer.jsp"/>      			
+     
+    </div>
+  </div>
+
+
+
+
 
 <script type="text/javascript"> /* sidebar function */
 function htmlbodyHeightUpdate(){
@@ -355,6 +390,12 @@ $(document).ready(function () {
 			htmlbodyHeightUpdate()
 	});
 });
+
+$('.starRev span').click(function(){//별점평가
+	  $(this).parent().children('span').removeClass('on');
+	  $(this).addClass('on').prevAll('span').addClass('on');
+	  return false;
+	});
 </script>
 </body>
 </html>

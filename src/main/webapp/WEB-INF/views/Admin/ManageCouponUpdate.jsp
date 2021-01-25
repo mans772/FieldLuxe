@@ -100,6 +100,7 @@
 		/*Center Icons*/
 		nav.sidebar a{
 			padding-right: 13px;
+			
 		}
 
 		/*adds border top to first nav box */
@@ -191,67 +192,46 @@
 	section{
 		padding-left: 15px;
 	}
-	.show-table {
-		margin-bottom:400px;
-	}
-	.table {
-		width:850px;
+	.show-table{
 		margin-top:100px;
-		
+		margin-bottom:300px;
+		width:900px;
+		margin-left:100px;
 	}
-	td {
-	font-size:15px;
-}
-.pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-}
+	.table{
+		margin-top:60px;
+		margin-left:100px;
+		width:700px;
+	
+	}
+	
 
-.pagination a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.pagination a:hover:not(.active) {background-color: #ddd;}
-
-.search-container {
-  float: right;
-  display:inline-flex;
-}
-.search-container button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-  display:inline-flex;
-}
-
-.search-container button:hover {
-  background: #ccc;
+.btn .btn-default.1{
+	width:50px;
+	height:30px;
+	
 }	
+.btn.btn-default.2{
+	width:50px;
+	height:30px;
+	
+}
 @media screen and (max-width: 786px) {
 	.show-table{
 		overflow-x: auto;
-		margin-bottom:50px;
+		margin:0 5px;
 	}
 	.table {
 		width: 100%;
 		min-width: 500px;
-		margin:0;
 	}
 }
 </style>
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
-	<nav class="navbar navbar-inverse sidebar" role="navigation">
-    <div class="container-fluid">
+	<nav class="navbar navbar-inverse sidebar" role="navigation" >
+    <div class="container-fluid" style="font-family:Malgun Gothic;">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -267,67 +247,58 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home<span style="font-size:16px;"
 				 class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">회원관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">등록상품 검수<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">게시 상품 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">거래내역 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">1:1 문의 관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
-				<li ><a href="#">리뷰관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
-				<li ><a href="#">쿠폰관리<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
+				<li><a href="#">회원관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li><a href="#">등록상품 검수<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li><a href="#">게시상품관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li><a href="#">거래내역관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li><a href="#">1:1문의관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
+				<li><a href="#">리뷰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
+				<li><a href="#">쿠폰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
 			</ul>
 		</div>
 	</div>
 </nav>
 <div class="main">
-<div class="show-table" >
-	<table class="table">
-    	<tr>
-           <td colspan="6"><h3>쿠폰 관리</h3></td>
-         </tr>
+	<div class="show-table" style="font-family:Malgun Gothic;">
+		<h3>쿠폰수정/삭제</h3>
+		<form action="#" method="post">
+         <table class="table" style="margin-top:60px;">
          <tr>
-            <td>리뷰번호</td>
-            <td>리뷰날짜</td>
-           	<td>판매자</td>
-            <td>상품명</td>
-            <td>별점평가</td>
-            <td>리뷰내용</td>
+            <th>쿠폰번호</th>
+            <td><input type="text" name="userEmail" style="width:500px;" value=""></td>
+          </tr>
+           <tr>
+            <th>쿠폰명</th>
+            <td><input type="text" name="couponName" style="width:500px;" value=""></td>
           </tr>
           <tr>
-      <%-- <c:forEach items="${}" var="vo"> --%>
-      <%-- <c:if test="${empty }"><h3>내역이 없습니다.</h3></c:if> --%>
-           	<td>0053<%-- ${vo. } --%></td>
-           	<td>2020.12.30<%-- ${vo. } --%></td>
-           	<td>Linda</td>
-            <td>BALENCIAGA<%-- ${vo. } --%></td>
-            <td>★★<%-- ${vo. } --%></td>
-            <td>그냥 그래요<%-- ${vo. } --%></td>
-            <%-- </c:forEach> --%>
-           </tr>
-            			<tr>
-            				<td>0053<%-- ${vo. } --%></td>
-            				<td>2020.12.30<%-- ${vo. } --%></td>
-            				<td>Choi</td>
-            				<td>BALENCIAGA<%-- ${vo. } --%></td>
-            				<td>★★★★★</td>
-            				<td>예뻐요.잘쓰고 있어요<%-- ${vo. } --%></td>
-            			</tr>
-           <tr>
-            <td colspan="6" style="text-align:center;"><!-- 페이징처리 -->
-  				<div class="pagination">
-  					<a href="#">&laquo;</a>
-  					<a class="active" href="#">1</a>
-  					<a  href="#">2</a>
-  					<a href="#">3</a>
-  					<a href="#">&raquo;</a>
-				</div>
-			</td>
-			</tr>
-     	</table>       			
+            <th>사용기한</th>
+            <td><input type="date" class="form-control" id="tillDate" style="width:500px;" name="tillDate"></td>
+          </tr>
+          <tr>
+            <th>할인율</th>
+            <td><input type="text" name="discountRate" style="width:500px;" value=""></td>
+          </tr>
+          <tr>
+            <th>상태</th>
+            <td><!-- <input type="text" name="status" style="width:500px;" value=""> -->
+            	<select name="" class="selectpicker" style="width:200px;height:30px;font-size:15px;">
+			 		<option>활성화</option>
+					<option>비활성화</option>
+				</select></td>
+          </tr>
+       
+     	</table>
+     	<div style="float:right;">
+     		<button class="btn btn-default 1" type="submit" style="background-color:#ffedf1;display:inline-flex;margin-right:7px;">수정</button>
+            <button class="btn btn-default 2"  type="reset" style="background-color:#c3a6ff;color:white;display:inline-flex;">삭제</button>
+     	</div>
+     	</form>       			
       </div>
-  <jsp:include page="../include/footer.jsp"/>
+    <jsp:include page="../include/footer.jsp"/>
     
 </div>
-  
+ 
 
 <script type="text/javascript"> /* sidebar function */
 function htmlbodyHeightUpdate(){

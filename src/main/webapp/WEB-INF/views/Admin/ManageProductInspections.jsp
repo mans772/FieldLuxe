@@ -137,7 +137,7 @@
 		/*gives sidebar width/height*/
 		nav.sidebar{
 			width: 200px;
-			height: 80%;
+			height: 100%;
 			margin-left: -160px;
 			float: left;
 			z-index: 8000;
@@ -191,11 +191,15 @@
 	section{
 		padding-left: 15px;
 	}
-	.table {
-		width:1000px;
+	.show-table{
+		margin-top:100px;
+		margin-bottom:200px;
+		width:900px;
+		margin-left:100px;
+		margin-right:100px;
 	}
 	td {
-	font-style:dotum;
+	
 	font-size:15px;
 }
 .pagination a {
@@ -235,6 +239,7 @@
 @media screen and (max-width: 786px) {
 	.show-table{
 		overflow-x: auto;
+		margin:0 5px;
 	}
 	.table {
 		width: 100%;
@@ -273,8 +278,8 @@
 		</div>
 	</div>
 </nav>
-<div class="main"style="width:1000px;" >
-<div class="show-table" style="margin:100px;">
+<div class="main">
+<div class="show-table">
 	
     	
            <h3 style="diaplay:inline-flex;">등록상품 검수</h3>
