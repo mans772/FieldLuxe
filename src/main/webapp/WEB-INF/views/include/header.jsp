@@ -143,7 +143,7 @@ body {
 		<div class="topbar-menu">
 			<a></a> <a href="<c:url value='/product/productList'/>">모두보기</a>
 					<a href="#">로그인</a>
-					<a href="#">마이페이지</a>
+					<a href="<c:url value='/member/auctionList'/>">마이페이지</a>
 					<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 					<i class="fa fa-bars"></i>
 			</a>
