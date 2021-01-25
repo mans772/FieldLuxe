@@ -123,7 +123,7 @@
 <delete id="deleteAuth" parameterType="string">
 	DELETE 
 		FROM authorities 
-		WHERE email = #{email}
+			WHERE email = #{email}
 </delete>
 
 
