@@ -74,19 +74,19 @@
 				<div class="show-table">
 				<table class="table" style="margin-top:20px;">
 					<tr>
-						<td>브랜드</td>
+						<th>브랜드</th>
 						<td>Balenciaga<%-- <%= %> --%></td>
 					</tr>
 					<tr>
-						<td>상품명</td>
+						<th>상품명</th>
 						<td>Balenciaga Track Trainer Grey White 2019<%-- <%= %> --%></td>
 					</tr>
 					<tr>
-						<td>모델번호</td>
+						<th>모델번호</th>
 						<td>542023W1GB71214<%-- <%= %> --%></td>
 					</tr>
 					<tr>
-						<td>사이즈</td>
+						<th>사이즈</th>
 						<td>240mm<%-- <%= %> --%></td>
 					</tr>
 				</table>
@@ -98,11 +98,11 @@
 				<h4>즉시구매</h4>
 				<table class="table">
 					<tr>
-						<td>즉시구매가</td>
+						<th>즉시구매가</th>
 						<td>1,500,000원<%-- <%= %> --%></td>
 					</tr>
 					<tr>
-						<td>쿠폰</td>
+						<th>쿠폰</th>
 						<td><select name="order" class="selectpicker" style="width:200px;height:30px;font-size:15px;">
 			 					<option>보유쿠폰</option>
 								<option>10% 할인 쿠폰</option>
@@ -111,11 +111,11 @@
 							</select></td>
 					</tr>
 					<tr>
-						<td>배송비</td>
+						<th>배송비</th>
 						<td>0원<%-- <%= %> --%></td>
 					</tr>
 					<tr style="background-color:#d6e5ff;">
-						<td>총결제금액</td>
+						<th>총결제금액</th>
 						<td>1,350,000</td>
 					</tr>
 					<tr>
@@ -125,11 +125,11 @@
 				<h4 style="margin-top:30px;">경매입찰</h4>
 				<table class="table">
 					<tr>
-						<td>입찰희망가</td>
+						<th>입찰희망가</th>
 						<td><input type="text" name="" style="width:200px;height:30px;"></td>
 					</tr>
 						<tr>
-						<td>쿠폰</td>
+						<th>쿠폰</th>
 						<td><select name="order" class="selectpicker" style="width:200px;height:30px;font-size:15px;">
 			 					<option>보유쿠폰</option>
 								<option>10% 할인 쿠폰</option>
@@ -138,11 +138,11 @@
 							</select></td>
 					</tr>
 					<tr>
-						<td>배송비</td>
+						<th>배송비</th>
 						<td>0원<%-- <%= %> --%></td>
 					</tr>
 					<tr style="background-color:#d6e5ff;">
-						<td>총결제금액</td>
+						<th>총결제금액</th>
 						<td>1,350,000</td>
 					</tr>
 					<tr>
@@ -163,26 +163,26 @@
   			</form>
 			<table class="table">
 				<tr>
-  					<td><label class="control-label" for="name">이름</label></td>
+  					<th><label class="control-label" for="name">이름</label></th>
                     <td><input class="form-control" style="width:80%" id="name" name="name" placeholder="수령인의 이름을 입력하세요"></td>
 				</tr>
 				<tr>
-					<td><label class="control-label" for="tel">휴대폰번호</label></td>
+					<th><label class="control-label" for="tel">휴대폰번호</label></th>
 					<td><input class="form-control" style="width:80%" name="tel" placeholder="-없이 입력"></td>
 				</tr>
 				<tr>
-         			<td><label class="control-label" for="zipcode">우편번호</label></td>
+         			<th><label class="control-label" for="zipcode">우편번호</label></th>
             		<td><input class="form-control" style="width:60%; display:inline;" placeholder="우편번호" name="addr1" id="addr1" type="text" readonly="readonly" >
     					<button style="width:130px; type="button" class="btn" onclick="execPostCode();"><i class="fa fa-search"></i> 우편번호 찾기</button>
     				</td>
  		 		</tr>
          		<tr>
-        			<td><label class="control-label" for="address">주소</label></td>
+        			<th><label class="control-label" for="address">주소</label></th>
             		<td> <input class="form-control" style="top: 5px;width:80%;" placeholder="도로명 주소" name="addr2" id="addr2" type="text" readonly="readonly" /></td>
          		</tr>
            
          		<tr>
-         			<td><label class="control-label" for="detailaddress">상세주소</label></td>
+         			<th><label class="control-label" for="detailaddress">상세주소</label></th>
             		<td><input class="form-control" style="width:80%" placeholder="상세주소" name="addr3" id="addr3" type="text"  /></td>
          		</tr>
          		<tr>

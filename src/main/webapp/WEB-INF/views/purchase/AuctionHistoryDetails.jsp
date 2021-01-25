@@ -258,15 +258,15 @@
 								<img alt="" src="img/handbag1.jpg<%-- <%= %> --%>" style="height:265px;">
 							</td>
 						<tr>
-							<td>브랜드</td>
+							<th>브랜드</th>
 							<td>Balenciaga<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>상품명</td>
+							<th>상품명</th>
 							<td>Balenciaga Track Trainer Grey White 2019<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>모델번호</td>
+							<th>모델번호</th>
 							<td>542023W1GB71214<%-- <%= %> --%></td>
 						</tr>
 					</table>
@@ -276,43 +276,43 @@
 				<div class="show-table">
 					<table class="table" style="width:500px;height:500px;margin-bottom:200px;">
 						<tr>
-							<td>참여번호</td>
+							<th>참여번호</th>
 							<td>21445203<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>참여일</td>
+							<th>참여일</th>
 							<td>2021.01.09<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>최저입찰가</td>
+							<th>최저입찰가</th>
 							<td>800,000원<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>입찰보증금</td>
+							<th>입찰보증금</th>
 							<td>80,000원<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>입찰보증금</td>
+							<th>입찰보증금</th>
 							<td>최소입찰가의 10%<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>현재입찰가</td>
+							<th>현재입찰가</th>
 							<td>900,000<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>경매시작일</td>
+							<th>경매시작일</th>
 							<td>20221.01.07<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>경매마감일</td>
+							<th>경매마감일</th>
 							<td>2021.01.13<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>입찰여부</td>
+							<th>입찰여부</th>
 							<td>진행중<%-- <%= %> --%></td>
 						</tr>
 						<tr>
-							<td>나의 입찰가</td>
+							<th>나의 입찰가</th>
 							<td>850,000원<%-- <%= %> --%></td>
 						</tr>
 						<tr>
