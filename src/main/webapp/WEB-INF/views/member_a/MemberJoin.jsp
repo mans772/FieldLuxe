@@ -80,7 +80,7 @@
 
 
 <body>
-<jsp:include page="/include/header.jsp"/>
+<jsp:include page="../include/header.jsp"/>
 	<div class="join-page">
 			<div class="row">
 				<h3 class="title">회원가입</h3>
@@ -129,7 +129,7 @@ function check_pw(){
 	</script>
 
 
-	<jsp:include page="/include/footer.jsp"/>
+	<jsp:include page="../include/footer.jsp"/>
 	
 	
 </body>

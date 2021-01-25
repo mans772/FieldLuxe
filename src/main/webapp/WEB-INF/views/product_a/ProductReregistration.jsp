@@ -59,7 +59,7 @@
 </style>
 </head>
 <body>
-<jsp:include page="/include/header.jsp"/>
+<jsp:include page="../include/header.jsp"/>
 <div class="contanier" style="font-family:Malgun Gothic;">
 	<div class="pro-re">
 	<h3 style="text-align:center;margin:30px 0;">상품 재등록</h3>
@@ -257,7 +257,7 @@
 	</div>
 </div>
 </div>
-<jsp:include page="/include/footer.jsp"/>
+<jsp:include page="../include/footer.jsp"/>
 
 <script>
 

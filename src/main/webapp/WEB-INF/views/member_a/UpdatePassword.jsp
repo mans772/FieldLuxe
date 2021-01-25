@@ -230,7 +230,7 @@
 
 </head>
 <body>
-<jsp:include page="/include/header.jsp"/>
+<jsp:include page="../include/header.jsp"/>
 	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;font-family:Malgun Gothic;">
     <div class="container-fluid">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -267,11 +267,11 @@
 	
 		<div class="input-group" >
 		<h3>비밀번호 변경</h3>
-			<input type="text" class="form-control" style="margin-top:20px;"
+			<input type="password" class="form-control" style="margin-top:20px;"
 				name="pawssword" id="password"  placeholder="현재비밀번호를 입력해주세요" required/>
-			<input type="text" class="form-control" style="margin-top:20px;"
+			<input type="password" class="form-control" style="margin-top:20px;"
 				name="Newpassword" id="Newpassword"  placeholder="새 비밀번호를 입력해주세요." required/>
-			<input type="text" class="form-control" style="margin-top:20px;"
+			<input type="password" class="form-control" style="margin-top:20px;"
 				name="confirm" id="confirm"  placeholder="새 비밀번호를 다시 한번 입력해주세요"onchange="check_pw()" required/>
 			<span id="check"></span>
 		</div>
@@ -284,7 +284,7 @@
  			</div>		
 		</form>
       </div>
-    <jsp:include page="/include/footer.jsp"/>
+    <jsp:include page="../include/footer.jsp"/>
     
 </div>
 

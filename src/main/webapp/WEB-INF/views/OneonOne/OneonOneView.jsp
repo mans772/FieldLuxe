@@ -211,7 +211,7 @@
 </style>
 </head>
 <body>
-<jsp:include page="/include/header.jsp"/>
+<jsp:include page="../include/header.jsp"/>
 	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;">
     <div class="container-fluid" style="font-family:Malgun Gothic;">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -295,7 +295,7 @@
         </table> 
         </div>    			
       </div>
-    <jsp:include page="/include/footer.jsp"/>
+    <jsp:include page="../include/footer.jsp"/>
     
 </div>
 

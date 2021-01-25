@@ -62,7 +62,7 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
 <body>
 
 
-<jsp:include page="/include/header.jsp"/>
+<jsp:include page="../include/header.jsp"/>
 
 
 <div class="container" style="font-family:Malgun Gothic;">
@@ -239,7 +239,7 @@ h3.h3{text-align:center;margin:1em;text-transform:capitalize;font-size:1.7em;}
 </div>
 <hr style="margin-bottom:200px;">
 
-<jsp:include page="/include/footer.jsp"/>
+<jsp:include page="../include/footer.jsp"/>
 
 </body>
 </html>

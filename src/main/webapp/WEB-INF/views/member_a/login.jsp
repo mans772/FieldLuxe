@@ -108,7 +108,7 @@
     </a>
     </div>
 </div>
-<jsp:include page="/include/footer.jsp"/>
+<jsp:include page="../include/footer.jsp"/>
 
 <!-- 카카오로그인 -->
 <p id="token-result"></p>

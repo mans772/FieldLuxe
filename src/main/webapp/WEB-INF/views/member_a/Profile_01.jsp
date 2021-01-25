@@ -44,7 +44,7 @@
 <body>
 
 
-<jsp:include page="/include/header.jsp"/>
+<jsp:include page="../include/header.jsp"/>
 
 
 <div class="container" style="Malgun Gothic;">
@@ -133,7 +133,7 @@
 </div>
 </div>
 
-<jsp:include page="/include/footer.jsp"/>
+<jsp:include page="../include/footer.jsp"/>
 
 <script type="text/javascript">
 $('.starRev span').click(function(){//별점평가

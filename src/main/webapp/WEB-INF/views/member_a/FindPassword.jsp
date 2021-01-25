@@ -40,7 +40,7 @@
 </style>
 </head>
 <body>
-<jsp:include page="/include/header.jsp"/>
+<jsp:include page="../include/header.jsp"/>
 
 <div class="loginPage">
   <h2>비밀번호 찾기</h2>
@@ -64,7 +64,7 @@
  
   
 </div>
-<jsp:include page="/include/footer.jsp"/>
+<jsp:include page="../include/footer.jsp"/>
 
 <script type="text/javascript">
 //Disable form submissions if there are invalid fields

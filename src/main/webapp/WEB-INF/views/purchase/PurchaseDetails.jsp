@@ -214,7 +214,7 @@
 
 </head>
 <body>
-<jsp:include page="/include/header.jsp"/>
+<jsp:include page="../include/header.jsp"/>
 
 	<nav class="navbar navbar-inverse sidebar" role="navigation" style="background-color:#f0e1f2;">
     <div class="container-fluid" style="font-family:Malgun gothic;">
@@ -348,7 +348,7 @@
 			</div>
 			
 		</div>
-		<jsp:include page="/include/footer.jsp"/>
+		<jsp:include page="../include/footer.jsp"/>
 	</div>
 
 <script type="text/javascript"> /* sidebar function */

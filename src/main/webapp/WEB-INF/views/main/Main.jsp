@@ -63,8 +63,8 @@ a:hover .more-button{
 </style>
 </head>
 <body>
-<jsp:include page="include/header.jsp"/>
-<jsp:include page="include/Carousel.jsp" />
+<jsp:include page="../include/header.jsp"/>
+<jsp:include page="../include/carousel.jsp"/>
 <div class="container" style="font-family:Malgun gothic;margin-bottom:200px;">
     <h2 class="h2">New Product</h2>
     <div class="new-pro">
@@ -199,7 +199,7 @@ a:hover .more-button{
     
 </div>
 
-<jsp:include page="include/footer.jsp"/>
+<jsp:include page="../include/footer.jsp"/>
 </body>
 </html>
     

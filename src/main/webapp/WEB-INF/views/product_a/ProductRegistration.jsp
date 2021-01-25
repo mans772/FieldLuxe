@@ -64,7 +64,7 @@
 </style>
 </head>
 <body>
-<jsp:include page="/include/header.jsp"/>
+<jsp:include page="../include/header.jsp"/>
 <div class="contanier" style="font-family:Malgun gothic;">
 	<div class="pro-re">
 	<h2 style="text-align:center;">상품등록</h2>
@@ -261,7 +261,7 @@
 	</div>
 </div>
 </div>
-<jsp:include page="/include/footer.jsp"/>
+<jsp:include page="../include/footer.jsp"/>
 
 <script>
 
