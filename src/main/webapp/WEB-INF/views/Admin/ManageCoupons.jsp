@@ -137,7 +137,7 @@
 		/*gives sidebar width/height*/
 		nav.sidebar{
 			width: 200px;
-			height: 80%;
+			height: 100%;
 			margin-left: -160px;
 			float: left;
 			z-index: 8000;
@@ -191,8 +191,13 @@
 	section{
 		padding-left: 15px;
 	}
+	.show-table {
+		margin-bottom:400px;
+	}
 	.table {
-		width:1000px;
+		width:850px;
+		margin-top:100px;
+		
 	}
 	td {
 	font-size:15px;
@@ -233,10 +238,12 @@
 @media screen and (max-width: 786px) {
 	.show-table{
 		overflow-x: auto;
+		margin-bottom:50px;
 	}
 	.table {
 		width: 100%;
 		min-width: 500px;
+		margin:0;
 	}
 }
 </style>
@@ -273,7 +280,7 @@
 </nav>
 <div class="main">
 <div class="show-table" >
-	<table class="table" style="margin:100px;">
+	<table class="table">
     	<tr>
            <td colspan="6"><h3>쿠폰 관리</h3></td>
          </tr>
@@ -317,10 +324,10 @@
 			</tr>
      	</table>       			
       </div>
-    <jsp:include page="../include/footer.jsp"/>
+  <jsp:include page="../include/footer.jsp"/>
     
 </div>
- 
+  
 
 <script type="text/javascript"> /* sidebar function */
 function htmlbodyHeightUpdate(){

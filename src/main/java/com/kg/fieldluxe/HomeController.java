@@ -1,7 +1,6 @@
 package com.kg.fieldluxe;
 
 import java.util.List;
-import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,11 +20,8 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String main(Model model, SearchVO search) {
-		System.out.println("git test");
-		System.out.println("git test22222222222222");
 		List<ListData> list = service.getProductList(search);
 		model.addAttribute("productList", list);
-		System.out.println("TEST");
 		return "main";
 	}
 	

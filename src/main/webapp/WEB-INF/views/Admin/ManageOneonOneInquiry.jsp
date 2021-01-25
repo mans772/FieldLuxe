@@ -137,7 +137,7 @@
 		/*gives sidebar width/height*/
 		nav.sidebar{
 			width: 200px;
-			height: 80%;
+			height: 100%;
 			margin-left: -160px;
 			float: left;
 			z-index: 8000;
@@ -191,13 +191,13 @@
 	section{
 		padding-left: 15px;
 	}
-	.table {
-		width:1000px;
+	.show-table{
+		margin-top:100px;
+		margin-bottom:200px;
+		width:900px;
+		margin-left:100px;
 	}
-	td {
-	font-style:dotum;
-	font-size:15px;
-}
+	
 .pagination a {
   color: black;
   float: left;
@@ -222,7 +222,7 @@
   margin-top: 8px;
   margin-right: 16px;
   background: #ddd;
-  font-size: 17px;
+  font-size: 12px;
   border: none;
   cursor: pointer;
   display:inline-flex;
@@ -230,10 +230,22 @@
 
 .search-container button:hover {
   background: #ccc;
+}
+
+.btn .btn-default.1{
+	width:50px;
+	height:30px;
+	
 }	
+.btn.btn-default.2{
+	width:50px;
+	height:30px;
+	
+}
 @media screen and (max-width: 786px) {
 	.show-table{
 		overflow-x: auto;
+		margin:0 5px;
 	}
 	.table {
 		width: 100%;
@@ -245,7 +257,7 @@
 <body>
 <jsp:include page="../include/header.jsp"/>
 	<nav class="navbar navbar-inverse sidebar" role="navigation" >
-    <div class="container-fluid">
+    <div class="container-fluid" style="font-family:Malgun Gothic;">
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
@@ -273,37 +285,52 @@
 	</div>
 </nav>
 <div class="main">
-<div class="show-table" >
-	<table class="table" style="margin:100px;">
-    	<tr>
-           <td colspan="6"><h3>1:1문의 관리</h3></td>
-         </tr>
+	<div class="show-table" style="font-family:Malgun Gothic;">
+		<h3 style="diaplay:inline-flex;">1:1 문의 관리</h3>
+           	<div style="float:right;">
+  				<select name="inspedtion" class="selectpicker" style="diaplay:inline-flex; width:150px;height:27px;font-size:12px;">
+			 		<option>미답변</option>
+			 		<option>전체보기</option>
+				</select>
+			</div>
+			<div class="search-container 1">
+    			<form action="/action_page.php">
+      				<input type="text" style="height:27px;"placeholder="제목/내용 검색" name="search">
+      				<button type="submit"><i class="fa fa-search"></i></button>
+    			</form>
+  			</div>  
+			
+         
+         <table class="table" style="margin-top:60px;">
          <tr>
-            <td>리뷰번호</td>
-            <td>리뷰날짜</td>
-           	<td>판매자</td>
-            <td>상품명</td>
-            <td>별점평가</td>
-            <td>리뷰내용</td>
-          </tr>
+            <th>문의번호</th>
+            <th>고객 이메일</th>
+           	<th>문의제목</th>
+            <th>문의날짜</th>
+            <th>답변날짜</th>
+            <th>답변상태</th>
+         </tr>
           <tr>
       <%-- <c:forEach items="${}" var="vo"> --%>
       <%-- <c:if test="${empty }"><h3>내역이 없습니다.</h3></c:if> --%>
-           	<td>0053<%-- ${vo. } --%></td>
-           	<td>2020.12.30<%-- ${vo. } --%></td>
-           	<td>Linda</td>
-            <td>BALENCIAGA<%-- ${vo. } --%></td>
-            <td>★★<%-- ${vo. } --%></td>
-            <td>그냥 그래요<%-- ${vo. } --%></td>
+           	<td>2144<%-- ${vo. } --%></td>
+           	<td>aaasdf@naver.com<%-- ${vo. } --%></td>
+           	<td>탈퇴는 어떻게 하나요?</td>
+            <td>2021.01.09<%-- ${vo. } --%></td>
+            <td>미답변<%-- ${vo. } --%></td>
+            <td><a href="#" class="btn btn-default 1" style="background-color:#e1d7f5;display:inline-flex;margin-right:7px;">답변</a>
+             		<a href="#" class="btn btn-default 2" style="background-color:#c3a6ff;color:white;display:inline-flex;">삭제</a></td>
             <%-- </c:forEach> --%>
            </tr>
+         <!--  <c:forEach></c:forEach>실행 할 때 아래<tr>~</tr>  삭제 해주세요 -->
             			<tr>
             				<td>0053<%-- ${vo. } --%></td>
-            				<td>2020.12.30<%-- ${vo. } --%></td>
-            				<td>Choi</td>
-            				<td>BALENCIAGA<%-- ${vo. } --%></td>
-            				<td>★★★★★</td>
-            				<td>예뻐요.잘쓰고 있어요<%-- ${vo. } --%></td>
+            				<td>ghjki@gmail.com<%-- ${vo. } --%></td>
+            				<td>사진이랑 너무 다르네요.</td>
+            				<td>2021.01.07<%-- ${vo. } --%></td>
+            				<td>2021.01.09</td>
+            				<td><a href="#" class="btn btn-default 1" style="background-color:#e1d7f5;display:inline-flex;margin-right:7px;">답변</a>
+            						<a href="#" class="btn btn-default 2" style="background-color:#c3a6ff;color:white;display:inline-flex;">삭제</a></td>
             			</tr>
            <tr>
             <td colspan="6" style="text-align:center;"><!-- 페이징처리 -->
