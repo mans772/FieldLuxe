@@ -304,12 +304,12 @@ h3.h3 {
 				<div class="col-md-3 col-sm-6">
 					<div class="product-grid">
 						<div class="product-image">
-							<a href="#"> <img class="pic-1" src="../img/handbag1.jpg">
-							</a> <span class="product-new-label">경매진행중</span>
+							<a href="<c:url value="/product/content/${ list.productId }" />">${ list.productThumbnail }</a>
+							<span class="product-new-label">경매진행중</span>
 						</div>
 						<div class="product-content">
 							<h3 class="title">${list.productBrand}</h3>
-							<span><a href="#">${list.productName}</a></span>
+							<span><a href="<c:url value="/product/content/${ list.productId }" />">${list.productName}</a></span>
 							<div class="price">${list.immePrice}</div>
 						</div>
 					</div>
