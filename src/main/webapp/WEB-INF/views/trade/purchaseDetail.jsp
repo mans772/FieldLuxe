@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -253,19 +252,19 @@
 		 			<table class="table" style="width:450px;">
 						<tr>
 							<td colspan="2" style="text-align:center;">
-								<img alt="" src="img/handbag1.jpg<%-- <%= %> --%>" style="height:270px;">
+								<img style="height:270px;">${purchase.listData.productThumbnail}
 							</td>
 						<tr>
 							<th>브랜드</th>
-							<td>Balenciaga<%-- <%= %> --%></td>
+							<td>${purchase.listData.productBrand}</td>
 						</tr>
 						<tr>
 							<th>상품명</th>
-							<td>Balenciaga Track Trainer Grey White 2019<%-- <%= %> --%></td>
+							<td>${purchase.listData.productName}</td>
 						</tr>
 						<tr>
 							<th>모델번호</th>
-							<td>542023W1GB71214<%-- <%= %> --%></td>
+							<td>${purchase.detailData.productModelNumber}</td>
 						</tr>
 					</table>
 				</div>
@@ -278,16 +277,15 @@
 							<h4><strong>주문정보</strong></h4></td>
 						<tr>
 							<th>주문번호</th>
-							<td>21445203<%-- <%= %> --%></td>
+							<td>${purchase.tradeVO.tradeId}</td>
 						</tr>
 						<tr>
 							<th>구매일</th>
-							<td>2021.01.09<%-- <%= %> --%></td>
+							<td>${purchase.tradeVO.tradeDate}</td>
 						</tr>
 						<tr>
 							<th>판매자</th>
-							<input type="hidden" name="sellerName" value="<%-- <%= %> --%>">
-							<td>Annie<%-- <%= %> --%></td>
+							<td>${purchase.tradeVO.tradeSeller}</td>
 						</tr>
 						<tr>
 							<td colspan="2" style="text-align:left;">
@@ -295,19 +293,19 @@
 						</tr>
 						<tr>
 							<th>구매가</th>
-							<td>800,000원<%-- <%= %> --%></td>
+							<td>${purchase.listData.immePrice}</td>
 						</tr>
 						<tr>
 							<th>쿠폰할인</th>
-							<td>80,000d원<%-- <%= %> --%></td>
+							<td>?</td>
 						</tr>
 						<tr>
 							<th>배송비</th>
-							<td>0원<%-- <%= %> --%></td>
+							<td>?</td>
 						</tr>
 						<tr style="background-color:#ebebff">
 							<td><strong>총결제금액</strong></td>
-							<td>720,000원<%-- <%= %> --%></td>
+							<td>${purchase.listData.immePrice}</td>
 						</tr>
 						<tr>
 							<td colspan="2" style="text-align:left;">
@@ -315,30 +313,53 @@
 						</tr>
 						<tr>
 							<th>이름</th>
-							<td>김모씨<%-- <%= %> --%></td>
+							<td>${purchase.memberVO.name}</td>
 						</tr>
 						<tr>
 							<th>휴대폰번호</th>
-							<td>010-1234-3456<%-- <%= %> --%></td>
+							<td>${purchase.memberVO.phoneNum}</td>
 						</tr>
 						<tr>
 							<th>우편번호</th>
-							<td>03139<%-- <%= %> --%></td>
+							<td>${purchase.memberVO.postNum}</td>
 						</tr>
 						<tr>
 							<th>주소</th>
-							<td>서울시 동작구<%-- <%= %> --%></td>
+							<td>${purchase.memberVO.address}</td>
 						</tr>
 						<tr style="background-color:#ebebff">
 							<th>배송상태</th>
-							<td>배송완료<%-- <%= %> --%></td>
+							
+							<c:set var="status" value="${purchase.listData.deliveryStatus}" />
+							<c:if test="${status == 0}">
+								<td>배송준비</td>
+							</c:if>
+							<c:if test="${status == 1}">
+								<td>배송중</td>
+							</c:if>
+							<c:if test="${status == 2}">
+								<td>배송완료</td>
+							</c:if>
+							<c:if test="${status == 3}">
+								<td>구매확정</td>
+							</c:if>
+							
 						</tr>
 						<tr>
 							<td colspan="2" style="text-align:center;">
-								<a href="#" class="btn btn-default" name="cancle-btn" style="width:200px;height:33px;
+							
+							<!-- 배송상태가 배송완료(2)일 때만 구매확정 활성화 -->
+							<c:if test="${status == 2}">
+								<a href="<c:url value="/trade/purchaseConfirm/${purchase.tradeVO.tradeId}" />" class="btn btn-default" name="cancle-btn" style="width:200px;height:33px;
 									margin-top:20px;background-color:#916d90;color:white;">구매확정</a>
-								<a href="#" class="btn btn-default" name="cancle-btn" style="width:200px;height:33px;
+							</c:if>
+							
+							<!-- 배송상태가 구매확정(3)일 때만 리뷰작성 활성화 -->
+							<c:if test="${status == 3}">
+								<a href="<c:url value="/review/insertReview/${purchase.tradeVO.tradeId}" />" class="btn btn-default" name="cancle-btn" style="width:200px;height:33px;
 									margin-top:20px;background-color:#916d90;color:white;">리뷰작성</a>
+							</c:if>
+							
 							</td>
 						</tr>
 					</table>

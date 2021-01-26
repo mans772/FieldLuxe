@@ -13,7 +13,7 @@ public class MemberVO {
 	private String email;
 	private String password;
 	private String nickname;
-	private int account;
+	private long account;
 	private String name;
 	private int phoneNum;
 	private int postNum;
@@ -42,10 +42,10 @@ public class MemberVO {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	public int getAccount() {
+	public long getAccount() {
 		return account;
 	}
-	public void setAccount(int account) {
+	public void setAccount(long account) {
 		this.account = account;
 	}
 	public String getName() {

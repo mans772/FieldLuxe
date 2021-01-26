@@ -6,8 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -255,19 +253,19 @@
 		 			<table class="table" style="width:500px;">
 						<tr>
 							<td colspan="2" style="text-align:center;">
-								<img alt="" src="img/handbag1.jpg<%-- <%= %> --%>" style="height:265px;">
+								<img style="height:265px;">${auction.listData.productThumbnail}
 							</td>
 						<tr>
 							<th>브랜드</th>
-							<td>Balenciaga<%-- <%= %> --%></td>
+							<td>${auction.listData.productBrand}</td>
 						</tr>
 						<tr>
 							<th>상품명</th>
-							<td>Balenciaga Track Trainer Grey White 2019<%-- <%= %> --%></td>
+							<td>${auction.listData.productName}</td>
 						</tr>
 						<tr>
 							<th>모델번호</th>
-							<td>542023W1GB71214<%-- <%= %> --%></td>
+							<td>${auction.detailData.productModelNumber}</td>
 						</tr>
 					</table>
 				</div>
@@ -277,43 +275,39 @@
 					<table class="table" style="width:500px;height:500px;margin-bottom:200px;">
 						<tr>
 							<th>참여번호</th>
-							<td>21445203<%-- <%= %> --%></td>
+							<td>${auction.tradeVO.tradeId}</td>
 						</tr>
 						<tr>
 							<th>참여일</th>
-							<td>2021.01.09<%-- <%= %> --%></td>
+							<td>${auction.tradeVO.tradeDate}</td>
 						</tr>
 						<tr>
 							<th>최저입찰가</th>
-							<td>800,000원<%-- <%= %> --%></td>
+							<td>${auction.dealData.minAuctionPrice}</td>
 						</tr>
 						<tr>
 							<th>입찰보증금</th>
-							<td>80,000원<%-- <%= %> --%></td>
-						</tr>
-						<tr>
-							<th>입찰보증금</th>
-							<td>최소입찰가의 10%<%-- <%= %> --%></td>
+							<td>${auction.dealData.auctionDeposit}</td>
 						</tr>
 						<tr>
 							<th>현재입찰가</th>
-							<td>900,000<%-- <%= %> --%></td>
+							<td>${auction.dealData.nowAuctionPrice}</td>
 						</tr>
 						<tr>
 							<th>경매시작일</th>
-							<td>20221.01.07<%-- <%= %> --%></td>
+							<td>${auction.dealData.auctionStartDate}</td>
 						</tr>
 						<tr>
 							<th>경매마감일</th>
-							<td>2021.01.13<%-- <%= %> --%></td>
+							<td>${auction.listData.auctionEndDate}</td>
 						</tr>
 						<tr>
 							<th>입찰여부</th>
-							<td>진행중<%-- <%= %> --%></td>
+							<td>${auction.dealData.auctionStatus}</td>
 						</tr>
 						<tr>
 							<th>나의 입찰가</th>
-							<td>850,000원<%-- <%= %> --%></td>
+							<td>${auction.dealData.nowAuctionPrice}</td>
 						</tr>
 						<tr>
 							<td colspan="2" style="text-align:center;">

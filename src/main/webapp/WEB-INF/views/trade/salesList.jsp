@@ -7,8 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -278,8 +276,11 @@
           <tr>
            	<td>${list.tradeVO.tradeId}</td>
            	<td>${list.tradeVO.tradeDate}</td>
-           	<td><a href="<c:url value="/trade/salesDetail/${list.tradeVO.tradeId}" />" style="width:120px;">
-           		${list.listData.productThumbnail}</a></td>
+           	<td>
+           		<a href="<c:url value="/trade/salesDetail/${list.tradeVO.tradeId}" />">
+           			<img style="height:120px;">${list.listData.productThumbnail}
+           		</a>
+           	</td>
             <td>${list.listData.productName}</td>
             <td>${list.listData.immePrice}</td>
             <td>${list.tradeVO.tradePurchaser}</td>

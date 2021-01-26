@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.kg.fieldluxe.product.model.ListData;
 import com.kg.fieldluxe.trade.model.CollaboVO;
 
 public interface ITradeMapper {
@@ -25,5 +26,19 @@ public interface ITradeMapper {
 
 	//판매내역 갯수
 	int getSalesCount(String email);
+
+	//경매내역 상세보기
+	CollaboVO getAuctionDetail(int tradeId);
+
+	//구매내역 상세보기
+	CollaboVO getPurchaseDetail(int tradeId);
+
+	//판매내역 상세보기
+	CollaboVO getSalesDetail(int tradeId);
+
+	//배송상태 수정
+	void updateDeliveryStatus(int tradeId);
+
+
 
 }

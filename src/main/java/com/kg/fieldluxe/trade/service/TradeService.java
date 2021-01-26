@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kg.fieldluxe.product.model.ListData;
 import com.kg.fieldluxe.trade.model.CollaboVO;
 import com.kg.fieldluxe.trade.repository.ITradeMapper;
 
@@ -48,6 +49,29 @@ public class TradeService implements ITradeService {
 	public int getSalesCount(String email) {
 		int salesCount = mapper.getSalesCount(email);
 		return salesCount;
+	}
+
+	@Override
+	public CollaboVO getAuctionDetail(int tradeId) {
+		CollaboVO auctionDetail = mapper.getAuctionDetail(tradeId);
+		return auctionDetail;
+	}
+
+	@Override
+	public CollaboVO getPurchaseDetail(int tradeId) {
+		CollaboVO purchaseDetail = mapper.getPurchaseDetail(tradeId);
+		return purchaseDetail;
+	}
+
+	@Override
+	public CollaboVO getSalesDetail(int tradeId) {
+		CollaboVO salesDetail = mapper.getSalesDetail(tradeId);
+		return salesDetail;
+	}
+
+	@Override
+	public void updateDeliveryStatus(int tradeId) {
+		mapper.updateDeliveryStatus(tradeId);
 	}
 
 	

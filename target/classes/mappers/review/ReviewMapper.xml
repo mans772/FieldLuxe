@@ -14,10 +14,8 @@
 		<result property="reviewRegDate" column="review_reg_date" />
 	</resultMap>
 
-	<!-- SELECT -->
 	<!-- 내 리뷰 조회 -->
-	<select id="getReviewList" parameterType="hashmap"
-		resultMap="ReviewMap">
+	<select id="getReviewList" parameterType="hashmap" resultMap="ReviewMap">
 		SELECT rnum, review_id, review_target, review_writer, product_name,
 		review_content, review_score, review_reg_date, cnt
 		FROM (
@@ -47,13 +45,11 @@
 	</select>
 
 	<!-- 리뷰 수 확인 -->
-	<select id="getReviewCount" parameterType="string"
-		resultType="int">
+	<select id="getReviewCount" parameterType="string" resultType="int">
 		<if test="word == null">
 			SELECT count(*)
 			FROM review
 		</if>
-
 		<if test="word != null">
 			SELECT count(*)
 			FROM review
@@ -61,23 +57,25 @@
 			OR review_target LIKE '%' || #{word} || '%'
 		</if>
 	</select>
-
-
-	<!-- INSERT -->
+	
+	<!-- 리뷰 한개 정보 -->
+	<select id="getReview">
+		
+	</select>
 
 	<!-- 리뷰 입력 -->
-	<insert id="insertReview"
-		parameterType="com.kg.fieldluxe.review.model.ReviewVO">
-		<selectKey keyProperty="reviewId" order="BEFORE"
-			resultType="int">
+	<insert id="insertReview" parameterType="com.kg.fieldluxe.review.model.ReviewVO">
+		<selectKey keyProperty="reviewId" order="BEFORE" resultType="int">
 			SELECT review_seq.nextval FROM dual
 		</selectKey>
-		INSERT INTO review (review_id, product_name, review_writer,
+		INSERT INTO review (review_id, product_id, review_writer,
 		review_target, review_content, review_score, review_reg_date)
-		VALUES (#{reviewId}, #{productName}, #{reviewWriter, jdbcType=VARCHAR},
+		VALUES (#{reviewId}, #{productId}, #{reviewWriter, jdbcType=VARCHAR},
 		#{reviewTarget, jdbcType=VARCHAR}, #{reviewContent, jdbcType=VARCHAR},
 		#{reviewScore}, SYSDATE)
 	</insert>
+	
+	
 	
 	<!-- 프로필 리뷰 목록 -->
 	<select id="getProfileReviewList" resultMap="ReviewMap">

@@ -323,7 +323,7 @@ h3.h3 {
 			<!-- 이전 버튼 -->
 			<c:if test="${pc.prev}">
 				<li class="page-item"><a class="page-link"
-					href="<c:url value='/product/productList${pc.makeURI(pc.beginPage - 1)}' />"
+					href="<c:url value='/product/${pc.makeURI(pc.beginPage - 1)}' />"
 					style="background-color: #643691; margin-top: 0; height: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">이전</a>
 				</li>
 			</c:if>
@@ -331,7 +331,7 @@ h3.h3 {
 			<!-- 페이지 버튼 -->
 			<c:forEach var="pageNum" begin="${pc.beginPage}" end="${pc.endPage}">
 				<li class="page-item"><a
-					href="<c:url value='/product/productList${pc.makeURI(pageNum)}'/>"
+					href="<c:url value='/product/${pc.makeURI(pageNum)}'/>"
 					class="page-link ${(pc.paging.page == pageNum) ? 'page-active' : ''}"
 					style="margin-top: 0; height: 40px; color: pink; border: 1px solid #643691;">${pageNum}</a>
 				</li>
@@ -340,7 +340,7 @@ h3.h3 {
 			<!-- 다음 버튼 -->
 			<c:if test="${pc.next}">
 				<li class="page-item"><a class="page-link"
-					href="<c:url value='/product/productList${pc.makeURI(pc.endPage + 1)}' />"
+					href="<c:url value='/product/${pc.makeURI(pc.endPage + 1)}' />"
 					style="background-color: #643691; margin-top: 0; height: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">다음</a>
 				</li>
 			</c:if>

@@ -25,6 +25,11 @@ public class ReviewService implements IReviewService{
 	public Integer getReviewCount(String word) {
 		return reviewRepository.getReviewCount(word);
 	}
+	
+	@Override
+	public ReviewVO getReview(int reviewId) {
+		return reviewRepository.getReview(reviewId);
+	}
 
 	@Override
 	public int insertReview(ReviewVO review) {
@@ -32,13 +37,13 @@ public class ReviewService implements IReviewService{
 	}
 
 	@Override
-	public boolean updateReview(ReviewVO review) {
-		return reviewRepository.updateReview(review);
+	public void updateReview(ReviewVO review) {
+		reviewRepository.updateReview(review);
 	}
 
 	@Override
-	public boolean deleteReview(int reviewId) {
-		return reviewRepository.deleteReview(reviewId);
+	public void deleteReview(int reviewId) {
+		reviewRepository.deleteReview(reviewId);
 	}
 	
 	@Override
@@ -46,4 +51,5 @@ public class ReviewService implements IReviewService{
 		List<ReviewVO> list = reviewRepository.getProfileReviewList(email);
 		return list;
 	}
+	
 }

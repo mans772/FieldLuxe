@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -301,22 +300,22 @@
 	<div class="review-top" style="margin-top:50px;">
 		<form action="#" method="post">
 		<div class="col-sm-2" >
-			<img alt="" src="img/handbag1.jpg<%-- <%= %> --%>" style="height:150px;">
+			<img style="height:150px;">${purchase.listData.productThumbnail}
         </div>  		
         <div class="col-sm-10">
         	<div class="show-table">   			
            			<table class="table">
            				<tr>
             				<td>브랜드</td>
-            				<td>Balenciaga <%-- <%= %> --%></td>
+            				<td>${purchase.listData.productBrand}</td>
           				</tr>
           				<tr>
             				<td>상품명</td>
-            				<td>Balenciaga Track Trainer Grey White 2019 <%-- <%= %> --%></td>
+            				<td>${purchase.listData.productName}</td>
           				</tr>
           				<tr>
             				<td>모델번호</td>
-            				<td>542023W1GB71214 <%-- <%= %> --%></td>
+            				<td>${purchase.detailData.productModelNumber}</td>
           				</tr>
           			
           		</table>
@@ -325,10 +324,11 @@
       		</form>
       	</div>
       
-      <form action="#" method="post">
+      <form action="<c:url value='/review/insertReview' />" method="post">
        <div class="star-re" >
        <hr>
         	<h4><strong>별점평가</strong></h4>
+        		<input type="text" name="reviewScore" value="5">
         		<div class="starRev" style="text-align:center;">
   					<span class="starR on">별1</span>
   					<span class="starR">별2</span>
@@ -338,14 +338,18 @@
 				</div>
 		</div>
 
-
        <hr> 
        <div class="review" style="margin-top:60px;">
        	<h4><strong>리뷰작성</strong></h4>
        	
-       		<textarea rows="10" cols="120" placeholder="자세하고 솔직한 리뷰는 다른 고객에게 많은 도움이 됩니다."></textarea>
-      	
-      	  		
+       		<textarea name="reviewContent" rows="10" cols="120" placeholder="자세하고 솔직한 리뷰는 다른 고객에게 많은 도움이 됩니다."></textarea>
+      	 
+      	 <hr>
+      	 
+      	 <input type="hidden" name="productId" value="${purchase.listData.productId}">
+      	 <input type="hidden" name="reviewWriter" value="${purchase.tradeVO.tradePurchaser}">
+      	 <input type="hidden" name="reviewTarget" value="${purchase.tradeVO.tradeSeller}">
+      	 
       	 <div class="my-btns" style="display:inline-flex;margin-top:20px;">
       	  		<button type="submit" class="btn btn-default" 
       	  			style="background-color:#916d90;color:white;
@@ -356,7 +360,7 @@
       	  		
       	 </div>
       	 </div>  	
-      	</form> 
+      </form> 
      	
      	<jsp:include page="../include/footer.jsp"/>      			
      
