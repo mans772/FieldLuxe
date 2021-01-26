@@ -104,7 +104,7 @@
 										<td>즉시구매방식</td>
 									</tr>
 									<tr>
-										<td>즉시구매가</td>
+										<th>즉시구매가</th>
 										<td>
 											<fmt:formatNumber value="${ product.listData.immePrice }" />원
 										</td>
@@ -112,64 +112,64 @@
 								</c:when>
 								<c:when test="${ product.dealData.dealMethod == 2 }">
 									<tr>
-										<td>거래방식</td>
+										<th>거래방식</th>
 										<td>경매입찰방식</td>
 									</tr>
 									<tr>
-										<td>최소입찰가</td>
+										<th>최소입찰가</th>
 										<td>
 											<fmt:formatNumber value="${ product.dealData.minAuctionPrice }" />원
 										</td>
 									</tr>
 									<tr>
-										<td>입찰보증금</td>
+										<th>입찰보증금</th>
 										<td>
 											최소입찰가의 10% (<fmt:formatNumber value="${ product.dealData.auctionDeposit }" />원)
 										</td>
 									</tr>
 									<tr>
-										<td>입찰기간</td>
+										<th>입찰기간</th>
 										<td>
 											<fmt:formatDate pattern="yyyy년 MM월 dd일 HH:mm:ss" value="${ parsedStartDate }" /> ~<br>
 											<fmt:formatDate pattern="yyyy년 MM월 dd일 HH:mm:ss" value="${ parsedEndDate }" />
 										</td>
 									</tr>
 									<tr>
-										<td>현재입찰가</td>
+										<th>현재입찰가</th>
 										<td>${ product.dealData.nowAuctionPrice }</td>
 									</tr>
 								</c:when>
 								<c:otherwise>
 									<tr>
-										<td>거래방식</td>
+										<th>거래방식</th>
 										<td>즉시구매방식 / 경매입찰방식</td>
 									</tr>
 									<tr>
-										<td>즉시구매가</td>
+										<th>즉시구매가</th>
 										<td><fmt:formatNumber value="${ product.listData.immePrice }" />원
 										</td>
 									</tr>
 									<tr>
-										<td>최소입찰가</td>
+										<th>최소입찰가</th>
 										<td>
 											<fmt:formatNumber value="${ product.dealData.minAuctionPrice }" />원
 										</td>
 									</tr>
 									<tr>
-										<td>입찰보증금</td>
+										<th>입찰보증금</th>
 										<td>
 											최소입찰가의 10% (<fmt:formatNumber value="${ product.dealData.auctionDeposit }" />원)
 										</td>
 									</tr>
 									<tr>
-										<td>입찰기간</td>
+										<th>입찰기간</th>
 										<td>
 											<fmt:formatDate pattern="yyyy년 MM월 dd일 HH:mm:ss" value="${ parsedStartDate }" /> ~<br>
 											<fmt:formatDate pattern="yyyy년 MM월 dd일 HH:mm:ss" value="${ parsedEndDate }" />
 										</td>
 									</tr>
 									<tr>
-										<td>현재입찰가</td>
+										<th>현재입찰가</th>
 										<td>${ product.dealData.nowAuctionPrice }</td>
 									</tr>
 								</c:otherwise>
@@ -198,7 +198,7 @@
 							</tr>
 						</table>
 					</div>
-					<div style="margin-top: 150px;">
+					<div style="margin-top: 30px;">
 						<h4 style="margin-left: 20px; float:left;width:900px;text-align:left;">구매자 리뷰</h4>
 						<table class="table t3" style="width:700px;margin-top:30px;">
 							<tr>
