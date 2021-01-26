@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Member Info</title>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -346,28 +345,33 @@ input[type="checkbox"] {
     	
          <tr>
             <th>이메일</th>
-            <td>asdf@naver.com<%-- <%= %> --%></td>
+            <td>${mem.email}</td>
          </tr>
          <tr>
             <th>닉네임</th>
-            <td>라이언<%-- <%= %> --%></td>
+            <td>${mem.nickname}</td>
           </tr>
           <tr>
           	<th>이름</th>
-          	<td>김하나<%-- <%= %> --%></td>
+          	<td>${mem.name}</td>
           </tr>
            <tr>
           	<th>휴대폰번호</th>
-          	<td>010-7890-1234<%-- <%= %> --%></td>
+          	<td>${mem.phoneNum}</td>
           </tr>
            <tr>
-          	<th>우편번호</th>
-          	<td>03138<%-- <%= %> --%></td>
+          	<th>가입날짜</th>
+          	<td>${mem.joinDate}</td>
           </tr>
            <tr>
           	<th>주소</th>
-          	<td>서울시 종로구<%-- <%= %> --%></td>
+          	<td>${mem.address}</td>
           </tr>
+          <%-- <sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_MASTER')"> --%>
+          <tr>
+          <td>권한</td>
+          <td>${mem.auth}</td>
+          <%-- </sec:authorize> --%>
           <tr>
           	<th>보유쿠폰</th>
           	<td><select name="coupon" class="selectpicker"style="width:200px;height:30px;font-size:15px;">
@@ -379,7 +383,7 @@ input[type="checkbox"] {
           </tr>
           <tr>
           	<th>계좌번호</th>
-          	<td>12345555555<%-- <%= %> --%></td>
+          	<td>${mem.account}</td>
           </tr>
           <tr>
           	<th>계좌정지</th>

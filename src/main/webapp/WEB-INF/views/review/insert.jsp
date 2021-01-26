@@ -232,23 +232,6 @@
 	
 }
 
-
-.pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-
-.pagination a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.pagination a:hover:not(.active) {
-	background-color: #ddd;
-}
-
 .starR{
   background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
   background-size: auto 100%;

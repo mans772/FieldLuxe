@@ -32,17 +32,17 @@ public class MemberAuthenticationProvider implements
 		if(authentication.getCredentials()==null) {
 			return null;
 		}
-		String email = (String)authentication.getPrincipal();
+		String userId = (String)authentication.getPrincipal();
 		String password = (String)authentication.getCredentials();
-		String dbpw = memberService.getPassword(email);
+		String dbpw = memberService.getPassword(userId);
 		if(dbpw==null) {
 			throw new InternalAuthenticationServiceException("이메일이 없습니다.");
 		}
 		if(!bpe.matches(password, dbpw)) {
 			throw new BadCredentialsException("비밀번호가 다릅니다.");
 		}
-		MemberVO member = memberService.getMember(email);
-		if(!member.isBan()) {
+		MemberVO member = memberService.getMember(userId);
+		if(member.isBan()) {
 			throw new DisabledException("정지당한 계정입니다. 관리자에게 문의하세요.");
 		}
 		UsernamePasswordAuthenticationToken result =

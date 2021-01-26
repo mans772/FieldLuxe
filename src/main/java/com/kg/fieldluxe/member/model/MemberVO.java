@@ -107,4 +107,11 @@ public class MemberVO {
 		authorities.add(new SimpleGrantedAuthority(this.auth));
 		return authorities;
 	}
+	@Override
+	public String toString() {
+		return "MemberVO [email=" + email + ", password=" + password + ", nickname=" + nickname + ", account=" + account
+				+ ", name=" + name + ", phoneNum=" + phoneNum + ", postNum=" + postNum + ", address=" + address
+				+ ", joinDate=" + joinDate + ", ban=" + ban + ", kakao=" + kakao + ", naver=" + naver + ", auth=" + auth
+				+ "]";
+	}
 }

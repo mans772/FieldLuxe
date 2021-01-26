@@ -190,6 +190,7 @@
 					nflag = 0;
 					$("#rbtn").attr("disabled", true);
 				} else {
+				console.log(nickname);
 					if(nicknameRule.test(nickname)){
 						$("#nickCheck").text("사용 가능한 별명입니다!");
 						$("#nickCheck").css("color", "green");

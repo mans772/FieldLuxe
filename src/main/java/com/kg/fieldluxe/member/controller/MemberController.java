@@ -5,7 +5,6 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -13,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,10 +72,11 @@ public class MemberController {
 	
 	@RequestMapping(value="/nickCheck", method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> nickCheck(@RequestBody Map<String, Object> data){
+	public Map<String, Object> nickCheck(@RequestBody Map<String, Object> allData){
 		Map<String, Object> map = new HashMap<String, Object>();
-		String nickname = String.valueOf(data.get("nick"));
+		String nickname = String.valueOf(allData.get("nickname"));
 		int count = memberService.nickCheck(nickname);
+
 		String result;
 		if(count == 1) {
 			result = "NO";
@@ -84,5 +85,11 @@ public class MemberController {
 		}
 		map.put("nickResult", result);
 		return map;
+	}
+	
+	@GetMapping("/{email:.+}")
+	public String getMember(@PathVariable String email, Model model) {
+		model.addAttribute("mem",memberService.getMember(email));
+		return "member/view";
 	}
 }
