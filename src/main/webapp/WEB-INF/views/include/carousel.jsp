@@ -55,13 +55,13 @@
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img  src="img/handbag1.jpg" alt="Los Angeles"style="max-width:100%;height:auto;">
+      <img  src="img/handbag1.jpg" alt="Los Angeles"style="max-width:70%;height:auto;">
     </div>
     <div class="carousel-item">
-      <img src="img/handbag2.jpg" alt="Chicago"style="max-width:100%;height:auto;">
+      <img src="img/handbag2.jpg" alt="Chicago"style="max-width:70%;height:auto;">
     </div>
     <div class="carousel-item">
-      <img src="img/handbag3.jpg" alt="New York"style="max-width:100%;height:auto;">
+      <img src="img/handbag3.jpg" alt="New York"style="max-width:70%;height:auto;">
     </div>
   </div>
   </div>
