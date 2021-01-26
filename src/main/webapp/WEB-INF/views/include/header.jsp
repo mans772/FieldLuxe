@@ -147,10 +147,10 @@ body {
 			<sec:authorize access="isAnonymous()">
 					<a href="<c:url value='/login'/>">로그인</a>
 			</sec:authorize>
-			<sec:authorize access="isAuthenticated()">
+			<sec:authorize access="isAuthenticated() and hasRole('ROLE_USER')">
 					<a href="<c:url value='/logout'/>">로그아웃</a>
+					<a href="member/<sec:authentication property='principal.email'/>">마이페이지</a>
 			</sec:authorize>
-					<a href="#">마이페이지</a>
 					<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 					<i class="fa fa-bars"></i>
 			</a>
