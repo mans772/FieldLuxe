@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <title>login</title>
   <meta charset="utf-8">
@@ -40,23 +43,24 @@
 </style>
 </head>
 <body>
-<jsp:include page="../include/header.jsp"/>
+<jsp:include page="include/header.jsp"/>
 
 <div class="loginPage">
   <h2 style="margin-bottom:30px;">로그인</h2>
- 
-  <form action="#" class="needs-validation" novalidate>
+<sec:authorize access="isAnonymous()">
+	${message}
+  <form action="loginCheck" method="post" class="needs-validation" novalidate>
     <div class="form-group">
     <label class="sr-only" for="uname">아이디 :</label>
       <input type="text" class="loginID" 
-      	 placeholder="아이디 입력" name="uid" required>
+      	 placeholder="아이디 입력" name="id" required>
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
     <div class="form-group">
       <label class="sr-only" for="pwd">비밀번호:</label>
       <input type="password" class="loginID" 
-      	 placeholder="비밀번호 입력" name="pswd" required>
+      	 placeholder="비밀번호 입력" name="pw">
       <div class="valid-feedback">Valid.</div>
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
@@ -69,12 +73,22 @@
         <div class="invalid-feedback">Check this checkbox to continue.</div>
       </label>
     </div> -->
-    <div  class="loginbtn"style="margin-top:20px;">
+    <sec:csrfInput/>
+    <div  style="margin-top:20px;">
     	<button type="submit" class="btn btn-primary"style="width:270px;">로그인</button>
-     	
     </div>
-   
   </form>
+  </sec:authorize>
+  <sec:authorize access="isAuthenticated()">
+<sec:authentication property="principal"/>님 안녕하세요.<br>
+<a href="<c:url value="/hr/index" />">메인페이지</a>
+<form action="${pageContext.request.contextPath}/logout" method="post">
+<sec:csrfInput/>
+<input type=submit value="로그아웃">
+</form>
+</sec:authorize>
+
+    
  
   <p class="divider-text">
         <span class="bg-light">OR</span>
@@ -87,7 +101,7 @@
 		<div style="margin-top:5px;">
 		<div id="naverIdLogin">
      	 
-     	 	<img class="login-img" alt="naver-login" src="img/naver.png">
+     	 	<img class="login-img" alt="naver-login" src="../img/naver.png">
      	 
      	 </div>
      	 </div>
@@ -108,7 +122,7 @@
     </a>
     </div>
 </div>
-<jsp:include page="../include/footer.jsp"/>
+<jsp:include page="include/footer.jsp"/>
 
 <!-- 카카오로그인 -->
 <p id="token-result"></p>
