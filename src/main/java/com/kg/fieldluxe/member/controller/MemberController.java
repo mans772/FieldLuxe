@@ -72,10 +72,11 @@ public class MemberController {
 	
 	@RequestMapping(value="/nickCheck", method=RequestMethod.POST)
 	@ResponseBody
-	public Map<String, Object> nickCheck(@RequestBody Map<String, Object> data){
+	public Map<String, Object> nickCheck(@RequestBody Map<String, Object> allData){
 		Map<String, Object> map = new HashMap<String, Object>();
-		String nickname = String.valueOf(data.get("nick"));
+		String nickname = String.valueOf(allData.get("nickname"));
 		int count = memberService.nickCheck(nickname);
+
 		String result;
 		if(count == 1) {
 			result = "NO";
