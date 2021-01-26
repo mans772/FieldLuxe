@@ -44,7 +44,7 @@
 <div class="container">
 	<div class="center">
 <div id="demo" class="carousel slide" data-ride="carousel" >
-	<div class="slide">
+	<div class="slide" style="text-align:center;">
   <!-- Indicators -->
   <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -55,13 +55,13 @@
   <!-- The slideshow -->
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img  src="img/handbag1.jpg" alt="Los Angeles"style="width:100%;">
+      <img  src="img/handbag1.jpg" alt="Los Angeles"style="max-width:100%;height:auto;">
     </div>
     <div class="carousel-item">
-      <img src="img/handbag2.jpg" alt="Chicago"style="width:100%;">
+      <img src="img/handbag2.jpg" alt="Chicago"style="max-width:100%;height:auto;">
     </div>
     <div class="carousel-item">
-      <img src="img/handbag3.jpg" alt="New York"style="width:100%;">
+      <img src="img/handbag3.jpg" alt="New York"style="max-width:100%;height:auto;">
     </div>
   </div>
   </div>
