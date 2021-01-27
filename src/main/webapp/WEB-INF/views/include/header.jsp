@@ -143,7 +143,7 @@ body {
 				<img src="<c:url value='/img/logo.png'/>" style="width: 40px;">
 			</a>
 		</div>
-		<div class="topbar-menu">
+		<div class="topbar-menu" style="margin-top: 22px">
 			<a></a> <a href="<c:url value='/product/'/>" style="font-size:14px;">모두보기</a>
 			<sec:authorize access="isAnonymous()">
 					<a href="<c:url value='/login'/>" style="font-size:14px;">로그인</a>
@@ -158,7 +158,7 @@ body {
 
 
 			<div class="search-container">
-				<form action="<c:url value='/product/productList'/>">
+				<form action="<c:url value='/product/'/>">
 					<input type="text" placeholder="상품 검색" name="keyword">
 					<button type="submit"><i class="fa fa-search"></i></button>
 				</form>
