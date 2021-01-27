@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -101,6 +100,7 @@
 		/*Center Icons*/
 		nav.sidebar a{
 			padding-right: 13px;
+			
 		}
 
 		/*adds border top to first nav box */
@@ -192,46 +192,19 @@
 	section{
 		padding-left: 15px;
 	}
-	.show-table{
-		margin-top:100px;
-		margin-bottom:200px;
-		width:900px;
-		margin-left:100px;
-	}
+.show-table{
+	margin-top:100px;
+	margin-bottom:300px;
+	width:900px;
+	margin-left:100px;
+}
+.table{
+	margin-top:60px;
+	margin-left:100px;
+	width:700px;
+
+}
 	
-.pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-}
-
-.pagination a.active {
-  background-color: #4CAF50;
-  color: white;
-}
-
-.pagination a:hover:not(.active) {background-color: #ddd;}
-
-.search-container {
-  float: right;
-  display:inline-flex;
-}
-.search-container button {
-  float: right;
-  padding: 6px 10px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 12px;
-  border: none;
-  cursor: pointer;
-  display:inline-flex;
-}
-
-.search-container button:hover {
-  background: #ccc;
-}
 
 .btn .btn-default.1{
 	width:50px;
@@ -274,77 +247,52 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="#">Home<span style="font-size:13px;"
 				 class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-				<li ><a href="#">회원관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
-				<li ><a href="#">등록상품 검수<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">게시 상품 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">거래내역 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
-				<li ><a href="#">1:1 문의 관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
-				<li ><a href="#">리뷰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
-				<li ><a href="#">쿠폰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
+				<li><a href="#">회원관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+				<li><a href="#">등록상품 검수<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li><a href="#">게시상품관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li><a href="#">거래내역관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list"></span></a></li>
+				<li><a href="#">1:1문의관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
+				<li><a href="#">리뷰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
+				<li><a href="#">쿠폰관리<span style="font-size:13px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-edit"></span></a></li>
 			</ul>
 		</div>
 	</div>
 </nav>
 <div class="main">
 	<div class="show-table" style="font-family:Malgun Gothic;">
-		<h3 style="diaplay:inline-flex;">1:1 문의 관리</h3>
-           	<div style="float:right;">
-  				<select name="inspedtion" class="selectpicker" style="diaplay:inline-flex; width:150px;height:27px;font-size:12px;">
-			 		<option>미답변</option>
-			 		<option>전체보기</option>
-				</select>
-			</div>
-			<div class="search-container 1">
-    			<form action="/action_page.php">
-      				<input type="text" style="height:27px;"placeholder="제목/내용 검색" name="search">
-      				<button type="submit"><i class="fa fa-search"></i></button>
-    			</form>
-  			</div>  
-			
-         
+		<h3>쿠폰등록</h3>
+		<form action="#" method="post">
          <table class="table" style="margin-top:60px;">
          <tr>
-            <th>문의번호</th>
-            <th>고객 이메일</th>
-           	<th>문의제목</th>
-            <th>문의날짜</th>
-            <th>답변날짜</th>
-            <th>답변상태</th>
-         </tr>
-          <tr>
-      <%-- <c:forEach items="${}" var="vo"> --%>
-      <%-- <c:if test="${empty }"><h3>내역이 없습니다.</h3></c:if> --%>
-           	<td>2144<%-- ${vo. } --%></td>
-           	<td>aaasdf@naver.com<%-- ${vo. } --%></td>
-           	<td>탈퇴는 어떻게 하나요?</td>
-            <td>2021.01.09<%-- ${vo. } --%></td>
-            <td>미답변<%-- ${vo. } --%></td>
-            <td><a href="#" class="btn btn-default 1" style="background-color:#e1d7f5;display:inline-flex;margin-right:7px;">답변</a>
-             		<a href="#" class="btn btn-default 2" style="background-color:#c3a6ff;color:white;display:inline-flex;">삭제</a></td>
-            <%-- </c:forEach> --%>
-           </tr>
-         <!--  <c:forEach></c:forEach>실행 할 때 아래<tr>~</tr>  삭제 해주세요 -->
-            			<tr>
-            				<td>0053<%-- ${vo. } --%></td>
-            				<td>ghjki@gmail.com<%-- ${vo. } --%></td>
-            				<td>사진이랑 너무 다르네요.</td>
-            				<td>2021.01.07<%-- ${vo. } --%></td>
-            				<td>2021.01.09</td>
-            				<td><a href="#" class="btn btn-default 1" style="background-color:#e1d7f5;display:inline-flex;margin-right:7px;">답변</a>
-            						<a href="#" class="btn btn-default 2" style="background-color:#c3a6ff;color:white;display:inline-flex;">삭제</a></td>
-            			</tr>
+            <th>쿠폰번호</th>
+            <td><input type="text" name="userEmail" style="width:500px;" placeholder="고객 이메일 입력"></td>
+          </tr>
            <tr>
-            <td colspan="6" style="text-align:center;"><!-- 페이징처리 -->
-  				<div class="pagination">
-  					<a href="#">&laquo;</a>
-  					<a class="active" href="#">1</a>
-  					<a  href="#">2</a>
-  					<a href="#">3</a>
-  					<a href="#">&raquo;</a>
-				</div>
-			</td>
-			</tr>
-     	</table>       			
+            <th>쿠폰명</th>
+            <td><input type="text" name="couponName" style="width:500px;" placeholder="5% 할인쿠폰"></td>
+          </tr>
+          <tr>
+            <th>사용기한</th>
+            <td><input type="date" class="form-control" id="tillDate" style="width:500px;" name="tillDate"></td>
+          </tr>
+          <tr>
+            <th>할인율</th>
+            <td><input type="text" name="discountRate" style="width:500px;" placeholder="0.05"></td>
+          </tr>
+          <tr>
+            <th>상태</th>
+            <td><select name="" class="selectpicker" style="width:200px;height:30px;font-size:15px;">
+			 		<option>활성화</option>
+					<option>비활성화</option>
+				</select></td>
+          </tr>
+       
+     	</table>
+     	<div style="float:right;">
+     		<button class="btn btn-default 1" type="submit" style="background-color:#ffedf1;display:inline-flex;margin-right:7px;">등록</button>
+            <button class="btn btn-default 2"  type="reset" style="background-color:#c3a6ff;color:white;display:inline-flex;">취소</button>
+     	</div>
+     	</form>       			
       </div>
     <jsp:include page="../include/footer.jsp"/>
     

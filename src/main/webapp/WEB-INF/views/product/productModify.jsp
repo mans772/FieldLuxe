@@ -52,6 +52,7 @@
 	}
 	.show-table {
 		overflow-x: auto;
+		margin:0 5px;
 	}
 	.table {
 		width: 100%;
@@ -62,22 +63,22 @@
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
-<div class="contanier">
+<div class="contanier" style="font-family:Malgun Gothic;">
 	<div class="pro-re">
-		<h2 style="text-align:center;">상품 재등록</h2>
+		<h2 style="text-align:center;margin:30px 0;">상품 재등록</h2>
 			<div class="show-table">
 				<!--<c:if test=""> 관리자일 경우 -->
-					<h4 style="margin-top:20px;float:left;"><strong>반려사유</strong></h4>
+					<h4 style="float:left;"><strong>반려사유</strong></h4>
 					<textarea rows="5" cols="120" style="resize: none;"></textarea>
 				<!--</c:if>-->
 				<form method="post" name="form">
-					<h4 style="display: inline-flex; float: left;">상품정보 입력</h4>
-					<h6 style="display: inline-flex; margin-left: 20px; float: left;">모든항목을 정확하게 기입하세요</h6>
+					<h4 style="display: inline-flex; float: left;margin:30px 0;">상품정보 입력</h4>
+					<h6 style="display: inline-flex; margin: 35px; float: left;">모든항목을 정확하게 기입하세요</h6>
 					<table class="table">
 						<tr class="form-group">
 							<td><label for="productCategory">카테고리</label></td>
 							<td>
-								<select name="productCategory" class="selectpicker" id="productCategory" name="productCategory" style="width: 100%; height: 30px; font-size: 15px;">
+								<select name="productCategory" class="selectpicker" id="productCategory" name="productCategory" style="width:200px; height: 30px; font-size: 13px;">
 									<option value="0">카테고리</option>
 									<c:choose>
 										<c:when test="${ product.listData.productCategory == 1 }">
@@ -142,7 +143,7 @@
 							</td>
 						</tr>
 					</table>
-					<h4 style="float: left;">상품정보 입력</h4>
+					<h4 style="float: left;margin:30px 0;">상품정보 입력</h4>
 					<table class="table">
 						<tr class="form-group">
 							<td><label for="sellerEmail">판매자 이메일</label></td>
@@ -246,7 +247,7 @@
 					<!-- multipart 업로드시 영역 -->
 					<div id="uploadForm" style="display: inline-flex;"></div>
 					<div>
-						<h3 style="float: left;">판매자 한마디</h3>
+						<h3 style="float: left;margin:30px 0;">판매자 한마디</h3>
 						<table class="table">
 							<tr>
 								<td colspan="2">
@@ -329,9 +330,9 @@
 	                $("#preview").append(
 	                                "<div class=\"preview-box\" value=\"" + imgNum +"\">"
 									+ "<img class=\"thumbnail\" value=\"" + imgNum + "\" name=\"image\" src=\"" + img.target.result + "\"\/>"
-									+ "<input type=\"button\" name=\"selector\" class=\"btn btn-default\" value=\"썸네일 선택\" style=\"display:inline-block;\""
+									+ "<input type=\"button\" name=\"selector\" class=\"btn btn-default\" value=\"썸네일 선택\" style=\"display:inline-block;margin-right:5px;background-color:#784df0;color:white;\""
 									+ "onclick=\"selectThumbnail(" + imgNum + ", this)\">"
-									+ "<input type=\"button\" class=\"btn btn-default\" value=\"삭제\" style=\"display:inline-block;\""
+									+ "<input type=\"button\" class=\"btn btn-default\" value=\"삭제\" style=\"display:inline-block;background-color:#a29da8;color:white;\""
 									+ "onclick=\"deletePreview(" + imgNum + ")\"></div>");
 	                files[imgNum] = file;
 	                $("#images").append("<img id=\"" + imgNum + "\" src=\"" + img.target.result + "\">");

@@ -6,6 +6,8 @@ import java.util.Map;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -54,6 +56,31 @@ public class MemberController {
 		return "redirect:/login";
 	}
 	
+	@GetMapping("/update")
+	public String update(String email, Model model) {
+		MemberVO mem = memberService.getMember(email);
+		model.addAttribute("mem", mem);
+		return "member/update";
+	}
+	
+	@PostMapping("/update")
+	public String update(MemberVO mem, Authentication auth, 
+			RedirectAttributes redirectAttributes) {
+		System.out.println(mem.getEmail());
+		System.out.println(mem.getPassword());
+		System.out.println(memberService.getPassword(mem.getEmail()));
+
+			if(bpe.matches("0000", memberService.getPassword(mem.getEmail()))){
+			
+			} else {
+				throw new RuntimeException("비밀번호가 다릅니다.");
+			}
+		
+		memberService.updateMember(mem);
+		redirectAttributes.addFlashAttribute("message","회원 수정 완료");
+		return "redirect:/member/view?email="+mem.getEmail();
+	}
+	
 	@RequestMapping(value="/idCheck", produces="application/json; charset=UTF-8", method=RequestMethod.POST)
 	@ResponseBody
 	public Map<String, Object> idCheck(@RequestBody Map<String, Object> allData) {
@@ -88,7 +115,7 @@ public class MemberController {
 	}
 	
 	@GetMapping("/{email:.+}")
-	public String getMember(@PathVariable String email, Model model) {
+	public String view(@PathVariable String email, Model model) {
 		model.addAttribute("mem",memberService.getMember(email));
 		return "member/view";
 	}

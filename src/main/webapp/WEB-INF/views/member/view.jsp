@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
 <html>
@@ -310,6 +311,8 @@ input[type="checkbox"] {
 </head>
 <body>
 <jsp:include page="../include/header.jsp"/>
+   
+<a href="update?email=${mem.email}">회원정보 수정</a>
 	<nav class="navbar navbar-inverse sidebar" role="navigation" >
     <div class="container-fluid" style="font-family:Malgun Gothic;">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -379,7 +382,7 @@ input[type="checkbox"] {
 			 		<option>20% 할인</option>
 					<option>30% 할인</option>
 					
-				</select><%-- <%= %> --%></td>
+				</select></td>
           </tr>
           <tr>
           	<th>계좌번호</th>
@@ -391,15 +394,15 @@ input[type="checkbox"] {
           		<label for="switch1" class="label__on-off"> 
           			<span class="marble"></span> 
           			<span class="on">ACT</span> 
-          			<span class="off">BAN</span> 
+          			<span class="off">BAN</span>
           		</label>
-
-<%-- <%= %> --%></td>
+			</td>
           </tr>
+          			
           
 		 </table>   			
       </div>
-   
+
     <jsp:include page="../include/footer.jsp"/>
 </div>
 

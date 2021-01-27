@@ -50,6 +50,10 @@ input[type="number"]::-webkit-inner-spin-button {
 .preview-box img {
 	display: block;
 }
+.show-table {
+	margin-top:50px;
+
+}
 
 @media screen and (max-width: 800px) {
 	.pro-re {
@@ -57,6 +61,7 @@ input[type="number"]::-webkit-inner-spin-button {
 	}
 	.show-table {
 		overflow-x: auto;
+		margin:0 5px;
 	}
 	.table {
 		width: 100%;
@@ -70,9 +75,9 @@ input[type="number"]::-webkit-inner-spin-button {
 	<div class="contanier" style="font-family:Malgun Gothic;">
 		<div class="pro-re">
 			<h2 style="text-align: center;">상품등록</h2>
-			<div class="show-table" style="margin-top:50px;">
+			<div class="show-table">
 				<form method="post" name="form">
-					<h4 style="display: inline-flex; float: left;">상품정보 입력</h4>
+					<h4 style="display: inline-flex; float: left;margin-bottom:30px;">상품정보 입력</h4>
 					<h6 style="display: inline-flex; margin-left: 20px; float: left;">모든항목을 정확하게 기입하세요</h6>
 					<table class="table" >
 						<tr class="form-group">
@@ -129,7 +134,7 @@ input[type="number"]::-webkit-inner-spin-button {
 							</td>
 						</tr>
 					</table>
-					<h4 style="float: left; margin-top:50px;">상품정보 입력</h4>
+					<h4 style="float: left; margin-top:50px;margin-bottom:30px;">상품정보 입력</h4>
 					<table class="table">
 						<tr class="form-group">
 							<td><label for="sellerEmail">판매자 이메일</label></td>
@@ -202,7 +207,7 @@ input[type="number"]::-webkit-inner-spin-button {
 					<!-- multipart 업로드시 영역 -->
 					<div id="uploadForm" style="display: inline-flex;"></div>
 					<div>
-						<h4 style="float: left;">판매자 한마디</h4>
+						<h4 style="float: left;margin-top:50px;margin-bottom:30px;">판매자 한마디</h4>
 						<table class="table">
 							<tr>
 								<td colspan="2" id="test">

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.kg.fieldluxe.member.model.MemberVO;
 import com.kg.fieldluxe.member.service.IMemberService;
 
 @Controller
@@ -39,21 +40,18 @@ public class LoginController {
 	public String loginCheck(Model model, HttpSession session) {
 		Authentication authentication = 
 				SecurityContextHolder.getContext().getAuthentication();
-		session.removeAttribute("message");
-		if(authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_ADMIN"))) {
-			return "redirect:/";
-		} else if(authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_MASTER"))) {
-			return "redirect:/";
-		} else if(authentication.getAuthorities().contains(new SimpleGrantedAuthority("ROLE_USER"))) {
-			session.setAttribute("startTime", LocalDateTime.now());
-			String url = "/";
-			if(session.getAttribute("url")!=null) {
-				url = (String)session.getAttribute("url");
-			}
-			return "redirect:"+url;
-		}else {
+		if(!(authentication.getDetails() instanceof MemberVO)){
 			model.addAttribute("message", "로그인 되지 않았습니다.");
 			return "/login";
+		}else {
+			MemberVO member = (MemberVO)authentication.getDetails();
+			session.setAttribute("userId", member.getEmail());
+			session.setAttribute("auth", member.getAuth());
+			session.setAttribute("startTime", LocalDateTime.now());
+			model.addAttribute("memUser", member.getEmail());
+			String url = "/";
+
+			return url+model;
 		}
 	}
 }

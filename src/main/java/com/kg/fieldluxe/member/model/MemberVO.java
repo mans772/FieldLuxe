@@ -7,8 +7,9 @@ import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-public class MemberVO {
+public class MemberVO implements UserDetails{
 
 	private String email;
 	private String password;
@@ -31,7 +32,7 @@ public class MemberVO {
 		this.email = email;
 	}
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
@@ -113,5 +114,25 @@ public class MemberVO {
 				+ ", name=" + name + ", phoneNum=" + phoneNum + ", postNum=" + postNum + ", address=" + address
 				+ ", joinDate=" + joinDate + ", ban=" + ban + ", kakao=" + kakao + ", naver=" + naver + ", auth=" + auth
 				+ "]";
+	}
+	@Override
+	public String getUsername() {
+		return this.email;
+	}
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+	@Override
+	public boolean isEnabled() {
+		return this.ban == 0 ? false : true;
 	}
 }

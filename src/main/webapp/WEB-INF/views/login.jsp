@@ -75,7 +75,7 @@
     </div> -->
     <sec:csrfInput/>
     <div  style="margin-top:20px;">
-    	<button type="submit" class="btn btn-primary"style="width:270px;">로그인</button>
+    	<button type="submit" class="btn btn-primary" style="width:270px;">로그인</button>
     </div>
   </form>
   </sec:authorize>

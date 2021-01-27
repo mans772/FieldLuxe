@@ -13,7 +13,7 @@ public interface IMemberRepository {
 	void insertMember(MemberVO mem);
 	void insertAuth(@Param("email")String email, @Param("authority")String auth);
 	void updateBan(MemberVO mem);
-	void updateMember(@Param("email")MemberVO mem);
+	void updateMember(MemberVO mem);
 	void updateAuth(@Param("email")MemberVO mem);
 	void deleteMember(String email);
 	void deleteAuth(String email);

@@ -17,7 +17,7 @@
 
 body {
 	margin: 0;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family:Malgun Gothic;
 }
 
 .topnav {
@@ -26,7 +26,7 @@ body {
 }
 
 .header-logo {
-	font-family: "Times New Roman", Times, serif;
+	font-family:Malgun Gothic;
 }
 
 .topnav a {
@@ -37,6 +37,7 @@ body {
 	padding: 14px 16px;
 	text-decoration: none;
 	font-size: 17px;
+	font-family:Malgun Gothic;
 }
 
 .topnav a:hover {
@@ -55,7 +56,7 @@ body {
 .topnav input[type=text] {
 	padding: 6px;
 	margin-top: 8px;
-	font-size: 17px;
+	font-size: 14px;
 	border: none;
 }
 
@@ -136,35 +137,35 @@ body {
 <body>
 
 	<div class="topnav" id="myTopnav">
-	
 		<div class="header-logo">
 			<a class="navbar-text" href="<c:url value='/'/>"
-				style="margin-left: 40px; font-size: 30px; color: #460f6e;">Field Luxe
+				style="margin-left: 40px; font-size: 25px; color: #460f6e;">Field Luxe
 				<img src="<c:url value='/img/logo.png'/>" style="width: 40px;">
 			</a>
 		</div>
-		
-		<div class="topbar-menu" style="margin-top:20px; margin-right:20px;">
-			<a></a> <a href="<c:url value='/product/'/>">모두보기</a>
+		<div class="topbar-menu">
+			<a></a> <a href="<c:url value='/product/'/>" style="font-size:14px;">모두보기</a>
 			<sec:authorize access="isAnonymous()">
-					<a href="<c:url value='/login'/>">로그인</a>
+					<a href="<c:url value='/login'/>" style="font-size:14px;">로그인</a>
 			</sec:authorize>
 			<sec:authorize access="isAuthenticated() and hasRole('ROLE_USER')">
-					<a href="<c:url value='/logout'/>">로그아웃</a>
-					<a href="member/<sec:authentication property='principal.email'/>">마이페이지</a>
+					<a href="<c:url value='/logout'/>" style="font-size:14px;">로그아웃</a>
+					<a href="member/<sec:authentication property='principal.email'/>" style="font-size:14px;">마이페이지</a>
 			</sec:authorize>
 					<a href="javascript:void(0);" class="icon" onclick="myFunction()">
 					<i class="fa fa-bars"></i>
 			</a>
 
+
 			<div class="search-container">
-				<form action="<c:url value='/product/'/>">
+				<form action="<c:url value='/product/productList'/>">
 					<input type="text" placeholder="상품 검색" name="keyword">
 					<button type="submit"><i class="fa fa-search"></i></button>
 				</form>
 			</div>
+
+
 		</div>
-		
 	</div>
 
 	<script>
