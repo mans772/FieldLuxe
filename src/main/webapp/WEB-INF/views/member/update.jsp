@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>member update</title>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -18,7 +18,7 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="/resources/js/addressapi.js"></script>
 
-<script> /* 다음주소검색 */
+<!-- <script> /* 다음주소검색 */
     new daum.Postcode({
         oncomplete: function(data) {
             // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
@@ -26,7 +26,7 @@
         }
     }).open();
 </script>
-
+ -->
 <style>
 .divider-text {
     position: relative;
@@ -308,43 +308,44 @@ td {
 <div class="main" style="font-family:Malgun gothic;">
 	<div class="show-table">
 	
-	<form class="form" action="#" method="post">
+	<form:form class="form" action="update" method="post" modelAttribute="mem">
+
+         	<input type=hidden name=password value="${mem.password}">
 	<table class="table">
     	<tr>
-           <td colspan="2"><h3><%-- <%=memvo.getUserId() %> --%>김철수님 회원정보수정</h3></td>
+           <td colspan="2"><h3>${mem.email}님 정보 수정</h3></td>
          </tr>
          
          <tr>
-         	<input type="hidden" name="userId" value="<%-- <%=memvo.getUserId() %> --%>">
-            <td class="td-left"><label class="control-label" for="id">아이디</label></td>
-            <td class="td-right"><input style="width:60%" type="text" name="userId" value="<%-- ${vo. } --%>"> </td>
+            <td class="td-left"><label class="control-label" for="id">이메일</label></td>
+            <td class="td-right"><input style="width:60%" type="text" name="email" value="${mem.email}" readonly> </td>
          </tr>
          
        	 <tr>
        	   <td class="td-left"><label class="control-label" for="nickname">닉네임</label></td>
-           <td class="td-right"><input style="width:60%" type="text" name="userNickname" value="<%-- ${vo. } --%>"> </td>
+           <td class="td-right"><input style="width:60%" type="text" name="nickname" value="${mem.nickname}"> </td>
          </tr>
            
          <tr>
          	<td class="td-left"><label class="control-label" for="name">이름</label></td>
-            <td class="td-right"><input style="width:60%" type="text" name="userName" value="<%-- ${vo. } --%>"> </td>
+            <td class="td-right"><input style="width:60%" type="text" name="name" value="${mem.name}"> </td>
          </tr>
          
          <tr>
         	<td class="td-left"><label class="control-label" for="tel">휴대폰번호</label></td>
-            <td class="td-right"><input style="width:60%" type="text" name="userTel" value="<%-- ${vo. } --%>"> </td>
+            <td class="td-right"><input style="width:60%" type="text" name="phoneNum" value="${mem.phoneNum}"> </td>
          </tr>
            
          <tr>
          	<td class="td-left"><label class="control-label" for="zipcode">우편번호</label></td>
-            <td class="td-right"><input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호" name="addr1" id="addr1" type="text" readonly="readonly" >
-    			<button style="width:130px;type="button" class="btn" onclick="execPostCode();"><i class="fa fa-search"></i> 우편번호 찾기</button>
+            <td class="td-right"><input class="form-control" style="width: 40%; display: inline;" placeholder="우편번호" name="postNum" id="addr1" type="text" readonly >
+    			<button style="width:130px;" type="button" class="btn" onclick="execPostCode();"><i class="fa fa-search"></i> 우편번호 찾기</button>
     		</td>
  		 </tr>
            
          <tr>
         	<td class="td-left"><label class="control-label" for="address">주소</label></td>
-            <td class="td-right"> <input class="form-control" style="top: 5px;width:60%;" placeholder="도로명 주소" name="addr2" id="addr2" type="text" readonly="readonly" /></td>
+            <td class="td-right"> <input class="form-control" style="top: 5px;width:60%;" placeholder="도로명 주소" name="postNum" id="addr2" type="text" readonly /></td>
          </tr>
            
          <tr>
@@ -372,7 +373,7 @@ td {
   			</td>
   		</tr>
      </table>
-    </form> 
+    </form:form> 
    </div> 
    <jsp:include page="../include/footer.jsp"/>
 </div>
@@ -439,8 +440,8 @@ function execPostCode() {/* 다음 주소 검색 */
            console.log(fullRoadAddr);
            
            
-           $("[name=addr1]").val(data.zonecode);
-           $("[name=addr2]").val(fullRoadAddr);
+           $("[name=postNum]").val(data.zonecode);
+           $("[name=address]").val(fullRoadAddr);
            
            /* document.getElementById('signUpUserPostNo').value = data.zonecode; //5자리 새우편번호 사용
            document.getElementById('signUpUserCompanyAddress').value = fullRoadAddr;

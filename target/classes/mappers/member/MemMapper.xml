@@ -22,7 +22,7 @@
 
 	<!-- 유저 정보 확인 -->
 <select id="getMember" parameterType="string" resultMap="MemMap">
-	SELECT m.email, nickname, account, phone_num, address, join_date, name, password, ban, authority 
+	SELECT m.email, password, nickname, account, phone_num, address, join_date, name, password, ban, authority 
 		FROM member m 
 			JOIN authorities au 
 			ON m.email = au.email 
@@ -123,16 +123,25 @@
 			WHERE email = #{email}
 </update>
 
+	<!-- 유저 정보 수정 -->
+<update id="updateMember" parameterType="com.kg.fieldluxe.member.model.MemberVO">
+	UPDATE member 
+		SET email=#{email, jdbcType=VARCHAR}, nickname=#{nickname}, name=#{name}, 
+		phone_num=#{phoneNum}, post_num=#{postNum}, address=#{address} 
+			WHERE email=#{email, jdbcType=VARCHAR}
+			
+</update>
+
 
 				<!-- DELETE -->
-<!-- 유저 정보 삭제 -->
+	<!-- 유저 정보 삭제 -->
 <delete id="deleteMember" parameterType="string">
 	DELETE 
 		FROM member 
 			WHERE email = #{email}
 </delete>
 
-<!-- 권한 삭제 (유저 정보 삭제를 위함) -->
+	<!-- 권한 삭제 (유저 정보 삭제를 위함) -->
 <delete id="deleteAuth" parameterType="string">
 	DELETE 
 		FROM authorities 
