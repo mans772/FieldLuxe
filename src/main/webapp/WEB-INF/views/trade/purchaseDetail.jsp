@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -244,9 +245,9 @@
 		</div>
 	</div>
 	</nav>
-<div class="main"style="font-family:Malgun gothic;width:1000px;margin-top:30px;margin-left:300px;">
-	<h3>구매 내역 상세보기</h3>
-		<div class="pro-de">
+<div class="main">
+		<div class="pro-de" style="font-family:Malgun gothic;width:1000px;margin-top:50px;margin-left:50px;">
+		<h3>구매 내역 상세보기</h3>
 		 	<div class="col-md-6" style="margin-top:50px;">
 		 		<div class="show-table">
 		 			<table class="table" style="width:450px;">
@@ -281,7 +282,7 @@
 						</tr>
 						<tr>
 							<th>구매일</th>
-							<td>${purchase.tradeVO.tradeDate}</td>
+							<td><fmt:formatDate value="${purchase.tradeVO.tradeDate}" pattern="yyyy-MM-dd HH:mm"/></td>
 						</tr>
 						<tr>
 							<th>판매자</th>

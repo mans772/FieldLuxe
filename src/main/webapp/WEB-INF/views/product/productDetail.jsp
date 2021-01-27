@@ -9,8 +9,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -61,7 +59,7 @@
 				<div class="col-md-6">
 					<div class="show-table">
 						<h3>
-							<strong>${ product.listData.productBrand }</strong>
+						<strong>${ product.listData.productBrand }</strong>
 						</h3>
 						<h4>${ product.listData.productName }</h4>
 						<h4 style="margin-top: 20px;'">상품정보</h4>
@@ -198,55 +196,188 @@
 							</tr>
 						</table>
 					</div>
-					<div style="margin-top: 30px;">
+					
+					
+					<!-- 리뷰가 존재할 때만 보여지기 -->
+					<c:if test="${not empty review.reviewId}">
+					
+					<div id="reviewArea" style="margin-top: 30px;">
 						<h4 style="margin-left: 20px; float:left;width:900px;text-align:left;">구매자 리뷰</h4>
 						<table class="table t3" style="width:700px;margin-top:30px;">
 							<tr>
 								<th style="text-align:center;">구매자</th>
-								<td style="text-align:left;">Sunny</td>
+								<td style="text-align:left;">${review.reviewWriter}</td>
 							</tr>
 							<tr>
 								<th style="text-align:center;">등록일</th>
-								<td style="text-align:left;">2021.01.04</td>
+								<td style="text-align:left;">${review.reviewRegDate}</td>
 							</tr>
 							<tr>
 								<th style="text-align:center;">별점</th>
-								<td style="text-align:left;">★★★★★</td>
+								<td style="text-align:left;">${review.reviewScore}</td>
 							</tr>
 							<tr>
 								<th style="text-align:center;">리뷰</th>
-								<td style="text-align:left;">물건 참좋네요</td>
+								<td style="text-align:left;">${review.reviewContent}</td>
 							</tr>
 							<tr>
-								<td colspan="2" style="text-align: right;">
+						</table>	
+							
+						<!-- 리뷰 수정 버튼 -->
+						<button id='reviewBtn' type='button' data-toggle='modal' data-target='#modifyModal'
+							class="btn btn-default" style="background-color: #90abf5; color: white;">수정
+						</button>
+							
+					  </div>
+					  </c:if>
+							
+							<!-- 리뷰 수정 모달창 -->
+							<div class="modal fade" id="modifyModal" role="dialog">
+							  <div class="modal-dialog">
+							      <div class="modal-content">
+							          <div class="modal-header">
+							          	  <h4 class="modal-title" align="left">리뷰 수정</h4>
+							              <button type="button" class="close" data-dismiss="modal">&times;</button>
+							          </div>
+							          <div class="modal-body">
+							              <div class="form-group" align="left">
+							                  <label for="sellerEmail">판매자</label>
+							                  <input class="form-control" id="sellerEmail" name="sellerEmail" readonly>
+							              </div>
+							              <div class="form-group" align="left">
+							                  <label for="productName">상품명</label>
+							                  <input class="form-control" id="productName" name="productName" readonly>
+							              </div>
+							              <div class="form-group" align="left">
+							                  <label for="reviewScore">별점</label>
+							                  <input class="form-control" id="reviewScore" name="reviewScore">
+							              </div>
+							              <div class="form-group" align="left">
+							                  <label for="reviewContent">리뷰</label>
+							                  <textarea class="form-control" id="reviewContent" name="reviewContent" style="height: 150px"></textarea>
+							              </div>
+							          </div>
+							          <div class="modal-footer">
+							              <button type="button" class="btn btn-success modalModBtn" style="background-color: #90abf5; color: white;">수정</button>
+							              <button type="button" class="btn btn-danger modalDelBtn" style="background-color: #6e656d; color: white;">삭제</button>
+							          </div>
+							      </div>
+							  </div>
+							</div>							
+							
+							
+							
+								<%-- <td colspan="2" style="text-align: right;">
 									<c:if test="${ product.listData.productPostStatus eq '0'.charAt(0) }">
 										<a href="<c:url value='/product/modify/${ product.listData.productId }' />" class="btn btn-default" style="background-color: #90abf5; color: white;">수정</a>
 										<a class="btn btn-default" style="background-color: #6e656d; color: white;" onclick="deleteProduct(${ product.listData.productId })">삭제</a>
 									</c:if>
-								</td>
-							</tr>
-						</table>
+								</td> --%>
+							
+							
+							
+						
 					</div>
 				</div>
 			</div>
-		</div>
+	
 	
 	<jsp:include page="../include/footer.jsp" />
-	<script>
 	
-	function deleteProduct(id) {
-		$.ajax({
-			type: "delete",
-			url: "/fieldluxe/product/content/" + id,
-			headers: {
-				"Content-Type" : "application/json"
-			},
-			dataType: "text",
-			success: function(text) {
-				console.log(text);
-			}
-		});
-	}
-	</script>
 </body>
+
+
+<script>
+
+//start jQuery
+$(function() {
+	
+	// 리뷰 수정창 호출시 값 그대로 가져가기
+	$("#reviewBtn").click(function() {
+	    var sellerEmail = "${product.listData.sellerEmail}";
+	    var productName = "${product.listData.productName}";
+	    var reviewScore = "${review.reviewScore}";
+	    var reviewContent = "${review.reviewContent}";
+
+	    $("#sellerEmail").val(sellerEmail);
+	    $("#productName").val(productName);
+	    $("#reviewScore").val(reviewScore);
+	    $("#reviewContent").val(reviewContent);
+	});	
+	
+	
+	// 리뷰 수정 이벤트
+	$(".modalModBtn").click(function () {
+		
+	  	//리뷰 자바스크립트 객체 생성
+		const review = {
+			reviewId: "${review.reviewId}",
+			reviewScore: $("#reviewScore").val(),
+			reviewContent: $("#reviewContent").val()
+		};
+	    
+	    // AJAX통신
+	    $.ajax({
+	        type : "POST",
+	        url : "/fieldluxe/review/updateReview",
+	        headers : {
+	            "Content-type" : "application/json"
+	        },
+	        contentType : "application/json; charset=UTF-8",
+	        dataType : "text",
+	        data : JSON.stringify(review),
+	        success : function(result) {
+	            console.log("result : " + result);
+	            if (result === "updateSuccess") {
+	                alert("리뷰 수정 완료");
+	                $("#modifyModal").modal("hide"); // Modal 닫기
+	                location.reload();
+	            }
+	        },
+            error: function(request, error) {
+            	console.log("통신 실패");
+            	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            }
+	    });
+	});
+	
+
+	// 리뷰 삭제 이벤트
+	$(".modalDelBtn").click(function () {
+		
+	    // 리뷰 번호
+	    var reviewId = "${review.reviewId}";
+	    
+	    // AJAX통신
+	    $.ajax({
+	        type : "POST",
+	        url : "/fieldluxe/review/deleteReview",
+	        headers : {
+	            "Content-type" : "application/json"
+	        },
+	        contentType : "application/json; charset=UTF-8",
+	        dataType : "text",
+	        data : reviewId,
+	        success : function(result) {
+	            console.log("result : " + result);
+	            if (result === "deleteSuccess") {
+	                alert("리뷰 삭제 완료");
+	                $("#modifyModal").modal("hide"); // Modal 닫기
+	                location.reload();
+	            }
+	        },
+            error: function(request, error) {
+            	console.log("통신 실패");
+            	alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+            }
+	    });
+	});
+	
+	
+});	//end jQuery
+	
+	
+</script>	
+
+
 </html>

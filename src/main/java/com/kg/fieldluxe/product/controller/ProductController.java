@@ -21,6 +21,7 @@ import com.kg.fieldluxe.product.model.DetailData;
 import com.kg.fieldluxe.product.model.ListData;
 import com.kg.fieldluxe.product.model.ProductVO;
 import com.kg.fieldluxe.product.service.IProductService;
+import com.kg.fieldluxe.review.service.IReviewService;
 
 @Controller
 @RequestMapping("/product")
@@ -29,11 +30,15 @@ public class ProductController {
 	@Autowired
 	private IProductService service;
 	
-	@GetMapping("/content/{productId}") // 상품 상세 보기 요청
+	@Autowired
+	private IReviewService reviewService;
+	
+	@GetMapping("/content/{productId}") // 상품 상세 보기 요청, 리뷰도 함께 처리
 	public ModelAndView content(@PathVariable int productId, Model model) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("product/productDetail");
 		mv.addObject("product", service.detail(productId));
+		mv.addObject("review", reviewService.getReview(productId));
 		return mv;
 	}
 	

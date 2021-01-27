@@ -2,6 +2,7 @@ package com.kg.fieldluxe.review.service;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -27,8 +28,8 @@ public class ReviewService implements IReviewService{
 	}
 	
 	@Override
-	public ReviewVO getReview(int reviewId) {
-		return reviewRepository.getReview(reviewId);
+	public ReviewVO getReview(int productId) {
+		return reviewRepository.getReview(productId);
 	}
 
 	@Override
@@ -37,19 +38,30 @@ public class ReviewService implements IReviewService{
 	}
 
 	@Override
-	public void updateReview(ReviewVO review) {
-		reviewRepository.updateReview(review);
+	public boolean updateReview(ReviewVO review) {
+		return reviewRepository.updateReview(review);
 	}
 
 	@Override
-	public void deleteReview(int reviewId) {
-		reviewRepository.deleteReview(reviewId);
+	public boolean deleteReview(int reviewId) {
+		return reviewRepository.deleteReview(reviewId);
 	}
 	
 	@Override
 	public List<ReviewVO> getProfileReviewList(String email) {
 		List<ReviewVO> list = reviewRepository.getProfileReviewList(email);
 		return list;
+	}
+
+	@Override
+	public List<ReviewVO> getReviewList2(String email, int page) {
+		List<ReviewVO> list = reviewRepository.getReviewList2(email, page);
+		return list;
+	}
+
+	@Override
+	public int getReviewCount2(String email) {
+		return reviewRepository.getReviewCount2(email);
 	}
 	
 }

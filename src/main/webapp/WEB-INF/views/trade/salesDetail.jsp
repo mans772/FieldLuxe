@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -246,9 +248,9 @@
 		</div>
 	</div>
 	</nav>
-<div class="main"style="margin-top:140px;">
-	<h3>판매 내역 상세보기</h3>
-		<div class="pro-de" style="font-family:Malgun gothic;">
+<div class="main">
+		<div class="pro-de" style="font-family:Malgun gothic;width:1000px;margin-top:50px;margin-left:50px;">
+		 	<h3>판매 내역 상세보기</h3>
 		 	<div class="col-md-6" style="margin-top:50px;">
 		 		<div class="show-table">
 		 			<table class="table" style="width:450px;">
@@ -283,7 +285,7 @@
 						</tr>
 						<tr>
 							<th>구매일</th>
-							<td>${sales.tradeVO.tradeDate}</td>
+							<td><fmt:formatDate value="${sales.tradeVO.tradeDate}" pattern="yyyy-MM-dd HH:mm"/></td>
 						</tr>
 						<tr>
 							<th>구매자</th>
@@ -316,7 +318,21 @@
 						
 						<tr style="background-color:#ebebff">
 							<th>배송상태</th>
-							<td>${sales.listData.deliveryStatus}</td>
+
+							<c:set var="status" value="${sales.listData.deliveryStatus}" />
+							<c:if test="${status == 0}">
+								<td>배송준비</td>
+							</c:if>
+							<c:if test="${status == 1}">
+								<td>배송중</td>
+							</c:if>
+							<c:if test="${status == 2}">
+								<td>배송완료</td>
+							</c:if>
+							<c:if test="${status == 3}">
+								<td>구매확정</td>
+							</c:if>
+							
 						</tr>
 						
 					</table>

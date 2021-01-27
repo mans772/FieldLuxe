@@ -304,12 +304,12 @@ h3.h3 {
 				<div class="col-md-3 col-sm-6">
 					<div class="product-grid">
 						<div class="product-image">
-							<a href="<c:url value="/product/content/${ list.productId }" />">${ list.productThumbnail }</a>
+							<a href="<c:url value="/product/content/${list.productId}" />">${list.productThumbnail}</a>
 							<span class="product-new-label">경매진행중</span>
 						</div>
 						<div class="product-content">
 							<h3 class="title">${list.productBrand}</h3>
-							<span><a href="<c:url value="/product/content/${ list.productId }" />">${list.productName}</a></span>
+							<span><a href="<c:url value="/product/content/${list.productId}" />">${list.productName}</a></span>
 							<div class="price">${list.immePrice}</div>
 						</div>
 					</div>
@@ -317,35 +317,40 @@ h3.h3 {
 			</c:forEach>
 		</div>
 
-		<!-- 페이징 처리 부분  -->
-		<ul class="pagination justify-content-center">
-
-			<!-- 이전 버튼 -->
-			<c:if test="${pc.prev}">
-				<li class="page-item"><a class="page-link"
-					href="<c:url value='/product/${pc.makeURI(pc.beginPage - 1)}' />"
-					style="background-color: #643691; margin-top: 0; height: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">이전</a>
-				</li>
-			</c:if>
-
-			<!-- 페이지 버튼 -->
-			<c:forEach var="pageNum" begin="${pc.beginPage}" end="${pc.endPage}">
-				<li class="page-item"><a
-					href="<c:url value='/product/${pc.makeURI(pageNum)}'/>"
-					class="page-link ${(pc.paging.page == pageNum) ? 'page-active' : ''}"
-					style="margin-top: 0; height: 40px; color: pink; border: 1px solid #643691;">${pageNum}</a>
-				</li>
-			</c:forEach>
-
-			<!-- 다음 버튼 -->
-			<c:if test="${pc.next}">
-				<li class="page-item"><a class="page-link"
-					href="<c:url value='/product/${pc.makeURI(pc.endPage + 1)}' />"
-					style="background-color: #643691; margin-top: 0; height: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">다음</a>
-				</li>
-			</c:if>
-		</ul>
-		<!-- 페이징 처리 끝 -->
+		<table>
+         <tr>
+            <td colspan="6" style="text-align:center;">
+  				<div class="pagination" align="center">
+  				
+	  			<!-- 이전 버튼 -->
+				<c:if test="${pc.prev}">
+					<li class="page-item"><a class="page-link"
+						href="<c:url value='/product/${pc.makeURI(pc.beginPage - 1)}&email=${list.tradeVO.tradeSeller}' />"
+						style="background-color: #643691; margin-top: 0; height: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">이전</a>
+					</li>
+				</c:if>
+	
+				<!-- 페이지 버튼 -->
+				<c:forEach var="pageNum" begin="${pc.beginPage}" end="${pc.endPage}">
+					<li class="page-item"><a
+						href="<c:url value='/product/${pc.makeURI(pageNum)}&email=${list.tradeVO.tradeSeller}'/>"
+						class="page-link ${(pc.paging.page == pageNum) ? 'page-active' : ''}"
+						style="margin-top: 0; height: 40px; color: pink; border: 1px solid #643691;">${pageNum}</a>
+					</li>
+				</c:forEach>
+	
+				<!-- 다음 버튼 -->
+				<c:if test="${pc.next}">
+					<li class="page-item"><a class="page-link"
+						href="<c:url value='/product/${pc.makeURI(pc.endPage + 1)}&email=${list.tradeVO.tradeSeller}' />"
+						style="background-color: #643691; margin-top: 0; height: 40px; color: white; border: 0px solid #f78f24; opacity: 0.8">다음</a>
+					</li>
+				</c:if>
+  					
+				</div>
+			</td>
+			</tr>
+		</table>
 
 	</div>
 

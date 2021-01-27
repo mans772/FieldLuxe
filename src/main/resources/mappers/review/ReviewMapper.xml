@@ -6,6 +6,16 @@
 	<resultMap id="ReviewMap" type="com.kg.fieldluxe.review.model.ReviewVO">
 		<result property="reviewId" column="review_id" />
 		<result property="productId" column="product_id" />
+		<result property="reviewWriter" column="review_writer" />
+		<result property="reviewTarget" column="review_target" />
+		<result property="reviewContent" column="review_content" />
+		<result property="reviewScore" column="review_score" />
+		<result property="reviewRegDate" column="review_reg_date" />
+	</resultMap>
+
+	<resultMap id="ReviewMap2" type="com.kg.fieldluxe.review.model.ReviewVO2">
+		<result property="reviewId" column="review_id" />
+		<result property="productId" column="product_id" />
 		<result property="productName" column="product_name" />
 		<result property="reviewWriter" column="review_writer" />
 		<result property="reviewTarget" column="review_target" />
@@ -58,9 +68,33 @@
 		</if>
 	</select>
 	
+	
+	
+	<!-- 내 리뷰 목록 -->
+	<select id="getReviewList2" resultMap="ReviewMap2">
+		SELECT *
+		FROM (
+			SELECT ROWNUM NUM, A.*, B.product_name
+			FROM review A, product_list_data B
+			WHERE A.product_id = B.product_id
+				AND A.review_writer = #{email}
+			ORDER BY review_id DESC
+			)
+		WHERE NUM BETWEEN (#{page}-1)*8+1 AND ((#{page}-1)*8+1)+7	
+	</select>
+	
+	<!-- 내 리뷰 갯수 -->
+	<select id="getReviewCount2" resultType="int">
+		SELECT COUNT(*)
+		FROM review
+		WHERE review_writer = #{email}
+	</select>
+	
 	<!-- 리뷰 한개 정보 -->
-	<select id="getReview">
-		
+	<select id="getReview" resultMap="ReviewMap">
+		SELECT *
+		FROM review
+		WHERE product_id = #{productId}
 	</select>
 
 	<!-- 리뷰 입력 -->
@@ -75,7 +109,19 @@
 		#{reviewScore}, SYSDATE)
 	</insert>
 	
+	<!-- 리뷰 수정 -->
+	<update id="updateReview">
+		UPDATE review
+		SET review_score = #{review.reviewScore}, review_content = #{review.reviewContent}
+		WHERE review_id = #{review.reviewId}
+	</update>
 	
+	<!-- 리뷰 삭제 -->
+	<delete id="deleteReview">
+		DELETE
+		FROM review
+		WHERE review_id = #{reviewId}
+	</delete>
 	
 	<!-- 프로필 리뷰 목록 -->
 	<select id="getProfileReviewList" resultMap="ReviewMap">

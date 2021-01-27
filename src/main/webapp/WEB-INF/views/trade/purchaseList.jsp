@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -208,10 +209,6 @@
 	
 	
 }
-td {
-	font-style:dotum;
-	font-size:20px;
-}
 
 .pagination a {
   color: black;
@@ -260,11 +257,10 @@ td {
 	</div>
 </nav>
 <div class="main">
-<div class="show-table" style="font-family:Malgun Gothic;">
-	<table class="table" >
-    	<tr>
-           <td colspan="6"><h2>구매 내역</h2></td>
-         </tr>
+<div class="show-table" style="font-family:Malgun gothic;width:1000px;margin-top:50px;margin-left:50px;">
+	<h3>구매 내역</h3>
+	<br><br>
+	<table class="table">
          <tr>
             <th>주문번호</th>
             <th>구매날짜</th>
@@ -278,7 +274,7 @@ td {
          <c:forEach var="list" items="${purchaseList}">
           <tr>
            	<td>${list.tradeVO.tradeId}</td>
-           	<td>${list.tradeVO.tradeDate}</td>
+           	<td><fmt:formatDate value="${list.tradeVO.tradeDate}" pattern="yyyy-MM-dd HH:mm"/></td>
            	<td>
            		<a href="<c:url value="/trade/purchaseDetail/${list.tradeVO.tradeId}" />">
            			<img style="height:120px;">${list.listData.productThumbnail}

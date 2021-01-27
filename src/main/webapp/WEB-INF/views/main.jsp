@@ -266,14 +266,12 @@ a:hover .more-button {
 				<div class="col-md-3 col-sm-6">
 					<div class="product-grid">
 						<div class="product-image">
-							<a href="#">
-								<img class="pic-1" src="<c:url value='/img/handbag1.jpg'/>">
-							</a>
+							<a href="<c:url value="/product/content/${list.productId}" />">${list.productThumbnail}</a>
 							<span class="product-new-label">경매진행중</span>
 						</div>
 						<div class="product-content">
 							<h3 class="title">${list.productBrand}</h3>
-							<span><a href="#">${list.productName}</a></span>
+							<span><a href="<c:url value="/product/content/${list.productId}" />">${list.productName}</a></span>
 							<div class="price">${list.immePrice}</div>
 						</div>
 					</div>
@@ -282,7 +280,7 @@ a:hover .more-button {
 		</div>
 
 		<div style="margin-top: 20px; float: right; color: #460f6e;">
-			<a href="#" class="btn btn-success">더보기</a>
+			<a href="<c:url value='/product/'/>" class="btn" style="background-color: #90abf5; color: white;">더보기</a>
 		</div>
 
 	</div>

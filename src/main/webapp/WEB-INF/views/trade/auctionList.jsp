@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -255,11 +256,10 @@
 	</div>
 </nav>
 <div class="main">
-<div class="show-table" style="font-family:Malgun gothic;">
+<div class="show-table" style="font-family:Malgun gothic;width:1000px;margin-top:50px;margin-left:50px;">
+	<h3>경매 참여 내역</h3>
+	<br><br>
 	<table class="table">
-    	<tr>
-           <td colspan="6"><h3>경매 참여 내역</h3></td>
-         </tr>
          <tr>
             <th>참여번호</th>
             <th>참여날짜</th>
@@ -272,7 +272,7 @@
      	 <c:forEach var="list" items="${auctionList}">
      	 	<tr>
            	<td>${list.tradeVO.tradeId}</td>
-           	<td>${list.tradeVO.tradeDate}</td>
+           	<td><fmt:formatDate value="${list.tradeVO.tradeDate}" pattern="yyyy-MM-dd HH:mm"/></td>
            	<td>
            		<a href="<c:url value="/trade/auctionDetail/${list.tradeVO.tradeId}" />">
            			<img style="height:120px;">${list.listData.productThumbnail}

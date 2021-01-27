@@ -136,13 +136,15 @@ body {
 <body>
 
 	<div class="topnav" id="myTopnav">
+	
 		<div class="header-logo">
 			<a class="navbar-text" href="<c:url value='/'/>"
-				style="margin-left: 40px; font-size: 25px; color: #460f6e;">Field Luxe
+				style="margin-left: 40px; font-size: 30px; color: #460f6e;">Field Luxe
 				<img src="<c:url value='/img/logo.png'/>" style="width: 40px;">
 			</a>
 		</div>
-		<div class="topbar-menu">
+		
+		<div class="topbar-menu" style="margin-top:20px; margin-right:20px;">
 			<a></a> <a href="<c:url value='/product/'/>">모두보기</a>
 			<sec:authorize access="isAnonymous()">
 					<a href="<c:url value='/login'/>">로그인</a>
@@ -155,16 +157,14 @@ body {
 					<i class="fa fa-bars"></i>
 			</a>
 
-
 			<div class="search-container">
-				<form action="<c:url value='/product/productList'/>">
+				<form action="<c:url value='/product/'/>">
 					<input type="text" placeholder="상품 검색" name="keyword">
 					<button type="submit"><i class="fa fa-search"></i></button>
 				</form>
 			</div>
-
-
 		</div>
+		
 	</div>
 
 	<script>

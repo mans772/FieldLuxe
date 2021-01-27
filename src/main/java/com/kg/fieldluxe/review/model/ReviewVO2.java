@@ -2,10 +2,11 @@ package com.kg.fieldluxe.review.model;
 
 import java.util.Date;
 
-public class ReviewVO {
+public class ReviewVO2 {
 	
 	private int reviewId;
 	private int productId;
+	private String productName;
 	private String reviewWriter;
 	private String reviewTarget;
 	private String reviewContent;
@@ -53,6 +54,12 @@ public class ReviewVO {
 	}
 	public void setReviewRegDate(Date reviewRegDate) {
 		this.reviewRegDate = reviewRegDate;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
 	
 }

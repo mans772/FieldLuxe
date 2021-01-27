@@ -325,7 +325,7 @@
        <div class="review" style="margin-top:60px;">
        	<h4><strong>리뷰작성</strong></h4>
        	
-       		<textarea name="reviewContent" rows="10" cols="120" placeholder="자세하고 솔직한 리뷰는 다른 고객에게 많은 도움이 됩니다."></textarea>
+       	<textarea name="reviewContent" rows="10" cols="120" placeholder="자세하고 솔직한 리뷰는 다른 고객에게 많은 도움이 됩니다."></textarea>
       	 
       	 <hr>
       	 

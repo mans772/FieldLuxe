@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -245,7 +246,7 @@
 	</div>
 	</nav>
 <div class="main">
-	<div class="pro-de" style="font-family:Malgun gothic;">
+	<div class="pro-de" style="font-family:Malgun gothic;width:1000px;margin-top:50px;margin-left:50px;">
 	<h3>경매 참여 내역 상세보기</h3>
 		
 		 	<div class="col-md-6" style="margin-top:50px;">
@@ -279,7 +280,7 @@
 						</tr>
 						<tr>
 							<th>참여일</th>
-							<td>${auction.tradeVO.tradeDate}</td>
+							<td><fmt:formatDate value="${auction.tradeVO.tradeDate}" pattern="yyyy-MM-dd HH:mm"/></td>
 						</tr>
 						<tr>
 							<th>최저입찰가</th>
