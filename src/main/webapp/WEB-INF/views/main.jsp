@@ -258,7 +258,7 @@ a:hover .more-button {
 	<a href="<c:url value="member/insert" />">회원가입</a><br>
 	<jsp:include page="include/carousel.jsp" />
 	
-	<div class="container">
+	<div class="container" style="font-fmamily:Malgun gothic; margin-top:40px;">
 		<h2 class="h2">New Product</h2>
 
 		<div class="row" style="margin-top: 40px;">
